@@ -1,121 +1,244 @@
-# 04 · Performance & SEO 🔴
-**Budget: 60 minutes** · *"Making Things Fast"* was **highlighted in their own JD**.
-Whoever wrote it cares. Treat this as a named requirement, not general knowledge.
+# 04 · Performance and SEO 🔴
+**Time needed: 60 minutes**
+
+In their job description, the line **"Making Things Fast"** was highlighted in their
+own document. That means the person who wrote it cares about it. Treat this as a
+named requirement, not general knowledge.
 
 ---
 
-## Why this is a business requirement here, not a technical one
+## First, the context: why speed is a business problem here
 
-Say this once, early: *"WeMakeScholars acquires students through organic search.
-A slow page loses rankings and loses the student before the form even loads — most
-of them are on mid-range Android phones on 4G. So performance work here is
-directly lead generation, not polish."* This reframes you from coder to engineer.
+WeMakeScholars gets students from Google search. So two things follow.
 
----
+**1. Speed affects ranking.** Google uses page speed as a ranking signal. A slow
+page appears lower in results, so fewer students find it.
 
-## Q1 🔴🔴 Core Web Vitals — know all three, with numbers
+**2. Speed affects conversion.** Most students are on mid range Android phones on
+4G. If the page takes 5 seconds, many leave before it loads. The loan form never
+gets filled.
 
-| Metric | Measures | Good | Caused by | Fix |
-|---|---|---|---|---|
-| **LCP** — Largest Contentful Paint | when the main content appears | **< 2.5 s** | huge hero images, slow server, render-blocking CSS/JS | optimise & preload the hero image (`priority`), SSR/SSG, CDN, compress |
-| **CLS** — Cumulative Layout Shift | visual stability / jumping | **< 0.1** | images without dimensions, injected banners, late-loading fonts | always set width/height or `aspect-ratio`, reserve ad/banner space, `font-display: swap` |
-| **INP** — Interaction to Next Paint | responsiveness to clicks/taps *(replaced FID in 2024)* | **< 200 ms** | long JS tasks blocking the main thread | break up long tasks, debounce, memoize, ship less JS |
-
-Supporting: **TTFB** (server response, < 800 ms), **FCP** (first pixel of content).
-
-**If you remember one line:** "LCP is *is it there*, CLS is *does it stay still*,
-INP is *does it respond*."
+So on this product, performance work is **lead generation**, not polish. Say that
+once in the interview. It reframes you from someone who writes code to someone who
+understands why the code matters.
 
 ---
 
-## Q2 🔴 "The page is slow. How do you diagnose it?" — give a *process*
+## Q1. Core Web Vitals 🔴🔴
 
-Never jump straight to fixes. Interviewers score the method:
+Google measures three things. Learn all three with their numbers.
 
-1. **Measure first.** Lighthouse for a lab score, Chrome DevTools Performance +
-   Network panels, and real-user data from `web-vitals` / Search Console if
-   available. "I don't optimise what I haven't measured."
-2. **Find the category.** Network (too much / too big / too slow)? Rendering
-   (blocking resources)? JavaScript (long tasks)? Backend (high TTFB)?
-3. **Fix the biggest item first** — usually images or bundle size.
-4. **Re-measure** to prove the change worked, throttled to Slow 4G / 4× CPU.
+### LCP — Largest Contentful Paint
+**"When does the main content appear?"**
+It measures the time until the biggest thing on screen is visible. Usually the hero
+image or the main heading.
 
----
+**Good: under 2.5 seconds.**
 
-## Q3 🔴 Your optimisation toolbox (grouped — recite by group, not randomly)
+Common causes of a bad score:
 
-**Images** *(usually the single biggest win)*
-- Modern formats — WebP/AVIF; `next/image` does this automatically.
-- Correct dimensions + `srcset` — don't ship a 2000 px image into a 400 px slot.
-- `loading="lazy"` below the fold; `priority`/`preload` for the LCP image.
-- Always set width & height → kills CLS.
+- A huge unoptimised hero image
+- Slow server response
+- CSS or JavaScript blocking the page from rendering
 
-**JavaScript / bundle**
-- **Code splitting** — `React.lazy` + `Suspense`, or `next/dynamic`, per route.
-- **Tree shaking** — import what you use: `import { debounce } from 'lodash-es'`, not the whole library.
-- Audit dependencies — moment.js → date-fns; do you need that carousel library?
-- Defer third-party scripts (`next/script` with `strategy="lazyOnload"`) — analytics and chat widgets are frequently the worst offenders.
+Fixes: optimise and preload the hero image, use SSR or SSG so HTML arrives ready,
+use a CDN, compress files.
 
-**Rendering**
-- SSR/SSG so content paints before JS (see file 03).
-- `React.memo` / `useMemo` / `useCallback` on measured hot paths.
-- **Virtualise long lists** — `react-window` renders only visible rows; a 5,000-row table becomes 20 DOM nodes.
-- Debounce search inputs, throttle scroll handlers.
+### CLS — Cumulative Layout Shift
+**"Does the page jump around while loading?"**
 
-**Network / delivery**
-- CDN + HTTP caching headers; gzip/Brotli compression.
-- `preconnect` / `dns-prefetch` for critical third-party origins.
-- Self-host fonts (`next/font`), subset them, `font-display: swap`.
-- Avoid waterfalls — `Promise.all` parallel fetches instead of sequential awaits.
+You have felt this. You go to tap a button, an image finishes loading above it,
+everything shifts down, and you tap the wrong thing.
 
----
+**Good: under 0.1.**
 
-## Q4 🔴 Technical SEO checklist for a React/Next app
+Common causes:
 
-- **Server-render content that must rank.** CSR content is indexed slowly and unreliably.
-- **Unique `<title>` and meta description per page** — `generateMetadata` in Next.
-- **Semantic HTML:** one `<h1>`, ordered `<h2>/<h3>`, `<nav>`, `<main>`, `<article>`. Crawlers and screen readers both use structure.
-- **`alt` text on every meaningful image** — accessibility *and* image search.
-- **Canonical URLs** to prevent duplicate-content splits.
-- **`sitemap.xml` + `robots.txt`** — Next has file conventions for both.
-- **Structured data (JSON-LD)** — FAQ / Article / Organization schema for rich results. *A loan-comparison FAQ page is a textbook FAQ-schema use case — a great thing to volunteer.*
-- **Open Graph / Twitter cards** for share previews.
-- **Mobile-first & fast** — Google indexes the mobile version, and Core Web Vitals are a ranking signal.
-- **Real `<a href>` links** for internal linking so crawlers can follow them. A `<div onClick={router.push}>` is invisible to a crawler — `<Link>` renders a proper anchor.
+- Images without width and height, so no space is reserved
+- Banners or ads inserted at the top after load
+- A custom font loading late and changing the text size
 
----
+Fixes: always set width and height on images (or use `next/image`), reserve space
+for anything that loads late, use `font-display: swap`.
 
-## Q5 Accessibility (a11y) — the quick version
-Worth a minute, and it overlaps with SEO:
-- Semantic elements over `<div onClick>` — a real `<button>` is keyboard-focusable and announced correctly for free.
-- Labels tied to inputs (`htmlFor` / `id`).
-- Visible focus states; everything reachable by keyboard.
-- Colour contrast ≥ 4.5:1 for body text.
-- `aria-label` only when there's no visible text (icon buttons); ARIA is a patch, not a substitute for semantics.
-- Test: tab through the page; run the Lighthouse a11y audit.
+### INP — Interaction to Next Paint
+**"When I tap something, how fast does the page respond?"**
+This replaced FID in 2024.
+
+**Good: under 200 milliseconds.**
+
+Cause: JavaScript is busy doing something long, so the browser cannot respond to the
+tap. Remember from file 01 that JavaScript is single threaded.
+
+Fixes: break long tasks into smaller ones, debounce expensive handlers, reduce
+unnecessary re-renders, ship less JavaScript.
+
+### The one line summary
+**LCP = is it there. CLS = does it stay still. INP = does it respond.**
+
+Two more terms you may hear: **TTFB** (Time to First Byte, how fast your server
+replies, good is under 800ms) and **FCP** (First Contentful Paint, the first pixel
+of any content).
 
 ---
 
-## Q6 Caching, briefly
-- **Browser cache** via `Cache-Control` — hashed asset filenames let you cache JS/CSS for a year and bust on deploy.
-- **CDN cache** — static pages served from an edge near the user.
-- **Data cache** — Next's `fetch` cache / ISR `revalidate`; React Query / SWR on the client.
-- **Memoization** — cache within a single render tree.
+## Q2. "The page is slow. How do you find out why?" 🔴
+
+Never answer with a list of fixes. They are testing your **process**.
+
+### Step 1: Measure
+- **Lighthouse** in Chrome DevTools for a score and a list of problems.
+- **Network tab** to see what is being downloaded and how big it is.
+- **Performance tab** to record and find long JavaScript tasks.
+- Throttle to **Slow 4G** and 4x CPU slowdown, so you see what a real phone sees.
+
+Say the line: *"I do not optimise what I have not measured."*
+
+### Step 2: Decide which category the problem is in
+| Category | Symptom in DevTools |
+|---|---|
+| Network | Very large files, or too many requests |
+| Server | Long wait before the first byte arrives (TTFB) |
+| Rendering | CSS or JS blocking, blank screen for a long time |
+| JavaScript | Long tasks in the Performance tab, page feels frozen |
+
+### Step 3: Fix the biggest item first
+Usually images, then bundle size. Do not start with micro optimisations.
+
+### Step 4: Measure again
+Prove the change worked. Compare the before and after Lighthouse numbers.
 
 ---
 
-## Q7 Likely rapid-fire
-- **Reduce initial bundle?** Code split by route, lazy-load below-the-fold components, tree-shake, drop heavy deps, analyse with `@next/bundle-analyzer`.
-- **Lazy loading?** Defer loading a resource until it's needed/near the viewport.
-- **CDN?** Geographically distributed servers caching static assets close to the user — lower latency, less origin load.
-- **Critical rendering path?** HTML → DOM, CSS → CSSOM → Render Tree → Layout → Paint. CSS is render-blocking; `<script>` in `<head>` without `defer` is parser-blocking.
-- **`defer` vs `async`?** Both download in parallel. `async` executes the moment it lands (order not guaranteed); `defer` executes after HTML parsing, in order. Use `defer` for anything that touches the DOM.
-- **Reflow vs repaint?** Reflow = geometry recalculated (expensive); repaint = pixels redrawn (cheaper). Animate `transform`/`opacity`, which skip both and run on the compositor — never animate `width`/`top`.
-- **How would you measure improvement?** Lighthouse before/after + real-user CWV, on a throttled mobile profile.
+## Q3. The optimisation toolbox
+
+Learn these in **groups**. Reciting a random list sounds memorised. Grouping sounds
+like understanding.
+
+### Group 1: Images (usually the biggest win)
+- **Modern formats.** WebP and AVIF are much smaller than JPEG. `next/image` does
+  this automatically.
+
+- **Right size.** Do not send a 2000 pixel image into a 400 pixel space.
+- **Lazy load** anything below the fold, so it only downloads when scrolled to.
+- **Set width and height** so the layout does not jump. This fixes CLS.
+
+### Group 2: JavaScript
+- **Code splitting.** Split by route with `next/dynamic` or `React.lazy`, so the
+  user only downloads the page they are on.
+
+- **Tree shaking.** Import only what you use. `import _ from 'lodash'` pulls in the
+  whole library. `import debounce from 'lodash/debounce'` pulls in one function.
+
+- **Check your dependencies.** Is that date library 70 KB when you only format one
+  date? `date-fns` is smaller than `moment`.
+
+- **Delay third party scripts.** Analytics and chat widgets are often the slowest
+  things on a page. Load them last with `next/script` and `strategy="lazyOnload"`.
+
+### Group 3: Rendering
+- Use **SSG or ISR** so the HTML is ready before JavaScript loads.
+- Reduce re-renders with `React.memo` and `useMemo`, but only where you measured a
+  problem.
+
+- **Virtualise long lists.** With `react-window`, a 5,000 row table only puts about
+  20 rows in the DOM at a time. The rest are not rendered until you scroll.
+
+- **Debounce** search inputs and **throttle** scroll handlers.
+
+### Group 4: Network and delivery
+- Use a **CDN** so files are served from a server near the user.
+- Enable **gzip or Brotli** compression.
+- **Self host fonts** with `next/font` so there is no extra connection.
+- **Avoid waterfalls.** Two API calls that do not depend on each other should run
+  with `Promise.all`, not one after the other.
 
 ---
 
-### ✅ Self-check
-1. Name LCP, CLS, INP with their thresholds and one fix each.
-2. Give the four-step diagnosis process for "the page is slow".
-3. Explain why CSR is a risk for SEO in one sentence.
+## Q4. Technical SEO for a React or Next app 🔴
+
+### The core issue
+If content only appears after JavaScript runs, crawlers may not see it reliably. So
+anything that must rank should be **server rendered**.
+
+### The checklist
+- **Unique title and meta description on every page.** Use `generateMetadata` in Next.
+- **Semantic HTML.** One `<h1>` per page, then `<h2>` and `<h3>` in order. Use
+  `<nav>`, `<main>`, `<article>`. Crawlers use this structure to understand the page.
+
+- **`alt` text on every meaningful image.** Helps accessibility and image search.
+- **Canonical URL** so Google knows which version of a page is the real one, when
+  the same content is reachable from two URLs.
+
+- **`sitemap.xml` and `robots.txt`.** Next.js can generate both from files.
+- **Structured data (JSON-LD).** Machine readable information about the page. An FAQ
+  page can get an expandable FAQ shown directly in Google results. A loan FAQ is a
+  perfect example, and worth volunteering in the interview.
+
+- **Open Graph tags** so shared links show a proper preview card.
+- **Real `<a>` links for internal navigation.** A `<div onClick={router.push}>` is
+  invisible to a crawler. `<Link>` renders a real anchor, so it is fine.
+
+- **Mobile first and fast.** Google indexes the mobile version of your site.
+
+---
+
+## Q5. Accessibility, briefly
+
+Worth a minute. It overlaps with SEO because both rely on good structure.
+
+- Use real elements. A `<button>` is focusable, works with the Enter key, and is
+  announced correctly by screen readers. A `<div onClick>` does none of that.
+
+- Connect labels to inputs with `htmlFor` and `id`.
+- Keep visible focus outlines. Do not remove them with `outline: none`.
+- Text contrast of at least 4.5 to 1.
+- Use `aria-label` only when there is no visible text, such as an icon only button.
+  ARIA is a patch. Correct HTML is better.
+
+- Quick test: press Tab through the page. Can you reach and use everything?
+
+---
+
+## Q6. Caching, in simple terms
+
+| Type | Where | Example |
+|---|---|---|
+| Browser cache | User's device | JS and CSS files, cached for a year |
+| CDN cache | Edge servers worldwide | Static pages served near the user |
+| Data cache | Your app | Next.js `revalidate`, React Query |
+| Memoization | Inside React | `useMemo`, `React.memo` |
+
+Useful detail: build tools add a hash to filenames like `main.a3f9c2.js`. So you can
+cache that file forever. When the code changes, the filename changes, and the
+browser downloads the new one automatically.
+
+---
+
+## Q7. Quick questions
+
+- **How do you reduce the initial bundle size?** Split code by route, lazy load
+  below the fold components, remove heavy libraries, and check with
+  `@next/bundle-analyzer`.
+
+- **What is lazy loading?** Delaying the download of something until it is actually
+  needed.
+
+- **What is a CDN?** Servers spread around the world that hold copies of your files,
+  so users download from a nearby one instead of a distant origin server.
+
+- **`defer` vs `async` on a script tag?** Both download in the background. `async`
+  runs as soon as it arrives, in no guaranteed order. `defer` runs after the HTML is
+  parsed, in order. Use `defer` for anything that touches the page.
+
+- **Reflow vs repaint?** Reflow means the browser recalculates positions and sizes,
+  which is expensive. Repaint means it redraws colours, which is cheaper. This is
+  why you animate `transform` and `opacity` and never `width` or `top`. Those two
+  skip layout entirely and run on the GPU.
+
+---
+
+## ✅ Check yourself before moving on
+1. Name LCP, CLS and INP with their target numbers and one fix each.
+2. Give the four step process for "the page is slow".
+3. Explain in one sentence why client side rendering is a risk for SEO.

@@ -1,48 +1,112 @@
-# 06 · REST API Integration 🟠
-**Budget: 30 minutes** · The JD: *"Working closely with our backend team to plug
-REST APIs and data into the frontend smoothly."* Expect this in the coding round —
-fetch, loading, error, empty.
+# 06 · Connecting to REST APIs 🟠
+**Time needed: 30 minutes**
+
+The job description says: *"Working closely with our backend team to plug REST APIs
+and data into the frontend smoothly."* Expect this in the coding round.
 
 ---
 
-## Q1 REST basics they may check
-| Verb | Use | Idempotent? |
-|---|---|---|
-| GET | read | yes |
-| POST | create | no |
-| PUT | replace whole resource | yes |
-| PATCH | partial update | no (usually) |
-| DELETE | remove | yes |
+## First, the context: what an API call actually is
 
-**Status codes:** 200 OK · 201 Created · 204 No Content · **400** bad request ·
-**401** not authenticated · **403** authenticated but not allowed · **404** not
-found · **429** rate limited · **500** server error.
-🔴 401 vs 403 is a common gotcha — *"401 is 'who are you?', 403 is 'I know who you
-are and you still can't.'"*
+Your React app has no data of its own. The data lives on a server. An API is the
+agreed way to ask for it.
+
+```
+   Browser                          Server
+      |                                |
+      |  GET /api/loans?bank=SBI       |
+      | -----------------------------> |
+      |                                |  looks in the database
+      |  200 OK  [ {...}, {...} ]      |
+      | <----------------------------- |
+      |                                |
+   render the list
+```
+
+**REST** is just a set of conventions for how those requests should look. Use nouns
+for the address (`/loans`), and a verb to say what you want to do.
 
 ---
 
-## Q2 🔴 fetch vs axios
-| fetch | axios |
+## Q1. The HTTP basics they may check
+
+| Verb | Meaning |
 |---|---|
-| built in, no dependency | ~13 KB library |
-| **doesn't reject on 4xx/5xx** — check `res.ok` | rejects on error status automatically |
-| manual `JSON.stringify` + `.json()` | auto JSON both ways |
-| no built-in timeout (use `AbortSignal.timeout`) | `timeout` option |
-| no interceptors | interceptors — attach auth token / handle 401 globally |
+| `GET` | Read data. Should never change anything. |
+| `POST` | Create something new. |
+| `PUT` | Replace an entire item. |
+| `PATCH` | Update part of an item. |
+| `DELETE` | Remove an item. |
 
-"For a small app, `fetch` is enough. On a bigger codebase I like axios interceptors:
-one place to attach the auth header and one place to catch a 401 and redirect to
-login, instead of repeating it in every call."
+### Status codes
+| Code | Meaning |
+|---|---|
+| 200 | OK |
+| 201 | Created |
+| 400 | Bad request. You sent something wrong. |
+| **401** | **Not logged in.** "Who are you?" |
+| **403** | **Logged in, but not allowed.** "I know who you are, and no." |
+| 404 | Not found |
+| 429 | Too many requests, you are rate limited |
+| 500 | Server error. Not your fault. |
+
+🔴 The 401 vs 403 difference is a common quick question. Learn the two sentences.
 
 ---
 
-## Q3 🔴🔴 The four states — *say all four, most candidates say two*
+## Q2. `fetch` vs `axios`
 
-**"Every data-driven UI has four states: loading, error, empty, and success. Empty
-is the one people forget — 'no loans match your filters' should be a designed
-state, not a blank screen."** That sentence is a hiring signal.
+| | `fetch` | `axios` |
+|---|---|---|
+| Setup | Built into the browser | A library, about 13 KB |
+| Error on 404 or 500 | **No. You must check yourself.** | Yes, it throws automatically |
+| JSON | You call `res.json()` | Automatic both ways |
+| Timeout | Not built in | Built in option |
+| Interceptors | No | Yes |
 
+**What is an interceptor?** A function that runs on every request or every response.
+It lets you write something once instead of in fifty places.
+
+```js
+// attach the token to every request, in one place
+axios.interceptors.request.use(config => {
+  config.headers.Authorization = `Bearer ${getToken()}`;
+  return config;
+});
+
+// handle every expired session, in one place
+axios.interceptors.response.use(
+  res => res,
+  err => {
+    if (err.response?.status === 401) redirectToLogin();
+    return Promise.reject(err);
+  }
+);
+```
+
+> "For a small project `fetch` is enough. On a bigger codebase I prefer axios for the
+> interceptors, so the auth header and the 401 handling live in one place instead of
+> being repeated in every call."
+
+---
+
+## Q3. The four states 🔴🔴
+
+This is the most important idea in this file.
+
+**Every screen that loads data has four possible states:**
+
+1. **Loading** — the request is in flight. Show a spinner or a skeleton.
+2. **Error** — something failed. Show a message and a retry button.
+3. **Empty** — it worked, but there is nothing to show. Show "No loans match your
+   filters."
+
+4. **Success** — show the data.
+
+**Most candidates only handle loading and success.** Saying all four out loud is a
+genuine hiring signal, because empty and error are what users actually hit.
+
+### The full pattern
 ```jsx
 function LoanList() {
   const [loans, setLoans]     = useState([]);
@@ -52,91 +116,145 @@ function LoanList() {
   useEffect(() => {
     const controller = new AbortController();
 
-    (async () => {
+    async function load() {
       try {
         setLoading(true);
         setError(null);
+
         const res = await fetch('/api/loans', { signal: controller.signal });
+
+        // fetch does NOT throw on 404 or 500, so check it yourself
         if (!res.ok) throw new Error(`Request failed: ${res.status}`);
+
         setLoans(await res.json());
       } catch (err) {
+        // ignore the error we caused ourselves by cancelling
         if (err.name !== 'AbortError') setError(err.message);
       } finally {
-        setLoading(false);
+        setLoading(false);           // always runs, success or failure
       }
-    })();
+    }
 
-    return () => controller.abort();       // 🔴 cleanup: cancel on unmount
+    load();
+
+    return () => controller.abort();  // cleanup: cancel if we unmount
   }, []);
 
-  if (loading)          return <Spinner />;
-  if (error)            return <ErrorState message={error} onRetry={refetch} />;
-  if (!loans.length)    return <p>No loans match your filters.</p>;
+  if (loading)       return <Spinner />;
+  if (error)         return <ErrorState message={error} onRetry={load} />;
+  if (!loans.length) return <p>No loans match your filters.</p>;
+
   return <ul>{loans.map(l => <LoanCard key={l.id} loan={l} />)}</ul>;
 }
 ```
 
-**Point out three things in this snippet unprompted:**
-1. `res.ok` — because `fetch` doesn't throw on 404/500.
-2. `AbortController` in the cleanup — prevents the state update on an unmounted
-   component and stops a **race condition** where a slow earlier request resolves
-   after a fast later one and overwrites fresh data with stale.
-3. `finally` — loading always ends, even on failure.
+### Point out these three things without being asked
+1. **`res.ok`** because `fetch` does not throw on a bad status.
+2. **`AbortController` in the cleanup** for two reasons, explained next.
+3. **`finally`** so loading always stops, even when the request fails.
 
 ---
 
-## Q4 🔴 Race conditions in search-as-you-type
-"If the user types 'ax' then 'axis', two requests are in flight. If 'ax' resolves
-last, the UI shows the wrong results. Three fixes: abort the previous request with
-`AbortController` (my default), debounce so fewer requests are made at all, or tag
-each request and ignore stale responses. React Query handles this for me."
+## Q4. Race conditions, and why `AbortController` matters 🔴
+
+### The problem, with a real example
+The user types in a search box.
+
+```
+t=0ms    types "ax"    → request A starts
+t=200ms  types "axis"  → request B starts
+t=600ms  request B finishes → screen shows results for "axis"  ✅
+t=900ms  request A finishes → screen shows results for "ax"    ❌ WRONG
+```
+
+The older, slower request finished last and overwrote the correct results. The
+search box now shows results that do not match what is typed.
+
+### The fixes
+1. **Cancel the old request** with `AbortController`. This is the standard fix.
+2. **Debounce** so fewer requests are made in the first place.
+3. Use **React Query**, which handles this for you.
+
+`AbortController` in the cleanup solves two problems at once: it prevents this race
+condition, and it stops React warning that you updated state on a component that no
+longer exists.
 
 ---
 
-## Q5 Auth on the frontend
-- Token in an **httpOnly cookie** > `localStorage` (XSS-proof). Cookies need
-  `credentials: 'include'` cross-origin.
-- Attach `Authorization: Bearer <token>` via an axios interceptor.
-- On **401** → clear session and redirect to login, in one interceptor.
-- Refresh-token flow: on 401, try refresh once, retry the original request, else log out.
-- **Never put secrets in frontend code.** In Next, anything `NEXT_PUBLIC_*` is
-  visible in the browser bundle — proxy through a Route Handler instead.
+## Q5. CORS — you will be asked at least what it is
+
+### What it is
+CORS is a **browser** security rule. A page loaded from `site-a.com` is not allowed
+to read a response from `site-b.com`, unless `site-b.com` explicitly permits it with
+a response header:
+
+```
+Access-Control-Allow-Origin: https://site-a.com
+```
+
+### The two things to say
+1. **It is enforced by the browser, not the server.** This is why the exact same
+   request works fine in Postman but fails in the browser.
+
+2. **It is fixed on the backend, not the frontend.** The server must send the
+   header. A dev proxy is a local workaround, not a real fix.
+
+For requests that are not simple, the browser first sends an `OPTIONS` request to
+ask permission. That is called a **preflight**.
 
 ---
 
-## Q6 CORS — you will be asked at least the definition
-"CORS is a **browser** security rule: a page on origin A can't read a response from
-origin B unless B sends `Access-Control-Allow-Origin`. It's enforced by the browser,
-not the server, which is why the same request works in Postman. **It's fixed on the
-backend, not the frontend** — a dev proxy is a local workaround, not a fix. For
-non-simple requests the browser first sends an OPTIONS preflight."
+## Q6. React Query and SWR — worth mentioning
 
----
-
-## Q7 React Query / SWR — worth mentioning
-"Most 'global state' is really cached server state. React Query gives caching,
-background refetching, deduped requests, retries, pagination, and
-loading/error/stale flags in a few lines — replacing a lot of `useEffect` +
-`useState` boilerplate and the race-condition handling above."
+> "A lot of what people call global state is really just a cached copy of server
+> data. React Query handles that properly: caching, background refetching,
+> deduplicating identical requests, retries, and loading and error flags. It replaces
+> most of the `useEffect` plus `useState` code above, including the race condition
+> handling."
 
 ```js
-const { data, isLoading, error } = useQuery({ queryKey: ['loans'], queryFn: getLoans });
+const { data, isLoading, error } = useQuery({
+  queryKey: ['loans'],
+  queryFn: getLoans,
+});
 ```
 
 ---
 
-## Q8 Working with the backend team — *the JD's actual ask*
-Answer as a collaborator, not just a coder:
-"I ask for the contract early — endpoint, request shape, response shape, error
-shape — and agree on it before either side builds. If the API isn't ready, I mock
-the response so I'm not blocked and swap the URL later. I check pagination and
-error formats up front, because those are what break in integration. And when a
-response shape doesn't fit the UI, I'd rather raise it than quietly write
-transformation code in five components."
+## Q7. Authentication on the frontend
+
+- Store the token in an **httpOnly cookie** rather than `localStorage`. `httpOnly`
+  means JavaScript cannot read it, so an injected script cannot steal it.
+
+- Attach it with an interceptor so it is written once.
+- Handle **401** in one place: clear the session and send the user to login.
+- **Never put secrets in frontend code.** In Next.js, anything named
+  `NEXT_PUBLIC_*` is visible in the browser. If you need to use a secret key, call it
+  from an API route on the server instead.
 
 ---
 
-### ✅ Self-check
-1. Recite the four UI states.
-2. Explain why `AbortController` is in the cleanup — the two reasons.
+## Q8. "How do you work with the backend team?" — the job description's real question
+
+Answer as a teammate, not just a coder:
+
+> "I ask for the contract early: the endpoint, the request shape, the response shape
+> and the error shape. Agreeing on that before either side builds saves a lot of
+> rework.
+>
+> If the API is not ready, I mock the response so I am not blocked, and swap the URL
+> in later.
+>
+> I check pagination and the error format up front, because those are usually what
+> break during integration.
+>
+> And if a response shape does not fit the UI well, I would rather raise it than
+> quietly write conversion code in five different components."
+
+---
+
+## ✅ Check yourself before moving on
+1. Name the four states, in order.
+2. Explain the race condition example, and how `AbortController` fixes it.
 3. Explain CORS in two sentences, including whose job it is to fix.
+4. What does `fetch` do on a 404?

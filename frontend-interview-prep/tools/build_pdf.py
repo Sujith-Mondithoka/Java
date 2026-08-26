@@ -11,8 +11,8 @@ SCRATCH = Path("/tmp/claude-0/-home-user-Java/511b1e01-f010-504c-a181-1e9c535fa6
 ORDER = ["README.md", "01-javascript.md", "02-react.md", "03-nextjs.md",
          "04-performance-seo.md", "05-html-css-responsive.md",
          "06-rest-api-integration.md", "07-machine-coding.md",
-         "08-hr-and-behavioural.md", "09-your-projects.md",
-         "10-final-cheatsheet.md"]
+         "08-system-design.md", "09-hr-and-behavioural.md",
+         "10-your-projects.md", "11-final-cheatsheet.md"]
 
 # Emoji -> print-safe markup (no colour-emoji font exists in this environment)
 def deemoji(text: str) -> str:
@@ -132,6 +132,12 @@ def build_html(page_map=None) -> str:
         body_md = re.sub(r"^#\s+.*$", "", clean, count=1, flags=re.M)
         md.reset()
         body = md.convert(body_md)
+        # A fenced code block inside a list item can break python-markdown's block
+        # parsing and leave the rest of the file as raw text. Fail loudly instead.
+        leaked = re.findall(r"^(?:#{2,3} |- \*\*)", body, re.M)
+        if leaked:
+            raise SystemExit(f"{name}: {len(leaked)} markdown block(s) did not convert. "
+                             f"First: {leaked[0]!r}. Check for a ``` fence inside a list.")
         anchor = f"sec{idx}"
         label = "Plan" if idx == 0 else f"{idx:02d}"
         sections.append(f'<section id="{anchor}"><h1>{heading}</h1>{body}</section>')

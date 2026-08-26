@@ -24,3 +24,19 @@ Two environment notes, both deliberate:
 
 Paths at the top of `build_pdf.py` are absolute — adjust `SRC`, `OUT` and
 `SCRATCH` if you run this somewhere else.
+
+## Markdown gotchas this build is strict about
+
+`build_pdf.py` raises an error if any file fails to convert cleanly, because
+Python-Markdown fails **silently**: when block parsing breaks, it emits the rest of
+the file as raw text and the PDF ships with visible `##` and `- **` markers. Two
+things cause it, and both have bitten this guide:
+
+1. **A ``` fence indented inside a list item.** Keep code blocks at column 0, with a
+   blank line before and after, or use inline backticks instead.
+2. **An inline code span containing HTML tags that wraps across two lines.** The tag
+   at the start of the second line is parsed as a raw HTML block and swallows
+   everything after it. Put each tag in its own backticks.
+
+Also note: a list needs a blank line before it. Without one it renders as plain text
+lines instead of bullets.

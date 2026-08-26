@@ -1,4 +1,4 @@
-# 09 · Pitching Your Projects 🔴
+# 10 · Pitching Your Projects 🔴
 **Budget: 45 minutes — out loud, standing up, twice.**
 
 > ⚠️ **Verify this file against your actual resume.** Your resume PDF is on your
@@ -42,14 +42,17 @@ Use this skeleton for each of your two main projects:
 
 1. **What it is, in one line.** *"Medify is a doctor-appointment booking app —
    search hospitals by state and city, pick a slot, and it holds your bookings."*
+
 2. **Your stack and why.** *"React with functional components and hooks, React
    Router for routes, and a public REST API for the hospital data. Styled with
    [X] because [reason]."*
+
 3. **One hard problem and how you solved it.** ← **The part they're actually
    listening for.** *"The search results took a noticeable moment and the UI
    flashed empty, so I added explicit loading and empty states rather than
    rendering nothing — and I debounced the input so it wasn't firing a request per
    keystroke."*
+
 4. **One thing you'd do differently now.** ← **The maturity signal.**
    *"I'd move the API calls out of the components into a `useHospitals` custom
    hook — right now the fetch logic is duplicated in two places. And I'd add error
@@ -100,9 +103,11 @@ client-side routing. Deployment problems are great, concrete, real-work stories.
 
 1. **Open your top 2 repos and re-read your own code.** Nothing sinks a candidate
    faster than not recognising code they wrote six months ago.
+
 2. For each, write down: **one decision** you made and **one thing you'd change**.
 3. Make sure both **run locally** — `npm install && npm run dev` — and have the
    deployed links ready to paste.
+
 4. Say the 2-minute pitch out loud. Time it. If it's over 2:30, cut the setup.
 
 ---

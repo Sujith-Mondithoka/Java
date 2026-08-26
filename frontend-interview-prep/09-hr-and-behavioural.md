@@ -1,4 +1,4 @@
-# 08 · HR, Behavioural & the Offer Conversation 🔴
+# 09 · HR, Behavioural & the Offer Conversation 🔴
 **Budget: 45 minutes — and say every answer OUT LOUD.**
 Reading these silently is worth about 20% of saying them. Your mouth needs the
 reps, not your eyes.
@@ -93,13 +93,17 @@ If you're early-career with no strong anchor:
 > the technical rounds go."
 
 **Tactics:**
+
 - **Don't name a number below 4** — you'd be bidding against yourself under their
   own published floor.
+
 - If you want the top of the band, **earn it in the technical round first**, then
   cite it: "Based on the Next.js and performance work we discussed, I'd be looking
   at the upper end."
+
 - Ask **CTC vs in-hand** breakdown at offer stage — how much is fixed, variable,
   and what's deducted. A 6 LPA CTC and a 6 LPA fixed are different jobs.
+
 - Never lie about your current CTC. Payslip verification is routine.
 
 ---
@@ -154,6 +158,7 @@ asking me how it works."
 Have 4 ready; ask 2–3. Ending with no questions reads as no interest.
 
 **Technical (ask these in the tech round):**
+
 1. "Is the frontend on the App Router or Pages Router, and are you migrating?"
 2. "How do you currently handle rendering strategy for the public pages — mostly SSG/ISR, or SSR?"
 3. "Do you track Core Web Vitals in production, and is there a performance budget?"
@@ -161,6 +166,7 @@ Have 4 ready; ask 2–3. Ending with no questions reads as no interest.
 5. "Is there a shared component library, or does each page build its own?"
 
 **Role / team (ask in the manager or HR round):**
+
 6. "What would a successful first three months in this role look like?"
 7. "How big is the frontend team, and would I own features end to end?"
 8. "Is there code review, and who reviews frontend work?"
@@ -178,6 +184,7 @@ Then **listen**, and connect your answer to it. That's how you close.
 - 2 printed copies of your resume, plus a copy open on your laptop.
 - Your GitHub open in a tab — and **your best 2 projects running**, so "can you show
   me?" gets a yes in five seconds, not a five-minute build.
+
 - Reach 15 minutes early. If it's online, join 5 minutes early and test camera/mic.
 - Dress: smart casual — collared shirt. Slightly overdressed beats underdressed.
 - Know your own resume cold. **Anything on it is fair game** — if you listed a
@@ -190,6 +197,7 @@ Then **listen**, and connect your answer to it. That's how you close.
 - **Don't freeze, narrate.** "Let me think about that for a second."
 - **Don't bluff.** "I haven't used that directly. My understanding is X — is that
   the direction you mean?" That answer has never cost anyone an offer. Bluffing has.
+
 - **Ask for the goal.** "Is the tricky part here the state, or the API side?"
 - If you fumble a question, let it go. Candidates lose interviews by mentally
   re-litigating question 4 while answering question 7.

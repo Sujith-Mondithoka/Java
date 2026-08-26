@@ -1,4 +1,4 @@
-# 10 · Final Cheat Sheet — TOMORROW MORNING ONLY 🔴
+# 11 · Final Cheat Sheet — TOMORROW MORNING ONLY 🔴
 **07:20 – 08:00. Nothing else. No new material.**
 If a line here doesn't ring a bell, open that file for 3 minutes and come back.
 
@@ -9,19 +9,26 @@ If a line here doesn't ring a bell, open that file for 3 minutes and come back.
 1. **Why Next.js:** *"Plain React ships an empty HTML shell that the browser fills
    in — bad for first paint and unreliable for crawlers. Next renders on the server,
    so the browser and Google both get real HTML immediately."*
+
 2. **Rendering strategies:** *"SSG at build, SSR per request, ISR is SSG that
    regenerates on a timer, CSR in the browser. Bank listing pages → ISR. A student's
    own application page → SSR or CSR behind auth."*
+
 3. **Server vs Client Components:** *"Server by default, ships zero JS; push
    `'use client'` down to the interactive leaves."*
+
 4. **Core Web Vitals:** *"LCP under 2.5 s — is it there. CLS under 0.1 — does it
    stay still. INP under 200 ms — does it respond."*
+
 5. **Closure:** *"A function that remembers the scope it was created in. It's how
    `useState` and debounce both work."*
+
 6. **Keys:** *"Stable identity across renders. Index breaks the moment you delete
    or reorder — React reuses the wrong DOM node."*
+
 7. **Four UI states:** *"Loading, error, empty, success. Empty is the one people
    forget."*
+
 8. **Business tie-in (say once):** *"Since students find you through Google, server
    rendering and load speed here are lead generation, not polish."*
 
@@ -73,6 +80,26 @@ If a line here doesn't ring a bell, open that file for 3 minutes and come back.
 
 ---
 
+## System design — the 6 step framework
+**Clarify → Components → State → Data → Edge cases → Performance**
+
+- **Never start without asking 2 questions.** "Client side or API filtering?" "How
+  many items?" "Does this need to rank on Google?"
+
+- **Autocomplete:** debounce 400ms · four states · cancel the old request with
+  `AbortController` · cache per query.
+
+- **Listing page:** keep filters **in the URL** so links are shareable, back works,
+  and the server can render it. Reset to page 1 when a filter changes.
+
+- **Multi step form:** all data lives in the **parent**, steps are display only.
+  Otherwise going back destroys what was typed.
+
+- **Reusable component:** props say *what* not *how* · use `children` · spread
+  `...rest` · a component with 15 boolean flags should be split.
+
+---
+
 ## Machine coding — the 6 things they're grading
 1. `key={item.id}`, never the index
 2. Derived data computed during render, not stored in state + effect
@@ -84,7 +111,7 @@ If a line here doesn't ring a bell, open that file for 3 minutes and come back.
 ---
 
 ## Opening & closing lines
-**"Tell me about yourself"** → Present → Path → **Why here** (file 08 §1). Under 2 min.
+**"Tell me about yourself"** → Present → Path → **Why here** (file 09 §1). Under 2 min.
 **Your closing question** → *"What's the biggest frontend problem you're hoping this hire helps solve?"*
 
 **Filter questions — answer instantly, no hesitation:**
@@ -98,8 +125,10 @@ placed based on how the technical rounds go."* **Never bid below 4.**
 - Close every tab except your GitHub and your two running projects.
 - You know more than you think you do. Nobody expects perfection at this level —
   they expect someone who reasons clearly and doesn't bluff.
+
 - **If you don't know something: say so, then reason out loud.** That answer has
   never lost anyone an offer. Bluffing has.
+
 - Sit up. Breathe out slowly. Smile before you speak — it changes your voice.
 
 **Go get it. 🚀**

@@ -1,98 +1,211 @@
-# 05 · HTML, CSS & Responsive Design 🟠
-**Budget: 30 min tonight, skim tomorrow** · "Translating UI/UX wireframes into
-clean, performant, responsive code" is the JD's opening line — this comes up in the
-coding round more than in questioning.
+# 05 · HTML, CSS and Responsive Design 🟠
+**Time needed: 30 minutes tonight, quick review tomorrow**
+
+The first line of the job description is about "translating UI/UX wireframes into
+clean, performant, responsive code". This topic shows up more in the coding round
+than in questions, but a few questions are still likely.
 
 ---
 
-## Q1 🔴 Semantic HTML — why bother?
-`<header> <nav> <main> <section> <article> <aside> <footer> <figure> <button>`
+## Q1. What is semantic HTML and why does it matter? 🔴
 
-"Semantic tags describe *meaning*, not appearance. Three payoffs: screen readers
-can navigate by landmark, search engines understand page structure, and the markup
-is readable to the next developer. A `<div onClick>` is invisible to a keyboard
-user and to a crawler — a `<button>` is focusable, activates on Enter/Space, and is
-announced as a button, all for free."
+**Semantic** means the tag describes what the content **is**, not how it looks.
+
+```html
+<!-- Not semantic: everything is a div -->
+<div class="header">
+  <div class="nav">
+    <div class="btn" onclick="submit()">Apply</div>
+  </div>
+</div>
+
+<!-- Semantic -->
+<header>
+  <nav>
+    <button onclick="submit()">Apply</button>
+  </nav>
+</header>
+```
+
+### Three reasons it matters
+1. **Accessibility.** A screen reader user can jump straight to `<nav>` or `<main>`.
+   A `<button>` can be reached with the Tab key and pressed with Enter. A
+   `<div onClick>` cannot do either, unless you add a lot of extra code.
+
+2. **SEO.** Crawlers use the structure to understand what the page is about.
+3. **Readability.** The next developer can see the shape of the page instantly.
+
+Tags worth knowing: `<header>`, `<nav>`, `<main>`, `<section>`, `<article>`,
+`<aside>`, `<footer>`, `<figure>`, `<button>`, `<form>` and `<label>`.
 
 ---
 
-## Q2 🔴 The box model
-`content → padding → border → margin`
+## Q2. The box model 🔴
+
+Every element is a box made of four layers, from inside out:
+
+```
++---------------- margin ----------------+   space outside
+|  +------------- border -------------+  |
+|  |  +---------- padding ---------+  |  |   space inside
+|  |  |        content             |  |  |
+```
+
+### The problem, and the one line fix
+By default, `width: 300px` means the **content** is 300px. Add 20px of padding and a
+2px border, and the box actually takes 344px on screen. This breaks layouts.
 
 ```css
-* { box-sizing: border-box; }   /* width now includes padding + border */
+* { box-sizing: border-box; }
 ```
-"With the default `content-box`, adding padding makes the element wider than the
-width you set, which breaks grid layouts. `border-box` makes width mean what you
-expect. It's the first line of nearly every reset."
+
+Now `width: 300px` means the whole box is 300px, including padding and border. This
+is what everyone expects, which is why this line is in almost every CSS reset.
 
 ---
 
-## Q3 🔴 Flexbox vs Grid — *when do you use which?*
-- **Flexbox = one dimension** (a row **or** a column). Navbars, button groups, centring, card internals, space distribution.
-- **Grid = two dimensions** (rows **and** columns at once). Page layouts, card galleries, dashboards.
-- "They compose — a Grid page layout with Flexbox inside each card is the normal setup."
+## Q3. Flexbox vs Grid — when do you use which? 🔴
+
+**Flexbox works in one direction.** A row, or a column.
+**Grid works in two directions.** Rows and columns together.
+
+### Use Flexbox for
+Navbars, a row of buttons, centring something, spacing items apart, the inside of a
+card.
 
 ```css
-.nav   { display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
-.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; }
-.center{ display: grid; place-items: center; }   /* centring, done */
+.navbar {
+  display: flex;
+  justify-content: space-between;  /* spread along the main axis */
+  align-items: center;             /* centre on the cross axis */
+  gap: 1rem;
+}
 ```
-🔴 **`auto-fit` + `minmax` is a responsive grid with no media queries at all** —
-demo that line and explain it. It reads as experience.
 
-Flex axis vocabulary: `justify-content` = main axis, `align-items` = cross axis.
-`flex: 1` = `flex-grow:1 flex-shrink:1 flex-basis:0`.
+### Use Grid for
+Page layouts, card galleries, dashboards, anything with real rows and columns.
 
----
-
-## Q4 🔴 Responsive design — mobile-first
 ```css
-.card { padding: 1rem; }                              /* mobile base */
-@media (min-width: 768px)  { .card { padding: 2rem; } }  /* tablet+ */
-@media (min-width: 1024px) { .card { padding: 3rem; } }  /* desktop+ */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
 ```
-"I write mobile-first with `min-width` queries: the base styles are the simplest
-case and each breakpoint adds complexity. `max-width` queries mean the phone —
-usually the weakest device — downloads and overrides desktop styles."
 
-Essentials: `<meta name="viewport" content="width=device-width, initial-scale=1">`
-(without it, nothing responsive works), relative units (`rem`, `%`, `vw`, `ch`),
-`clamp(1rem, 2.5vw, 2rem)` for fluid type, `max-width: 100%` on images,
-and container queries when a component must adapt to *its container*, not the viewport.
+### 🔴 That grid line is worth explaining, it sounds senior
+Read it as: *"Fit as many columns as you can. Each must be at least 260px wide. Any
+leftover space is shared equally between them."*
 
----
+The result is a card grid that goes 4 across on a laptop, 2 on a tablet and 1 on a
+phone, **with no media queries at all**. Demo that line and explain it.
 
-## Q5 Position values
-`static` (default) · `relative` (offset from itself, keeps its space, creates a
-positioning context) · `absolute` (removed from flow, positioned against nearest
-positioned ancestor) · `fixed` (against the viewport — sticky headers) ·
-`sticky` (relative until it hits a threshold, then fixed — needs `top` set).
+### They work together
+A common real layout is Grid for the page, Flexbox inside each card.
 
----
-
-## Q6 Specificity & the cascade
-inline (1000) > id (100) > class/attribute/pseudo-class (10) > element (1).
-`!important` overrides everything — "a debugging smell; I'd rather fix the
-selector. Consistent low specificity, or a utility framework like Tailwind, avoids
-the arms race entirely."
+### Centring, the short version
+```css
+.parent { display: grid; place-items: center; }
+```
 
 ---
 
-## Q7 Quick-fire
-- **`display: none` vs `visibility: hidden` vs `opacity: 0`?** Removed from layout / hidden but occupies space / visible to layout **and** still clickable.
-- **Pseudo-class vs pseudo-element?** `:hover` (a state) vs `::before` (a generated sub-element).
-- **`rem` vs `em`?** `rem` = root font size (predictable); `em` = parent's (compounds when nested).
-- **Centre a div?** `display:grid; place-items:center` — or flex with `justify-content` + `align-items`.
-- **CSS variables?** `--brand: #0055ff;` / `var(--brand)`. Runtime-changeable — the standard way to do theming and dark mode.
-- **Z-index not working?** It only applies to positioned elements, and it's scoped to the parent's **stacking context** — a parent with `transform` or `opacity < 1` traps children.
-- **Tailwind opinion?** "Utility classes keep styles co-located with markup, no naming debates, and unused CSS is purged so the bundle stays small. Trade-off is noisy JSX — I pull repeated patterns into components or `@apply`." *(Have an opinion; don't be dogmatic.)*
-- **SCSS?** Nesting, variables, mixins, partials — compiles to CSS. Less needed now that CSS has nesting and custom properties.
-- **CSS Modules?** `styles.card` — locally scoped class names, no global collisions. Next.js supports them out of the box.
+## Q4. Responsive design and mobile first 🔴
+
+### What mobile first means
+Write the styles for the smallest screen first. Then use `min-width` media queries
+to **add** complexity for bigger screens.
+
+```css
+/* base = mobile */
+.card { padding: 1rem; }
+
+@media (min-width: 768px)  { .card { padding: 2rem; } }   /* tablet and up */
+@media (min-width: 1024px) { .card { padding: 3rem; } }   /* desktop and up */
+```
+
+### Why not the other way round?
+If you write desktop styles first and use `max-width` to shrink them, the phone
+downloads all the desktop rules and then overrides them. The weakest device does the
+most work. Mobile first gives the simplest styles to the simplest device.
+
+### The essentials
+- **The viewport meta tag.** Without this line, nothing responsive works at all:
+```html
+<meta name="viewport" content="width=device-width, initial-scale=1">
+```
+- **Relative units** instead of fixed pixels: `rem`, `%`, `vw`.
+- **Fluid sizing** with `clamp()`:
+```css
+font-size: clamp(1rem, 2.5vw, 2rem);   /* min, preferred, max */
+```
+- **`max-width: 100%` on images** so they never overflow their container.
 
 ---
 
-### ✅ Self-check
+## Q5. Position values
+
+| Value | What it does |
+|---|---|
+| `static` | Default. Sits in normal flow. |
+| `relative` | Moves relative to itself, but keeps its original space. |
+| `absolute` | Removed from flow. Positioned against the nearest positioned parent. |
+| `fixed` | Positioned against the viewport. Stays put when scrolling. |
+| `sticky` | Normal until it reaches a threshold, then behaves like fixed. |
+
+`sticky` is what you use for a table header that stays visible while scrolling. It
+needs a `top` value to work.
+
+---
+
+## Q6. Specificity, in simple terms
+
+When two rules target the same element, the more specific one wins.
+
+```
+inline style   = 1000
+#id            = 100
+.class         = 10
+element (div)  = 1
+```
+
+`!important` beats everything. Treat it as a warning sign.
+> "If I need `!important`, it usually means my selectors have got too specific
+> somewhere. I would rather fix the selector than fight it."
+
+---
+
+## Q7. Quick questions
+
+- **`display: none` vs `visibility: hidden` vs `opacity: 0`?**
+  Removed from the layout / hidden but still takes up space / fully visible to the
+  layout and **still clickable**.
+
+- **Pseudo class vs pseudo element?** `:hover` is a state. `::before` creates a new
+  sub element.
+
+- **`rem` vs `em`?** `rem` is relative to the root font size, which is predictable.
+  `em` is relative to the parent, so it multiplies when nested.
+
+- **CSS variables?** Declare `--brand: #14356b` on `:root`, then use it anywhere as
+  `background: var(--brand)`. They can be changed at runtime with JavaScript, which
+  is how dark mode is usually built.
+
+- **Why is my `z-index` not working?** Two common reasons. It only applies to
+  positioned elements. And a parent with `transform` or `opacity` less than 1
+  creates a new stacking context that traps its children.
+
+- **What do you think of Tailwind?** Have an opinion but do not be extreme.
+  > "Utility classes keep the styling next to the markup, and unused CSS is removed
+  > at build time so the file stays small. The downside is that the JSX gets noisy.
+  > I pull repeated patterns into components."
+
+- **CSS Modules?** `styles.card` generates a unique class name, so styles cannot
+  clash between files. Next.js supports them by default.
+
+---
+
+## ✅ Check yourself before moving on
 1. Flexbox vs Grid, decided in one sentence.
-2. Write the `auto-fit`/`minmax` responsive grid from memory.
-3. Explain mobile-first and why `min-width` beats `max-width`.
+2. Write the `auto-fit` and `minmax` grid line from memory and explain it.
+3. Explain mobile first and why `min-width` is better than `max-width`.

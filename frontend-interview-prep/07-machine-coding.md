@@ -1,31 +1,61 @@
 # 07 · Machine Coding Round 🔴
-**Budget: 60 minutes — and TYPE these, don't read them.**
-Reading code creates the illusion of competence. Open StackBlitz/CodeSandbox and
-build problems 1 and 2 from scratch. That's the whole hour.
+**Time needed: 60 minutes. And you must TYPE these, not read them.**
+
+Reading code makes you feel prepared. It does not make you prepared. Open
+CodeSandbox or StackBlitz and build problems 1 and 2 from an empty file. That is how
+you should spend this hour.
 
 ---
 
-## How to run the round (the process is half the score)
+## First, the context: what they are actually grading
 
-1. **Clarify for 60 seconds.** "Should filtering be client-side or via API? Do you
-   want it debounced? Should state persist on refresh?" *Candidates who clarify
-   consistently outscore candidates who start typing immediately.*
-2. **Say your plan out loud.** "State: `query`, `items`, `loading`. I'll debounce
-   the input, derive the filtered list during render, then handle the empty state."
-3. **Build the ugly working version first.** Working > pretty. You can style at the end.
-4. **Narrate while typing.** Silence reads as stuck.
-5. **Handle the edge cases out loud** — empty list, error, 0 results, long text.
-   Even saying *"I'd add an error state here if I had more time"* scores.
-6. **Refactor at the end** if time allows: extract a component, pull out a custom hook.
+They are not checking whether your code is beautiful. In 45 minutes nobody writes
+beautiful code. They are checking six things:
 
-**Their favourite problems for this level:** search/filter list · todo CRUD ·
-counter · accordion/tabs · star rating · form validation · fetch users and
-display · pagination · modal · countdown timer.
+1. Can you break the problem into state and components?
+2. Do you know React well enough to not fight it?
+3. Do you handle the cases that are not the happy path?
+4. Do you talk while you work?
+5. Do you notice your own mistakes?
+6. Would it be pleasant to sit next to you for a day?
+
+## How to run the round
+
+**1. Clarify for 60 seconds. Do not start typing immediately.**
+> "Should the filtering happen on the client, or should I call the API each time?"
+> "Roughly how many items are we dealing with?"
+> "Should the state survive a refresh?"
+
+Candidates who ask questions score higher than candidates who start typing. Every
+time.
+
+**2. Say your plan out loud before you write it.**
+> "I will keep the typed text in state, debounce it, then filter the list while
+> rendering. Then I will handle the empty case."
+
+**3. Build the ugly working version first.** Get it working, then improve it. Do not
+style anything until the logic works.
+
+**4. Keep talking while you type.** Silence makes the interviewer think you are
+stuck. Narrate what you are doing, even if it feels awkward.
+
+**5. Say the edge cases out loud**, even the ones you do not have time to build.
+*"I would add an error state here if I had more time"* still earns you the point.
+
+**6. Refactor at the end** if there is time. Pull something into a custom hook, or
+split a component. It shows you know what good code looks like.
+
+**Common problems at this level:** search and filter a list, todo CRUD, a counter,
+an accordion or tabs, a star rating, form validation, fetching and displaying users,
+pagination, a modal, a countdown timer.
 
 ---
 
-## Problem 1 🔴 — Search + filter list with debounce
-*The single most-asked machine-coding question in Indian frontend interviews.*
+## Problem 1 🔴 — Search and filter a list, with debounce
+*The most commonly asked machine coding question in Indian frontend interviews.*
+
+**What they are testing:** derived state, debouncing, keys, and whether you remember
+the empty state.
 
 ```jsx
 import { useState, useEffect, useMemo } from 'react';
@@ -75,9 +105,22 @@ export default function BankSearch({ banks }) {
   );
 }
 ```
-**Points to say aloud:** filtered list is **derived during render**, not stored in
-state · debounce cuts API/compute churn · `key` is a stable id · empty state
-handled · `.trim()` and case-insensitive matching are the edge cases they check.
+### Explain these four things while you type
+
+**1. The filtered list is calculated during render, not stored in state.**
+> "I could have put `filtered` in state and updated it in a `useEffect`, but then I
+> have two sources of truth that can go out of sync, plus an extra render. It is
+> derived data, so I calculate it."
+
+**2. The debounce reduces work.**
+> "Without this, typing nine characters runs the filter nine times. If it were an
+> API call, that would be nine requests instead of one."
+
+**3. The key is a stable id, never the array index.**
+
+**4. The edge cases are handled.** `.trim()` removes accidental spaces, and
+`.toLowerCase()` on both sides makes the search case insensitive. And when nothing
+matches, the user sees a message instead of a blank area.
 
 ---
 
@@ -122,7 +165,14 @@ export default function Users() {
   return <ul>{users.map(u => <li key={u.id}>{u.name}</li>)}</ul>;
 }
 ```
-**The retry button is the detail almost nobody adds. Add it.**
+### Why this scores well
+- All four states are handled: loading, error, empty, and success.
+- **The retry button.** Almost nobody adds this. An error state the user cannot
+  escape from is a dead end.
+
+- `res.ok` is checked, because `fetch` does not throw on a 404 or 500.
+- The request is cancelled on unmount with `AbortController`.
+- `finally` means loading always stops, even when the request fails.
 
 ---
 
@@ -165,9 +215,18 @@ export default function Todos() {
   );
 }
 ```
-Highlights: `<form onSubmit>` so **Enter works** · functional updaters ·
-map/filter never mutate · `crypto.randomUUID()` not array index · the remaining
-count is derived, not stored.
+### Details worth pointing out
+- **`<form onSubmit>` instead of a button `onClick`.** This means the Enter key
+  works, which is what users expect. Interviewers notice this.
+
+- **Functional updaters** (`setTodos(t => ...)`) so you always work from the latest
+  state.
+
+- **`map` and `filter` never change the original array.** They return a new one,
+  which is exactly what React needs to detect a change.
+
+- **`crypto.randomUUID()` for the id**, not the array index.
+- **The remaining count is calculated, not stored** in another piece of state.
 
 ---
 
@@ -230,9 +289,17 @@ export default function LeadForm() {
   );
 }
 ```
-**The senior touch:** errors only show **after blur**, not while the user is still
-typing their first character; the submit button is disabled while in flight to
-prevent double submission; single `handleChange` keyed by `name`.
+### The three details that make this look experienced
+
+**1. Errors only appear after the user leaves a field (`onBlur`).**
+Showing "Enter a valid email" while someone is still typing the first letter of
+their email is bad UX. That is what the `touched` state is for.
+
+**2. The submit button is disabled while the request is in flight.**
+Otherwise an impatient user clicks three times and creates three applications.
+
+**3. One `handleChange` for all fields**, using `e.target.name`. Writing a separate
+handler for every field does not scale.
 
 ---
 
@@ -258,9 +325,16 @@ function Accordion({ items }) {
   );
 }
 ```
-"One `openId` instead of a boolean per item makes 'only one open' impossible to get
-wrong. For multi-open I'd hold a `Set`. `aria-expanded` makes it accessible." —
-*and an FAQ accordion with JSON-LD is an SEO win, which you can mention.*
+### Why one `openId` instead of a boolean per item
+If each item had its own `isOpen` boolean, you would have to remember to close all
+the others every time one opens. It is easy to get wrong. With a single `openId`,
+"only one open at a time" is guaranteed by the shape of the state itself.
+
+If they ask for multiple open at once, hold a `Set` of ids instead.
+
+`aria-expanded` tells a screen reader whether the section is open. And if this is an
+FAQ, you can mention that adding FAQ structured data would make it eligible for a
+rich result in Google.
 
 ---
 
@@ -282,7 +356,10 @@ function Rating({ value = 0, onChange, max = 5 }) {
   );
 }
 ```
-`hover || value` is the whole trick — hover preview falls back to the committed value.
+### The trick is `hover || value`
+While the mouse is over star 4, `hover` is 4, so stars 1 to 4 are filled as a
+preview. When the mouse leaves, `hover` becomes 0, which is falsy, so it falls back
+to the actual saved `value`. One line handles both the preview and the real state.
 
 ---
 
@@ -305,8 +382,14 @@ function Paginated({ items, perPage = 10 }) {
   );
 }
 ```
-Edge cases to name: disabled buttons at the boundaries, empty list, resetting to
-page 1 when filters change. *(You've built `xpagination` before — say so.)*
+### Edge cases to name out loud
+- Disable Previous on page 1 and Next on the last page.
+- An empty list should not show "Page 1 of 0".
+- **Reset to page 1 when the data changes.** If the user is on page 5 and applies a
+  filter that leaves 3 results, they would see an empty page. This is a very common
+  bug.
+
+*(You have built `xpagination` before. Mention it.)*
 
 ---
 
@@ -332,8 +415,17 @@ function Timer() {
   );
 }
 ```
-They are checking exactly two things: `setSeconds(s => s + 1)` (not `seconds + 1`)
-and the `clearInterval` cleanup. Point both out.
+### They are checking exactly two things here
+**1. `setSeconds(s => s + 1)` and not `setSeconds(seconds + 1)`.**
+The interval callback was created once. It captured `seconds` as 0 in a closure and
+will never see a newer value. So `seconds + 1` would be `0 + 1` forever. The
+function form always receives the latest value.
+
+**2. The `clearInterval` cleanup.**
+Without it, the timer keeps running after the component is gone and tries to update
+state that no longer exists.
+
+Point both out while you type. They are the entire reason this problem is asked.
 
 ---
 
@@ -348,6 +440,8 @@ document.querySelector('#list').addEventListener('click', (e) => {   // delegati
 
 ---
 
-### ✅ Tonight's deliverable
-Build **Problem 1** and **Problem 2** from a blank file, no copy-paste. If you can
-do those two while talking, you can handle anything they throw at this level.
+### ✅ Tonight's task
+Build **Problem 1** and **Problem 2** from an empty file, with no copy and paste.
+
+If you can build those two while explaining what you are doing, you can handle
+anything they are likely to ask at this level.
