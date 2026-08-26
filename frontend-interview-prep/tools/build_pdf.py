@@ -12,7 +12,8 @@ ORDER = ["README.md", "01-javascript.md", "02-react.md", "03-nextjs.md",
          "04-performance-seo.md", "05-html-css-responsive.md",
          "06-rest-api-integration.md", "07-machine-coding.md",
          "08-system-design.md", "09-hr-and-behavioural.md",
-         "10-your-projects.md", "11-final-cheatsheet.md"]
+         "10-your-projects.md", "11-typescript-redux-testing.md",
+         "12-final-cheatsheet.md"]
 
 # Emoji -> print-safe markup (no colour-emoji font exists in this environment)
 def deemoji(text: str) -> str:

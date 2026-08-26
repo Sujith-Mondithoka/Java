@@ -1,4 +1,4 @@
-# 11 · Final Cheat Sheet — TOMORROW MORNING ONLY 🔴
+# 12 · Final Cheat Sheet — TOMORROW MORNING ONLY 🔴
 **07:20 – 08:00. Nothing else. No new material.**
 If a line here doesn't ring a bell, open that file for 3 minutes and come back.
 
@@ -31,6 +31,47 @@ If a line here doesn't ring a bell, open that file for 3 minutes and come back.
 
 8. **Business tie-in (say once):** *"Since students find you through Google, server
    rendering and load speed here are lead generation, not polish."*
+
+---
+
+## Your position — remember this
+
+- **Not a fresher.** ~1 yr 4 mo production React + TypeScript at Standard Bank via
+  Zensar. 10,000+ corporate users. Speak accordingly.
+- **Immediate joiner.** Say it clearly — most candidates are on 60–90 days.
+- **Target the top of the 4–6 band.** Earn it in the tech round, then say
+  *"given the production experience, I'd be looking at the upper end."*
+- **Lead with the performance story:** Lighthouse **62 → 88**, via code splitting
+  (`React.lazy`) + **selector memoization** (`createSelector`). Measured first.
+- **Your numbers:** 14-screen Business Card (60% faster processing) · 7-screen Recall
+  Transactions · AOP audit, 50,000+/day · RabbitMQ notifications · QKart −40% re-renders.
+
+### The 4 questions your resume creates — have all 4 ready
+1. **Gap since March?** Short, no apology, say what you did with the time. Then stop.
+2. **Why leave Zensar?** Specialise in frontend · Hyderabad · product over services.
+   Never criticise them.
+3. **Java + Spring Boot, why frontend?** It's a strength — you can read an API and
+   tell if the shape will hurt the UI.
+4. **How much Next.js really?** "Contributed to the migration, not owned a Next app."
+   Then immediately prove the reasoning with SSG/SSR/ISR.
+
+---
+
+## TypeScript & Redux
+
+- TS catches type errors **at build time**; types are **erased** at runtime, so it
+  does **not** validate API responses.
+- `interface` for object shapes/props · `type` for unions, tuples.
+- `useState<User | null>(null)` and `useState<Loan[]>([])` — otherwise inferred as
+  `null` and `never[]`.
+- `unknown` = safe `any`; forces a check before use.
+- **RTK + Immer:** `state.items.push()` looks like mutation but produces new immutable
+  state. That's the follow-up they ask.
+- **Selector memoization:** a selector that `.filter()`s returns a **new array** time
+  → new reference → re-render on every store update. `createSelector` fixes it.
+  *(This is your dashboard story.)*
+- **When NOT Redux:** local state → `useState`; server data → React Query.
+- **RTL principle:** test what the user sees, not internal state. `getByRole` first.
 
 ---
 

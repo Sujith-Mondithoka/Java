@@ -1,31 +1,30 @@
 # 09 · HR, Behavioural & the Offer Conversation 🔴
-**Budget: 45 minutes — and say every answer OUT LOUD.**
-Reading these silently is worth about 20% of saying them. Your mouth needs the
-reps, not your eyes.
+**Time needed: 45 minutes. Say every answer OUT LOUD.**
+
+Reading these silently is worth about a fifth of saying them. Your mouth needs the
+practice, not your eyes.
 
 ---
 
-## 1. 🔴 "Tell me about yourself" — the first 90 seconds
+## 1. 🔴 "Tell me about yourself" and the four hard questions
 
-This is the only answer worth memorising almost word-for-word, because it sets the
-tone for everything after. Structure: **Present → Path → Why here.**
+**Your full script for this is in file 10, section "Tell me about yourself".**
+It is built from your real Standard Bank experience, so use that version.
 
-> "I'm a frontend developer working primarily with React and JavaScript. Most of my
-> work has been building interfaces from designs and wiring them to REST APIs —
-> I've built a multi-step form with validation, a paginated data table, an expense
-> tracker, and several component-level UI builds, all on my GitHub.
->
-> What I've focused on recently is the part beyond 'it works' — how fast the page
-> loads, how it behaves on a mid-range phone, and writing components other people
-> can reuse.
->
-> That's why this role stood out. WeMakeScholars gets students through search, so
-> the frontend has to be fast and crawlable — that's exactly the Next.js and
-> performance work I want to be doing full-time, and on a product where the page
-> loading properly actually decides whether a student gets a loan."
+File 10 also has prepared answers for the four questions your resume creates, and
+you must have all four ready:
 
-**Rules:** under 2 minutes · no life story from school onwards · end on *why them*.
-Practise it twice out loud tonight and twice tomorrow morning. That's it.
+1. **"Your last role ended in March. What have you been doing since?"**
+2. **"Why did you leave Zensar?"**
+3. **"You have Java and Spring Boot. Why a pure frontend role?"**
+4. **"How much Next.js have you actually used?"**
+
+Do not walk into the room without solid answers to those. They are the most
+predictable questions you will face tomorrow.
+
+**Rules for the opening answer:** under two minutes, no life story starting from
+school, and finish on *why this company*. Say it twice tonight and twice in the
+morning.
 
 ---
 
@@ -61,9 +60,16 @@ before you sign**: ask whether it's a written commitment or a bond with a financ
 penalty, and whether any amount is recoverable if you leave early. Ask it calmly
 at offer stage, not in round one.)*
 
-**"What's your notice period?"** → State it plainly and give a joining date.
-"I can join in X days." *(Their own 2-month notice applies once you're employed
-there — nothing to answer now.)*
+**"What's your notice period?"** → **This is an advantage for you. Use it.**
+Your Zensar role ended in March, so you are an immediate joiner. Most candidates
+they interview will be serving 60 or 90 days.
+
+> "I'm available immediately. I can join as soon as you need me to."
+
+Say it plainly and with a slight lift. For a hiring manager who needs someone
+productive this quarter, "immediate" is worth real money and sometimes wins the
+offer on its own. *(The 2 month notice in the JD is what you would serve at
+WeMakeScholars once employed. It is not a question about you now.)*
 
 **"Are you okay with work from office in Hyderabad?"** → "Yes." Full stop. Don't
 open a negotiation you weren't asked to have.
@@ -78,24 +84,39 @@ it makes sense given you work with banks."
 
 ---
 
-## 4. 🔴 Salary — the CTC is 4–6 LPA, so play the band
+## 4. 🔴 Salary — the band is 4 to 6 LPA, and you should be aiming at the top of it
 
-**"What are your salary expectations?"**
+### Your position, honestly
+You have about 1 year 4 months of production experience on a real banking platform,
+plus an internship, plus full stack ability. **That profile sits at the top of a 4 to
+6 LPA band, not the middle.** Candidates with only college projects are the ones who
+get placed at 4.
 
-If you have prior experience / a current CTC:
-> "I'm looking in the range of ₹X to ₹Y. That said, I'm more focused on the role
-> and the learning here than on a specific number — if the fit is right on both
-> sides, I'm confident we can agree on something."
+So your target is **6**, and your job in the technical rounds is to earn it before
+the number is ever discussed.
 
-If you're early-career with no strong anchor:
-> "I'd like to understand the band for this role first. I saw the JD mentions 4 to 6
-> LPA — I'm comfortable within that range, and I'd expect to be placed based on how
-> the technical rounds go."
+### The answer to give
+> "I saw the range in the job description and I'm comfortable working within it.
+> Given that I've been shipping production React and TypeScript on a banking platform
+> for the last year and a half, including the performance work I mentioned, I'd be
+> looking at the upper end of that band. But I'm more interested in the role than in
+> a specific number, and I'm sure we can agree something if the fit is right."
 
-**Tactics:**
+### If they ask for your previous CTC
+Answer honestly with the real figure. Payslip verification is routine, and a lie
+found later costs you the offer after you have already resigned from somewhere else.
+If your previous CTC was low, do not let it anchor you:
 
-- **Don't name a number below 4** — you'd be bidding against yourself under their
-  own published floor.
+> "That was my package as a fresher joining a service company. I'd expect this role
+> to reflect what I can do now rather than what I started on."
+
+### Tactics
+
+- **Never name a number below 4.** That is their published floor. Going under it
+  means bidding against yourself.
+
+- **Let them go first if you can.** "What range have you budgeted for this role?" is
+  a completely normal question.
 
 - If you want the top of the band, **earn it in the technical round first**, then
   cite it: "Based on the Next.js and performance work we discussed, I'd be looking
@@ -112,20 +133,36 @@ If you're early-career with no strong anchor:
 **S**ituation → **T**ask → **A**ction → **R**esult. Keep it under 90 seconds and
 always land on a result.
 
+**"Tell me about a challenging technical problem."**
+Use the dashboard performance story. It is your strongest.
+> "**(Situation)** We consolidated four separate modules into one requests page and
+> dashboard for corporate users. **(Task)** After the merge the page felt slow, and
+> Lighthouse was at 62. **(Action)** I measured first with Lighthouse and the DevTools
+> Performance tab rather than guessing. The two real causes were the bundle size,
+> because we had merged four modules into one, and unnecessary re-renders, because
+> our Redux selectors were creating new arrays on every store update. I added code
+> splitting with `React.lazy` and memoised the selectors with `createSelector`.
+> **(Result)** Lighthouse went from 62 to 88, about 35% faster on initial load. What I
+> took from it is that measuring first saves time, because the obvious suspect is
+> often not the real one."
+
 **"Tell me about a challenging bug."**
-> "In my multi-step form, state was resetting when users moved between steps.
-> (S/T) I'd been remounting the step components, so their local state was being
-> destroyed. (A) I lifted the form state into the parent and passed values down, so
-> each step became a controlled presentational component. (R) The bug went away and
-> the code got simpler — adding a new step became a config change instead of new
-> state logic. It taught me to ask *who owns this state* before writing it."
+> "**(S/T)** On the Business Card application, which is fourteen screens, users were
+> losing what they had typed when they navigated back a step. **(A)** The cause was
+> that each step was holding its own local state, so going back unmounted the
+> component and destroyed it. I lifted all the form data into the parent wizard and
+> made each step a controlled presentational component. **(R)** The bug went away and
+> the code got simpler. Adding a new screen became a small change instead of new state
+> logic. It taught me to ask *who should own this state* before writing any of it."
 
 **"A time you disagreed with someone."**
-> "A design had a filter panel that pushed the content far down on mobile. I flagged
-> that it would hurt the mobile experience, but instead of just objecting I built a
-> quick version with a collapsible drawer so we could compare. We went with the
-> drawer. I've learned that showing an alternative works far better than arguing
-> about one."
+> "We needed an audit trail of who downloaded or emailed each report. The initial
+> suggestion was to add logging code inside each of those methods. I was concerned
+> about touching a lot of working business logic for something that was really a
+> cross-cutting concern. Rather than just objecting, I put together an AOP approach
+> using `@Aspect` pointcuts and showed that it captured the same information without
+> changing a single line of the existing logic. We went with that. I have learned
+> that showing an alternative works much better than arguing about one."
 
 **"Tight deadline?"** → Talk about scoping: shipping the core flow properly and
 flagging what you cut, rather than shipping everything half-done. Managers hire

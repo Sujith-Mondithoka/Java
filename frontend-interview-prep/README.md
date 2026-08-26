@@ -17,14 +17,43 @@ that when the question comes out slightly differently, you can still answer it.
 
 ---
 
-## 1. What the job description is really telling you
+## 1. Where you actually stand
+
+Read this first, because it changes how you should behave tomorrow.
+
+**You are not a fresher.** You have about 1 year 4 months of production experience at
+Zensar building for Standard Bank South Africa, plus a 5 month internship. You have
+shipped features used by 10,000+ corporate banking clients, and you have real numbers
+to prove it (Lighthouse 62 to 88, 50,000+ daily audit transactions, 60% faster card
+processing).
+
+Most people applying for this role will have college projects. You have production
+React and TypeScript in a bank, plus full stack Spring Boot work.
+
+**Three consequences:**
+
+1. **Do not undersell yourself.** No "I only did small parts". Speak like someone who
+   has shipped software that handles other people's money.
+2. **Aim at the top of the 4 to 6 LPA band**, not the middle. See file 09.
+3. **You are an immediate joiner.** Your last role ended in March, so you can start
+   now while most candidates are serving 60 or 90 days. That is worth real money to a
+   hiring manager. Say it clearly.
+
+**But your resume also creates four questions you must be ready for:** the gap since
+March, why you left Zensar, why a pure frontend role when you have Java, and how much
+Next.js you have really used. All four are answered in **file 10**. Do not walk in
+without them.
+
+---
+
+## 2. What the job description is really telling you
 
 I have read a lot of these. Here is what each line means for your interview.
 
 | The JD says | What it means for you |
 |---|---|
-| "React and Next.js" | Next.js is not optional. They will ask about rendering strategies. **File 03 is your biggest opportunity.** |
-| "Making Things Fast" *(they highlighted this in their own document)* | The person who wrote the JD cares about it. Learn Core Web Vitals. **File 04.** |
+| "React and Next.js" | Next.js is not optional. They will ask about rendering strategies, and they will notice your Next.js is migration work rather than ownership. **File 03 is your biggest opportunity.** |
+| "Making Things Fast" *(they highlighted this in their own document)* | The person who wrote the JD cares about it, and **you already have this story** (Lighthouse 62 to 88). **Files 04 and 10.** |
 | "look great on every device" | Responsive CSS, Flexbox and Grid, mobile first. **File 05.** |
 | "perform well on search engines" | SEO is how this company gets customers. Server rendering, metadata, semantic HTML. **Files 03 and 04.** |
 | "plug REST APIs and data into the frontend" | fetch and axios, loading and error states, race conditions. **File 06.** |
@@ -32,9 +61,13 @@ I have read a lot of these. Here is what each line means for your interview.
 | "Partnering with designers and product" | Behavioural round. Have real stories ready. **File 09.** |
 | 18 month commitment, 2 month notice, work from office, 1st and 3rd Saturdays | These will be asked as filter questions. Scripted answers in **File 09.** |
 
-### The one thing that will set you apart
+### The two things that will set you apart
 
-Almost everyone applying for a 4 to 6 LPA frontend role can **use** React. Very few
+**First, your performance story.** Their JD highlights speed. You have a real,
+measured example of fixing it on a production banking dashboard. Almost nobody at
+this level has that. Get it into the conversation early.
+
+**Second, Next.js reasoning.** Almost everyone applying can **use** React. Very few
 can explain **why Next.js exists** and **what problem server rendering solves for a
 business that depends on Google search**.
 
@@ -47,14 +80,15 @@ Say it **once**, at the right moment. Not five times.
 
 ---
 
-## 2. What the interview will probably look like
+## 3. What the interview will probably look like
 
 For a 250 person company hiring at this level, expect 2 or 3 rounds, often on the
 same day.
 
 **Round 1 — Technical screening (45 to 60 min).**
-JavaScript fundamentals, React hooks, "explain your project", some CSS.
-→ Files 01, 02, 05, 10.
+JavaScript fundamentals, React hooks, TypeScript, "walk me through your work at
+Standard Bank", some CSS.
+→ Files 01, 02, 05, 10, 11.
 
 **Round 2 — Machine coding or a live task (45 to 60 min).**
 Build a small component. Usually a search and filter list, a form with validation,
@@ -71,7 +105,7 @@ Commitment, notice period, salary, working Saturdays.
 
 ---
 
-## 3. The schedule — from now until 10:00 AM tomorrow
+## 4. The schedule — from now until 10:00 AM tomorrow
 
 Time is your scarce resource, so this is ordered by importance. **If you fall
 behind, drop things from the bottom, never from the top.**
@@ -83,15 +117,16 @@ behind, drop things from the bottom, never from the top.**
 | **0:00 – 0:15** | Read this file | `README.md` |
 | **0:15 – 1:30** | **React** 🔴 | `02-react.md` |
 | **1:30 – 2:45** | **Next.js** 🔴🔴 | `03-nextjs.md` |
-| **2:45 – 3:00** | Break. Walk around. No phone. | — |
-| **3:00 – 4:00** | **JavaScript** 🔴 | `01-javascript.md` |
-| **4:00 – 5:00** | **Performance and SEO** 🔴 | `04-performance-seo.md` |
-| **5:00 – 5:45** | Dinner. Actually eat properly. | — |
-| **5:45 – 6:45** | **Machine coding** 🔴 — type the code, do not read it | `07-machine-coding.md` |
-| **6:45 – 7:30** | **System design** 🔴 | `08-system-design.md` |
-| **7:30 – 8:15** | **Your projects** — say the pitch out loud | `10-your-projects.md` |
-| **8:15 – 9:00** | **HR answers** — say these out loud too | `09-hr-and-behavioural.md` |
-| **9:00 – 9:30** | REST APIs, quick read | `06-rest-api-integration.md` |
+
+| **2:45 – 3:30** | **Your experience** 🔴🔴 — the 4 hard questions, out loud | `10-your-projects.md` |
+| **3:30 – 4:30** | **JavaScript** 🔴 | `01-javascript.md` |
+| **4:30 – 5:15** | **TypeScript and Redux** 🔴 | `11-typescript-redux-testing.md` |
+| **5:15 – 6:00** | Dinner. Actually eat properly. | — |
+| **6:00 – 6:45** | **Performance and SEO** 🔴 | `04-performance-seo.md` |
+| **6:45 – 7:45** | **Machine coding** 🔴 — type the code, do not read it | `07-machine-coding.md` |
+| **7:45 – 8:30** | **System design** 🔴 | `08-system-design.md` |
+| **8:30 – 9:15** | **HR answers** — salary, the gap, notice period | `09-hr-and-behavioural.md` |
+| **9:15 – 9:45** | REST APIs, quick read | `06-rest-api-integration.md` |
 | **By 11:30 PM** | **Sleep.** This is not optional. | — |
 
 > **Studying past midnight will make you worse, not better.** A tired candidate
@@ -102,9 +137,9 @@ behind, drop things from the bottom, never from the top.**
 | Time | What | File |
 |---|---|---|
 | **07:00 – 07:20** | Wake up, shower, coffee. No scrolling. | — |
-| **07:20 – 08:00** | **Cheat sheet only** | `11-final-cheatsheet.md` |
+| **07:20 – 08:00** | **Cheat sheet only** | `12-final-cheatsheet.md` |
 | **08:00 – 08:30** | HTML and CSS, quick read | `05-html-css-responsive.md` |
-| **08:30 – 09:00** | Say your intro and project pitch **out loud, twice** | `10-your-projects.md` |
+| **08:30 – 09:00** | Say your intro and the 4 hard questions **out loud, twice** | `10-your-projects.md` |
 | **09:00 – 09:20** | Re-read the questions you will ask them | `09-hr-and-behavioural.md` §6 |
 | **09:20 – 09:40** | Check laptop, charger, internet, ID, resume copies, water | — |
 | **09:40 – 09:55** | Close everything. Sit up straight. Breathe. | — |
@@ -115,7 +150,7 @@ only pushes out what you already know and makes you anxious. Revision only.
 
 ---
 
-## 4. The files
+## 5. The files
 
 | File | Topic | Priority |
 |---|---|---|
@@ -127,15 +162,16 @@ only pushes out what you already know and makes you anxious. Revision only.
 | `06-rest-api-integration.md` | fetch vs axios, the four states, race conditions, CORS | 🟠 Medium |
 | `07-machine-coding.md` | 8 coding problems with full working solutions | 🔴 High |
 | `08-system-design.md` | How to answer design questions, with 8 worked examples | 🔴 High |
-| `09-hr-and-behavioural.md` | Filter questions, salary, STAR stories, questions to ask | 🔴 High |
-| `10-your-projects.md` | How to talk about your own GitHub projects | 🔴 High |
-| `11-final-cheatsheet.md` | One page. Tomorrow morning only. | 🔴 Read last |
+| `09-hr-and-behavioural.md` | Salary, notice period, STAR stories, questions to ask | 🔴 High |
+| `10-your-projects.md` | Your Standard Bank stories + the 4 hard resume questions | 🔴🔴 Highest |
+| `11-typescript-redux-testing.md` | TypeScript, Redux Toolkit, selectors, RTL — your resume topics | 🔴 High |
+| `12-final-cheatsheet.md` | One page. Tomorrow morning only. | 🔴 Read last |
 
 There are also PDF versions in `pdf/`. The cheat sheet is designed to be printed.
 
 ---
 
-## 5. Three rules for the interview room
+## 6. Three rules for the interview room
 
 **1. Never just say "I don't know" and stop.**
 Say this instead:
@@ -157,10 +193,14 @@ One sentence like that is what makes an interviewer remember you out of forty CV
 
 ---
 
-## 6. A note about your resume
+## 7. A note on accuracy
 
-Your resume PDF is on your own laptop, which this session cannot read. So
-`10-your-projects.md` was built from your **public GitHub repositories** instead.
+File 10 is built from your actual resume, so every story in it should match what the
+interviewer is reading. If any detail there is wrong, fix it tonight, because they
+will ask about the exact lines.
 
-Open that file and check it against your actual resume. The interviewer will have
-your PDF in front of them, so the two must match.
+Two things to check before the interview:
+
+- **Your QKart repo and live demo both load.** A dead link is worse than no link.
+- **You can explain how every number on your resume was measured.** If you cannot
+  defend a number, do not repeat it unprompted.

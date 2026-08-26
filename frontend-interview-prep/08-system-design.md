@@ -205,9 +205,11 @@ product thinking, not just React knowledge.
 
 ---
 
-## Design 3 — A multi step application form
+## Design 3 🔴 — A multi step application form
 
-*You have built one, so use your own project as the example.*
+**This is your home ground.** You built a 14 screen onboarding flow (Business Card)
+and a 7 screen recall workflow with navigation guards. If this question comes up,
+answer it from real experience, not theory.
 
 ### Step 1: Clarify
 - "How many steps, and can the user go back?"
@@ -238,7 +240,9 @@ const [errors, setErrors] = useState({});
 and destroy everything typed there. Keeping the data in the parent means the steps
 become simple display components, and nothing is lost when moving between them.
 
-*(This is exactly the bug story from file 10. It is a real thing you fixed.)*
+*(This is exactly the bug you fixed on the Business Card application at Standard
+Bank. Say so. A design answer backed by "I hit this in production and here is what
+went wrong" is far stronger than a theoretical one.)*
 
 ### Step 4 and 5: Validation and edge cases
 - Validate the current step before allowing Next.
