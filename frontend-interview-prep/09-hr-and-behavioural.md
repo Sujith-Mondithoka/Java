@@ -110,6 +110,31 @@ If your previous CTC was low, do not let it anchor you:
 > "That was my package as a fresher joining a service company. I'd expect this role
 > to reflect what I can do now rather than what I started on."
 
+### One more thing worth knowing
+
+A 4 to 6 LPA band is normally written for someone with little or no production
+experience. You have a year and a half of it, across React, TypeScript, Redux, Spring
+Boot and PostgreSQL, on a banking platform. It is reasonable to check whether the band
+was written with your profile in mind.
+
+You can ask this politely, once, without sounding difficult:
+
+> "Can I check whether that range was set for a fresher profile? I'm coming in with
+> about a year and a half of production experience across the full stack, so I wanted
+> to understand how you'd place someone at my level."
+
+That is a fair question and a reasonable employer will answer it. If the answer is
+that the band is fixed, you still have a decision to make, and it is yours: this is a
+product company, it is in your city, and it is the frontend specialisation you want.
+Those can be worth accepting a number for. Just make that choice knowingly rather than
+by accident.
+
+**Your availability is worth something too.** Most candidates are serving 60 or 90 days
+of notice. You can join immediately, which saves them months of waiting. Say so
+clearly, because hiring managers value it and it is fair to count it in your favour:
+
+> "I'm available to join immediately, so there's no notice period to wait out."
+
 ### Tactics
 
 - **Never name a number below 4.** That is their published floor. Going under it
