@@ -630,6 +630,65 @@ Redux, Zustand, Context, or plain `useState`.
 > Anything with genuinely complex client state, like a multi step wizard or an editor
 > with undo, still wants a real store."
 
+**"Then why not use React Query as the store for everything?"** 🔴
+
+A fair question, because the React Query cache **is** global and reachable anywhere
+through `queryClient`. So it does look store-shaped. You can force it:
+
+```js
+queryClient.setQueryData(['ui'], { sidebarOpen: true });
+```
+
+It fights the design in four ways, and each one causes real bugs.
+
+**1. Garbage collection deletes it.** `gcTime` defaults to 5 minutes. Once no mounted
+component uses a key, the entry is dropped. That is correct for a cache, because
+anything lost can be refetched. Client state has nothing to refetch from, so your
+wizard progress silently disappears. You would need `gcTime: Infinity` to stop it.
+
+**2. You would switch off most of the library.** `staleTime`,
+`refetchOnWindowFocus`, `refetchOnReconnect` and retries all exist to ask "has the
+server changed?" None of that applies to client state. Disabling most of a library's
+features to use it means it is the wrong library.
+
+**3. A query with no `queryFn` is a contradiction.** You end up with `enabled: false`
+and workarounds, and the next developer cannot tell which keys are server data.
+
+**4. No transactions, and no record of how you got here.** This is the important one.
+
+### Complex state is not the same as complex data fetching
+React Query is very good at complex **async** problems: caching, deduplication,
+invalidation, retries. What makes **client** state complex is different. It is
+**transitions and invariants**.
+
+One user action often has to change several things together. In a reducer that is one
+action, one place describing the transition, applied atomically. With several
+`setQueryData` calls there is no atomicity, so a failure halfway leaves you in an
+invalid state. And the Redux DevTools action log answers the question you actually
+have when debugging complex state: *how did we get here?* The React Query DevTools
+show cache entries, not transitions.
+
+For genuinely complex client state the right tools model transitions: `useReducer`,
+Redux Toolkit, Zustand, or a state machine such as XState. A 7 step workflow with
+validation between steps, navigation guards and resumability is a transition problem,
+not a caching problem.
+
+### The honest nuance
+In many apps, what feels like complex client state is really **derived** from server
+state. A filter panel is the classic case: put the filters in the URL, key the query
+on them with `['loans', filters]`, and you genuinely do not need a store at all. That
+is a good architecture, and it is why the "we removed Redux" stories are real.
+
+> "You can put client state in the React Query cache, but it fights the design. The
+> cache is garbage collected after `gcTime`, because it assumes anything lost can be
+> refetched, and client state cannot be. You would also be turning off refetching,
+> staleness and retries, which is most of what the library does.
+>
+> The deeper reason is that complex client state is complex because of transitions:
+> one action changing several things atomically, with a record of how you got there.
+> That is a reducer's job. React Query is a cache with very good async handling, not a
+> state machine."
+
 **"Why not just `useEffect` and `useState` for fetching?"**
 > "It works for a single simple screen. It stops being enough once you need caching
 > between screens, deduplication when several components ask for the same data,
