@@ -32,7 +32,7 @@ backed by a number or an outcome.**
 
 ---
 
-## Your five best stories
+## Your six best stories
 
 Every behavioural or technical question can be answered from one of these. Learn the
 shape of each one. Do not memorise word for word.
@@ -198,6 +198,97 @@ the point of the story.
 > "Polling is the client asking 'anything new?' over and over. Event-driven is the
 > server saying 'here is something new' when it actually happens. Fewer requests, and
 > no delay."
+
+---
+
+## Story 6 🔴 — The document upload bug (your ownership story)
+
+Use this for **"tell me about a bug you found"**, **"a time you improved someone
+else's code"**, **"unclear requirements"**, or **"something you fixed that nobody
+asked you to"**. For a plain *"hardest technical challenge"* in a frontend interview,
+lead with Story 1 instead, because it has a number attached.
+
+### Three things to cut from how you currently tell it
+
+1. **Never say "being a fresher".** You are describing yourself as junior right
+   before describing something you did well. Delete the phrase.
+2. **Never say "I solved 90% of it myself".** It sounds like bargaining for credit
+   and invites "so who did the other 10%?". Either you fixed it, or you fixed most of
+   it and someone helped with a named piece. Both are fine. Vagueness is not.
+3. **Do not say "it became hectic".** Say "the harder part was". You want to sound
+   like someone who found it interesting, not someone who found it stressful.
+
+Also, do not spend half the answer explaining what FileNet is. The interviewer does
+not care about FileNet. They care what was wrong, how you found it, what you decided,
+and what happened.
+
+### The 90 second version
+
+> "The document upload on the card application. The business rule was that an
+> uploaded PDF had to be within a defined size range, and the existing code only
+> checked the upper limit. Someone had left the lower bound out.
+>
+> That sounds minor, but the effect was not. A near-empty or corrupt file would pass
+> validation, get stored in FileNet, and we would send the backend a document ID
+> pointing at something unusable. It surfaced much later, downstream, when the
+> document was retrieved for processing — so it looked like a backend problem when it
+> was actually accepted at the front door.
+>
+> I added the missing lower bound and validated the file type properly rather than
+> trusting the extension. The harder part was the document ID. The file goes to
+> FileNet, and the ID has to be stored on our side so the backend can retrieve it
+> later. If one of those succeeds and the other fails, you get either an orphaned
+> document or a reference pointing at nothing. So I made sure the ID was only
+> persisted once the upload had actually succeeded.
+>
+> [YOUR RESULT HERE.] What I took from it is that validation gaps do not fail where
+> you wrote them. They fail three systems downstream, and by then nobody is looking at
+> the upload code."
+
+That last sentence is what makes the story land. It is the "what did you learn" that
+most candidates skip.
+
+### 🔴 Three things to fill in before the interview
+
+**1. The result.** Right now this story has no outcome. Did invalid uploads stop? Did
+it get caught in SIT before release? Did support tickets drop? Anything concrete.
+Without a result it is a story about work, not about impact.
+
+**2. What the help actually was**, if any. "I paired with a senior on the FileNet
+retrieval contract, since I had not worked with it before" is a mature thing to say.
+Naming it is fine. Gesturing vaguely at it is not.
+
+**3. Check your own numbers.** A **maximum** of 3 MB is normal. A **minimum** of 2 MB
+is unusual — most systems set a floor of a few KB to catch blank scans. Get the real
+rule right, and be ready to say **why** a lower bound exists: a 1 KB PDF is an empty
+or corrupt scan, and it is worthless to whoever processes the application. "Why would
+you require a file to be at least 2 MB?" is exactly the kind of thing an interviewer
+at a bank-adjacent company will poke at.
+
+### Follow ups you will get
+
+**"Did you validate on the client or the server?"**
+The correct answer is **both**, and you should say why:
+> "Client side size checks are for user experience. Anyone can bypass the browser and
+> post straight to the API, so the server has to enforce the same rule. Client side
+> validation is never a security control."
+
+If you only did it client side, say so honestly and add that the server side check is
+what you would add now. That is a better answer than pretending.
+
+**"How do you check the file type?"**
+> "The extension and the MIME type can both be faked, so the reliable check is the
+> file's magic bytes. A real PDF starts with `%PDF-`."
+
+You do not need to have done this. Knowing it is the point.
+
+**"What if the upload to FileNet succeeds but saving the ID fails?"**
+This is the interesting one, and it is a distributed consistency problem:
+> "You cannot have a single transaction across two systems, so you end up with an
+> orphaned document. The usual handling is a retry, or a cleanup job that finds
+> documents in FileNet with no matching reference on our side."
+
+Showing you understand the *shape* of that problem is worth more than a perfect answer.
 
 ---
 
