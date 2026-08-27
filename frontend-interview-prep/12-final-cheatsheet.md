@@ -75,6 +75,36 @@ If a line here doesn't ring a bell, open that file for 3 minutes and come back.
 
 ---
 
+## State management — server vs client 🔴
+
+**The distinction is the answer to almost every question here.**
+
+- **Server state** = a copy of data that lives on a server. Can go stale, is async,
+  needs caching → **React Query** (or RTK Query).
+- **Client state** = only exists in the browser. Never stale, synchronous →
+  `useState` → Context → **Zustand** → **Redux Toolkit**.
+
+**The decision path:** one component → `useState` · a few nearby → lift up · from an
+API → **React Query** · shared, rarely changes → Context · shared, changes often →
+**Zustand** · large app + team + complex flows → **Redux Toolkit**.
+
+- **"Redux or React Query?"** is a trick question. Different problems, often both.
+- **React Query gives you:** caching · deduplication · refetch on focus · retries ·
+  race conditions handled · loading and error states.
+- **`staleTime`** = how long data counts as fresh (controls refetching).
+  **`gcTime`** = how long unused data stays in memory (controls memory). Was
+  `cacheTime` before v5.
+- **`invalidateQueries`** after a mutation = "this list is now wrong, refetch it".
+- **Zustand:** no Provider · store is a hook · `useStore(s => s.count)` subscribes to
+  one value, so only that component re-renders · ~1 KB.
+- **Context's weakness:** every consumer re-renders on any change, and it does no
+  caching. Zustand fixes the first, React Query the second.
+- **Your answer:** *"At Standard Bank we kept server data in Redux and hand-wrote
+  loading flags and cache invalidation. I'd put that in React Query now and keep the
+  store for real client state. On QKart, Context plus memoisation was the right size —
+  Redux there would have been over-engineering."*
+
+
 ## JavaScript
 - `var` function-scoped · `let`/`const` block-scoped + TDZ · `const` ≠ immutable object
 - Event loop: **microtasks (Promises) before macrotasks (setTimeout)** → `1 4 3 2`

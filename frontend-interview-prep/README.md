@@ -120,7 +120,7 @@ behind, drop things from the bottom, never from the top.**
 
 | **2:45 – 3:30** | **Your experience** 🔴🔴 — the 4 hard questions, out loud | `10-your-projects.md` |
 | **3:30 – 4:30** | **JavaScript** 🔴 | `01-javascript.md` |
-| **4:30 – 5:15** | **TypeScript and Redux** 🔴 | `11-typescript-redux-testing.md` |
+| **4:30 – 5:15** | **TypeScript, state management, testing** 🔴 | `11-typescript-redux-testing.md` |
 | **5:15 – 6:00** | Dinner. Actually eat properly. | — |
 | **6:00 – 6:45** | **Performance and SEO** 🔴 | `04-performance-seo.md` |
 | **6:45 – 7:45** | **Machine coding** 🔴 — type the code, do not read it | `07-machine-coding.md` |
@@ -164,7 +164,7 @@ only pushes out what you already know and makes you anxious. Revision only.
 | `08-system-design.md` | How to answer design questions, with 8 worked examples | 🔴 High |
 | `09-hr-and-behavioural.md` | Salary, notice period, STAR stories, questions to ask | 🔴 High |
 | `10-your-projects.md` | Your Standard Bank stories + the 4 hard resume questions | 🔴🔴 Highest |
-| `11-typescript-redux-testing.md` | TypeScript, Redux Toolkit, selectors, RTL — your resume topics | 🔴 High |
+| `11-typescript-redux-testing.md` | TypeScript, Redux, Zustand, React Query, testing | 🔴 High |
 | `12-final-cheatsheet.md` | One page. Tomorrow morning only. | 🔴 Read last |
 
 There are also PDF versions in `pdf/`. The cheat sheet is designed to be printed.
