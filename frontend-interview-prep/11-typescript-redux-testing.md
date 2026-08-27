@@ -600,6 +600,36 @@ A trick question. They are not alternatives.
 > server state, Redux manages client state. A common setup is both: React Query for
 > everything from the API, and a small Redux or Zustand store for genuine UI state."
 
+**"So does React Query replace Redux?"** 🔴 *(a very common follow up)*
+
+No, and answering this precisely is worth doing. It replaces what many teams were
+**using** Redux for, which is not the same thing.
+
+A typical store before:
+
+```js
+// group 1 - not really state. This is a cache of what the server has.
+loans: { data: [], loading: false, error: null }
+banks: { data: [], loading: false, error: null }
+
+// group 2 - genuine client state. Nothing on the server knows about this.
+ui:      { sidebarOpen: false, activeTab: 'requests' }
+wizard:  { step: 3, formData: { ... } }
+```
+
+React Query takes over **group 1 only**. Group 2 still needs somewhere to live:
+Redux, Zustand, Context, or plain `useState`.
+
+> "React Query does not replace Redux, it replaces what a lot of teams were using
+> Redux for. Server data belongs in a cache that handles refetching and invalidation,
+> not in a client store where you hand-write loading flags.
+>
+> The reason people say it replaced Redux is that in a typical CRUD app most of the
+> store was server data. Once that moves out, what is left is often small enough that
+> you do not need a store at all. But that is an outcome for those apps, not a rule.
+> Anything with genuinely complex client state, like a multi step wizard or an editor
+> with undo, still wants a real store."
+
 **"Why not just `useEffect` and `useState` for fetching?"**
 > "It works for a single simple screen. It stops being enough once you need caching
 > between screens, deduplication when several components ask for the same data,
