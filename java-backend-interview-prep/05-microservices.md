@@ -148,6 +148,13 @@ Resilience4j is the current library; Hystrix is the older one, now retired.
 > "Failing fast protects both sides. The caller does not exhaust its threads waiting,
 > and the struggling service gets breathing room to recover instead of being hammered."
 
+**Real-time example.** The advertisement service calls the master data service for
+category names. If master data goes down without a circuit breaker, every ad request hangs
+on that call until it times out, the ad service's thread pool fills, and the ad service
+stops serving requests it could have answered perfectly well. With a breaker and a
+fallback, ads still render — just with a placeholder category. **Degraded is much better
+than down**, and that sentence is the point of the whole pattern.
+
 Also mention **timeouts** (never make a network call without one) and **retry with
 exponential backoff and jitter** — and that you only retry **idempotent** operations,
 because retrying a payment could charge someone twice.
@@ -174,6 +181,13 @@ the steps — clearer and easier to debug, but it is another component to run).
 
 Mention **eventual consistency**: the system is briefly inconsistent, and the business
 has to accept that. In banking that decision belongs to the business, not the developer.
+
+**Real-time example.** A recall spanning services would be: mark the transaction as
+recalled, reverse the ledger entry, notify the customer. If the ledger reversal fails
+after the transaction was already marked, you cannot simply roll back across two
+databases — you publish a compensating event that returns the transaction to its previous
+state and records why. The compensation is itself an auditable business action, not a
+silent undo. In finance that is exactly how it has to work.
 
 **Idempotency** matters here: a consumer may receive the same message twice, so
 processing must be safe to repeat. The usual approach is a unique message or request ID

@@ -77,6 +77,12 @@ enum silently corrupts every existing row. In banking data that is a serious bug
 > amount. On a list of a thousand transactions that is a thousand unnecessary joins or
 > queries."
 
+**Real-time example.** `Transaction` has a `@ManyToOne` to `Customer` and to `Account`.
+The recall list screen shows only reference number, amount and status — no customer data
+at all. With the EAGER default, every single row still dragged its customer and account
+across, which is a large part of why that page was slow. Setting them LAZY meant the list
+query loaded only what the screen actually displays.
+
 **The catch with LAZY:** if you access a lazy field after the persistence context is
 closed, you get `LazyInitializationException`. The correct fixes are to fetch what you
 need in the query (a join fetch), or map to a DTO inside the transaction. The wrong fix
@@ -192,11 +198,30 @@ That is a senior-level answer and interviewers remember it.
 start one. `REQUIRES_NEW` suspends the current one and starts an independent one, which
 is what you want for audit logging that must persist even if the main work rolls back.
 
+**Real-time example — the clearest use of `REQUIRES_NEW`.** A recall attempt fails
+validation halfway through and the main transaction rolls back, which is correct: no
+partial state is written. But the **audit record of the attempt must survive**, because
+compliance needs to know someone tried. If the audit insert joins the main transaction it
+is rolled back with everything else. `REQUIRES_NEW` on the audit method gives it its own
+transaction that commits independently.
+
+In a banking system that is not a nicety — an audit trail that disappears when something
+fails is worse than no audit trail, because you believe it.
+
 **Isolation levels**, in one line each:
 - `READ_UNCOMMITTED` — can see uncommitted data (dirty reads). Rarely used.
 - `READ_COMMITTED` — only committed data. The usual default in PostgreSQL and Oracle.
 - `REPEATABLE_READ` — the same row reads the same within a transaction. MySQL's default.
 - `SERIALIZABLE` — full isolation, slowest.
+
+**Real-time example — why isolation matters here.** Two approvers open the same card
+request and click Approve at the same moment. Both transactions read the status as
+PENDING, both see it as approvable, and both write APPROVED — so the request is approved
+twice and two approval records exist. That is a **lost update**.
+
+The fixes are optimistic locking with an `@Version` column, so the second write fails and
+can be retried, or a `SELECT ... FOR UPDATE` pessimistic lock. Optimistic is usually the
+right choice, because genuine collisions are rare and it does not hold database locks.
 
 ## Q5. Hibernate caching
 - **First-level cache** — the persistence context. **Always on**, scoped to one
@@ -206,6 +231,11 @@ is what you want for audit logging that must persist even if the main work rolls
   branch codes. Not for data that changes often.
 - **Query cache** — caches query results. Must be used with the second-level cache and
   is easy to get wrong.
+
+**Real-time example.** Branch codes, currency codes and transaction-status descriptions
+are read on nearly every request and change perhaps twice a year. That is textbook
+second-level cache material. Transactions themselves are **never** cached that way — the
+data changes constantly and stale financial data is worse than a slow query.
 
 ## Q6. Spring Data JPA repositories
 ```java

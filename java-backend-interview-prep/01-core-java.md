@@ -73,6 +73,11 @@ That last line is the whole point of runtime polymorphism, and it is what makes
 Spring's dependency injection work: the field is declared as an interface, and the
 concrete implementation is chosen at runtime.
 
+**Real-time example.** In the notification flow, the service holds a `List<Notifier>`
+containing an email notifier and an SMS notifier. It calls `notifier.send(...)` on each
+without knowing or caring which is which. When a push notifier is added later, the
+sending code does not change at all — that is polymorphism doing real work.
+
 **Trap:** *"Can you override a static method?"* → No. Static methods belong to the
 class, not the instance, so they are **hidden**, not overridden. Which one runs is
 decided by the reference type, not the object.
@@ -97,6 +102,16 @@ Hiding *how* something works and exposing *what* it does.
 > `Auditable` or `PaymentProcessor`. Since I can implement many interfaces but extend
 > only one class, I default to interfaces and use an abstract class when there is real
 > shared code and fields."
+
+**Real-time example — say this if they ask for one.**
+> "In the card system, `PaymentProcessor` was an **interface** with implementations for
+> different rails — NEFT, RTGS, IMPS. Each one processes a payment completely differently,
+> so there is no shared code to inherit, only a shared contract. The service just depends
+> on `PaymentProcessor` and Spring injects the right one.
+>
+> `BaseTransaction` was an **abstract class**, because every transaction genuinely has an
+> amount, a currency, a timestamp and an audit trail, plus a common `validate()` that all
+> of them run. That is shared state and shared code, which an interface cannot give me."
 
 ---
 
@@ -132,6 +147,11 @@ small detail interviewers like to check.
 > frequently in the middle while already holding a reference to that position. In
 > practice that is rare, and even for a queue I would use ArrayDeque."
 
+**Real-time example.** A recall report loads a page of transactions and then iterates
+them to build the output — read-heavy, index access, no insertion in the middle. That is
+an `ArrayList`. I have not had a case in these systems where `LinkedList` was the right
+answer.
+
 **How does ArrayList grow?** It starts at capacity 10, and when full it creates a new
 array about **1.5 times** the size and copies everything across. That copy is why
 `new ArrayList<>(expectedSize)` matters when you know the size up front.
@@ -163,6 +183,13 @@ expensive, which is why you presize a map you know will be large.
 ### Complexity
 O(1) average for get and put. O(log n) worst case since Java 8, thanks to treeification.
 
+### Real-time example — where you actually used one
+> "Two places. In the report generation I loaded the reference data once — branch codes
+> and status descriptions — into a `HashMap` keyed by code, so the loop could look each
+> one up in O(1) instead of hitting the database per row. And on the Kafka consumer side,
+> a map of processed message IDs is how you make a consumer idempotent: check the map
+> before acting, so a redelivered message is a no-op."
+
 ### 🔴 The follow-up that catches people: equals and hashCode
 > "If you use a custom object as a key you must override both `hashCode()` and
 > `equals()`. The contract is that **equal objects must have equal hash codes**. If I
@@ -186,6 +213,12 @@ O(1) average for get and put. O(log n) worst case since Java 8, thanks to treeif
 > why it is effectively obsolete. ConcurrentHashMap locks at bucket level, so threads
 > writing to different buckets do not block each other, which is why it scales."
 
+**Real-time example.** A Spring `@Service` is a **singleton**, so any collection held in
+a field is shared by every request thread at once. If I keep an in-memory counter or
+cache in a service — say a per-branch request count — a plain `HashMap` will corrupt
+under load and can even spin forever on an older JDK. That field has to be a
+`ConcurrentHashMap`.
+
 ## Q9. HashSet vs LinkedHashSet vs TreeSet
 
 | | Ordering | Backing structure | Complexity |
@@ -196,6 +229,12 @@ O(1) average for get and put. O(log n) worst case since Java 8, thanks to treeif
 
 Useful detail: `HashSet` is literally a `HashMap` where every value is the same dummy
 object. That is why its rules about `hashCode` and `equals` are identical.
+
+**Real-time example.** `HashSet` for "which account numbers have already been processed
+in this batch" — I only care about membership. `TreeSet` when the order matters, like
+interest rate slabs that must be walked from lowest to highest to find the applicable
+band. `LinkedHashSet` when I need uniqueness but the output must stay in the order the
+records arrived, which matters for a report a human reads.
 
 ## Q10. Fail-fast vs fail-safe iterators
 > "Fail-fast iterators, like ArrayList's and HashMap's, throw
@@ -224,6 +263,11 @@ list.sort(byAmount.reversed());
 > one. Comparator lives outside, so I can have several — sort transactions by date on
 > one screen and by amount on another without touching the entity."
 
+**Real-time example.** `Transaction` implements `Comparable` on `createdAt`, because
+newest-first is its natural order everywhere in the application. But the recall report
+screen lets the user sort by amount, by status or by customer name — three `Comparator`s,
+none of which required changing the entity.
+
 ---
 
 # Part C · Strings, immutability and memory
@@ -241,6 +285,12 @@ String.
 3. **Thread safety.** Immutable objects can be shared across threads with no locking.
 4. **Hashcode caching.** String caches its hash, which makes it a fast HashMap key.
    That is only valid if the value cannot change.
+
+**Real-time example.** Account numbers and transaction reference numbers are Strings used
+as map keys and passed between services. If a String were mutable, code holding a
+reference could change an account number *after* it had been validated and after it had
+been used to place an entry in a map — the entry would then be unreachable. Immutability
+is what makes them safe to share.
 
 ## Q13. String vs StringBuilder vs StringBuffer
 | | Mutable? | Thread safe | Use when |
@@ -303,6 +353,13 @@ Throwable
 > `@Transactional`, because by default Spring only rolls back on unchecked exceptions."
 
 That last sentence connects two topics and sounds like real experience. Use it.
+
+**Real-time example.** In the recall APIs I had `TransactionNotFoundException` and
+`InvalidRecallStateException`, both unchecked, both extending a common
+`BusinessException`. `@RestControllerAdvice` mapped them to 404 and 409 respectively, so
+the UI team always got the same error shape. Making them unchecked also mattered for
+`@Transactional`, because a checked exception would have **committed** the transaction
+instead of rolling it back.
 
 ## Q17. try-with-resources and finally
 ```java

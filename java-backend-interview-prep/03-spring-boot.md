@@ -48,6 +48,11 @@ passes their dependencies in.
 > classes depend on interfaces, so I can swap implementations and inject mocks in
 > tests without changing the class."
 
+**Real-time example.** The card approval service depends on a `NotificationSender`
+interface. In production Spring injects the RabbitMQ implementation. In unit tests I pass
+a mock and assert that approval publishes exactly one message — no broker, no emails, and
+the test runs in milliseconds. That is only possible because the service never says `new`.
+
 ### And Spring Boot on top of Spring
 Plain Spring needed a lot of XML and manual configuration. Spring Boot adds:
 - **Auto-configuration** — sees a database driver on the classpath and configures a
@@ -161,6 +166,12 @@ problem?"*
 > singleton service with a mutable instance field is a genuine concurrency bug,
 > because many threads share that one object."
 
+**Real-time example — a real bug this causes.** If a service stores the current request's
+user in an instance field to avoid passing it around, two concurrent approvals will
+overwrite each other's value, and one approval gets attributed to the wrong approver. In
+a bank that is an audit failure, not just a bug. Request-scoped data belongs in method
+parameters, or in the `SecurityContext`, never in a field on a singleton.
+
 That answer shows you understand *why* the default is safe, which is what they are
 checking.
 
@@ -202,6 +213,12 @@ public class GlobalExceptionHandler {
 > a generic message, because a raw stack trace tells an attacker about your framework
 > versions and internal structure. On a banking system that is a real concern."
 
+**Real-time example.** Before this was centralised, each controller had its own
+try/catch and every endpoint returned a slightly different error body — some with a
+`message`, some with an `error`, some just a stack trace. The UI team had to special-case
+each one. One `@RestControllerAdvice` gave every endpoint the same
+`{ code, message, timestamp }` shape, and their error handling became a single function.
+
 ## Q6. Bean Validation
 ```java
 public class CreateTxnRequest {
@@ -236,6 +253,12 @@ spring:
 ```
 Run with `-Dspring.profiles.active=dev`. Profiles let one build behave differently per
 environment without rebuilding.
+
+**Real-time example — this is your SIT and UAT workflow.** The same artefact is promoted
+through dev, SIT, UAT and production. Only the profile changes: different database URLs,
+different queue names, SQL logging on in dev and off in production. That is what makes it
+the *same build* being tested and released, rather than a rebuild per environment — which
+is the whole point of promoting a tested artefact.
 
 ```java
 @ConfigurationProperties(prefix = "app.recall")   // type-safe, grouped config

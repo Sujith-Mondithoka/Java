@@ -72,6 +72,13 @@ But **not** `WHERE created_at > '2026-01-01'` alone ❌ — because the index is
 `status` first. This is the **left-most prefix rule**, and it is a favourite question.
 Column order in a composite index matters.
 
+**Real-time example.** The recall report always filters by status and then by a date
+range: `WHERE status = 'PENDING' AND created_at BETWEEN ? AND ?`. So the index is
+`(status, created_at)` in that order — the equality column first, the range column
+second. Reversed, as `(created_at, status)`, the index is far less effective, because the
+range scan happens first and status cannot narrow it. Getting that column order right was
+part of the 15-second to 6-second fix.
+
 ### What stops an index being used
 ```sql
 WHERE YEAR(created_at) = 2026        -- ❌ a function on the column defeats the index
@@ -90,6 +97,11 @@ Mentioning these two unprompted is a strong signal.
 ### Covering index
 An index containing every column a query needs, so the database answers it from the
 index alone and never touches the table. Sometimes the biggest single win available.
+
+**Real-time example.** A dashboard count of pending recalls per branch needs only
+`status` and `branch_code`. An index on `(status, branch_code)` covers it, so the database
+answers from the index and never reads a single table row. On a large transactions table
+that is the difference between milliseconds and seconds.
 
 ## Q3. 🔴 EXPLAIN — how you actually diagnose
 Your resume says you analysed execution plans. Be ready to describe the process.

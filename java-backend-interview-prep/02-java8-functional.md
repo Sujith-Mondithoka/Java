@@ -143,11 +143,27 @@ List<Item> all = orders.stream()
         .collect(Collectors.toList());
 ```
 
+**Real-time example — where this replaced real code.** The report summary needed totals
+per status: how many recalls are pending, approved and rejected, and the total value of
+each. That was originally nested loops with counters and a map being built by hand. One
+`groupingBy` with `summingDouble` replaced about twenty lines, and the intent is now
+visible in one read.
+
+⚠️ But note the boundary: **do this in SQL when the data is in the database.** Streaming a
+million rows into memory to group them is much slower than a `GROUP BY`. Streams are for
+data you already have in hand.
+
+That caveat is worth saying out loud — it shows you know where the work should happen.
+
 🔴 **`map` vs `flatMap`** is a guaranteed question:
 > "`map` transforms one element into one element. `flatMap` transforms one element
 > into a **stream** of elements and then flattens them all into a single stream. If
 > each order has a list of items, `map` gives me a stream of lists, and `flatMap`
 > gives me a stream of items."
+
+**Real-time example.** A recall request has a list of approvals. To get every approver
+across a page of requests, `map` would give me a stream of *lists* of approvals;
+`flatMap` gives me a single stream of approvals I can then filter and count.
 
 ## Q6. Optional 🔴
 Introduced to make "this might be absent" explicit in the type, instead of returning
@@ -169,6 +185,13 @@ if (found.isPresent()) { Txn t = found.get(); }
 > caller cannot ignore it by accident. I use `map`, `orElse` and `orElseThrow` rather
 > than `isPresent` and `get`, because that defeats the purpose. Spring Data returns
 > `Optional` from `findById` for exactly this reason."
+
+**Real-time example.** `txnRepository.findById(id)` returns `Optional<Transaction>`. In
+the recall service that becomes
+`.orElseThrow(() -> new TransactionNotFoundException(id))`, which the
+`@RestControllerAdvice` turns into a clean 404. Before `Optional`, that same code path
+returned `null` and produced a `NullPointerException` and a 500 — which tells the caller
+nothing useful.
 
 **`orElse` vs `orElseGet`** — a good detail: `orElse(buildDefault())` evaluates the
 argument **always**, even when a value is present. `orElseGet(() -> buildDefault())`
