@@ -115,7 +115,7 @@ Never "I am a perfectionist" or "I work too hard".
 | Question | How to answer |
 |---|---|
 | **Notice period** | State it exactly. If it is 60 or 90 days, say so, and mention whether buyout is possible. Do not guess. |
-| **Willing to relocate?** | Infosys posts across Hyderabad, Bangalore, Pune, Chennai, Mysore. Decide your real answer **now**. If you are flexible, say so clearly — it is a genuine advantage. If not, say which locations work rather than a flat no. |
+| **Willing to relocate?** | Your resume already says "open to relocate anywhere in India / remote", so **say it clearly and early** — it is a real advantage with Infosys, which staffs across Hyderabad, Bangalore, Pune, Chennai and Mysore. Just make sure it is actually true, because they will hold you to it. |
 | **Work from office?** | Infosys is largely back in office. Answer directly. |
 | **Shifts / on-call?** | Client projects sometimes need overlap with UK or US hours. You already work with a UK client, so say that — you know what it involves. |
 | **Do you have other offers?** | Honest and brief. Do not invent leverage; it usually backfires. |

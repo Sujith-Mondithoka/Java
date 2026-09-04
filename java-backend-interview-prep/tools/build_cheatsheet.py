@@ -42,7 +42,7 @@ td { padding: 1.2mm; border: 1px solid #ccd4e0; }
 """
 
 def main():
-    raw = (SRC / "13-final-cheatsheet.md").read_text(encoding="utf-8")
+    raw = (SRC / "14-final-cheatsheet.md").read_text(encoding="utf-8")
     body_md = re.sub(r"^#\s+.*$", "", deemoji(raw), count=1, flags=re.M)
     body_md = re.sub(r"^\*\*Budget.*$", "", body_md, flags=re.M)
     # reflow: outside fenced code, join lines that are clearly wrapped continuations

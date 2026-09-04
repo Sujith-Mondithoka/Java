@@ -1,4 +1,4 @@
-# 13 · Final Cheat Sheet — INTERVIEW MORNING ONLY 🔴
+# 14 · Final Cheat Sheet — INTERVIEW MORNING ONLY 🔴
 **45 minutes. Nothing else. No new material.**
 If a line here does not ring a bell, open that file for three minutes and come back.
 
@@ -79,7 +79,7 @@ If a line here does not ring a bell, open that file for three minutes and come b
 - Use `@Enumerated(EnumType.STRING)`, never the ORDINAL default.
 - Money is **BigDecimal**, never `double`.
 
-## Microservices
+## Microservices 🟠 *(not a named skill on this JD — know your own project)*
 
 - Gains: independent deploy, independent scale, fault isolation. **Costs: network
   failure, no distributed transaction, harder debugging.** Say the costs.
@@ -131,6 +131,43 @@ If a line here does not ring a bell, open that file for three minutes and come b
 
 ---
 
+
+## Delivery half of the JD 🔴 — most candidates prepare none of this
+
+- **Code review, what you look for, in order:** correctness and edge cases · error handling
+  (nothing swallowed silently) · **the data layer** — N+1 in a loop, missing index,
+  `@Transactional` on the right method · meaningful tests · readability last.
+- **Giving feedback:** separate must-change from suggestion and say which · ask rather than
+  instruct · past three replies, go and talk to them.
+- **Unit test plan review:** cover **behaviour and rules**, not lines. The valuable tests are
+  the **negative** ones — an approved request cannot be approved twice, a requester cannot
+  approve their own. *(You wrote exactly these.)*
+- **Coverage:** tells you what ran, not what was verified. A test with no assertion still
+  counts.
+- **Estimation:** break it down until you can picture doing each piece · include testing,
+  review turnaround and **integration** · **state the assumptions**, so a change is a
+  re-estimate rather than a slip.
+- **Technical risk planning:** what could go wrong, how likely, how bad, what we do about it.
+  *Your example: moving email to RabbitMQ risked silent failure, so retries with backoff,
+  a DLQ, and alerting on the DLQ. Async without a DLQ moves the failure somewhere nobody
+  is looking.*
+- **Design review:** does it meet the requirement · what happens when a dependency is down ·
+  single points of failure · authorisation server side · how would we know it works in
+  production · how do we roll back · **is it more complex than the problem needs**.
+- **Client raises a quality issue:** acknowledge fast · contain first, cause second · do not
+  commit to a cause before you know, do commit to when you will update · fix, verify, say
+  what changed so it does not recur. *"Being wrong quickly and openly costs far less than
+  being confident and wrong slowly."*
+- **Leading a team:** be honest — you have not led one. You have reviewed code and paired.
+  Explaining *why* sticks; pointing at the answer does not.
+- **Knowledge management:** Swagger docs that live with the code · runbooks · handover notes.
+  Test = could someone pick up my work if I were away.
+- **High quality code:** correct · readable · tested where it matters · performs at real data
+  volumes (both your fixes were fine in testing and slow in production) · **traceable** —
+  logging and audit trail, which in a bank is part of the deliverable.
+
+---
+
 ## Your stories — the numbers
 
 **15s → 6s** report: N+1 found via SQL logging, fixed with a projection query, indexes,
@@ -149,10 +186,12 @@ handling.
 
 **"Tell me about yourself"** → Now → What you built → Why this role. Under 2 minutes.
 
-**"Why did you move from recruitment to development?"** → B.Tech in CS, JSPIDERS
-training, the recruitment year was technical recruitment, moved to engineering Dec 2024.
-**Then:** *"That year made me comfortable in client and requirement conversations, which
-is a lot of what this role is."*
+**"Walk me through your timeline / the gaps."** → B.Tech 2022 · JSPIDERS Java programme
+May 2023–Jan 2024 · Zensar from Dec 2024. Two or three sentences, the **real** reason, no
+apology. Gaps in 2022–2024 were common and interviewers know it. If the Artifint
+recruitment year is on your resume, it fills the 2024 gap — and *"a year of technical
+recruitment made me comfortable in client and requirement conversations"* is a genuine
+strength for **this** JD.
 
 **"How much experience do you have?"** → **Answer with dates, never a rounded number.**
 *"Engineering since December 2024, so about a year and nine months, plus a year in

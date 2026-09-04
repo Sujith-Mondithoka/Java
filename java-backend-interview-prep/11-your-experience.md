@@ -126,66 +126,95 @@ rather than only worked inside one service.
 
 ---
 
-## 🔴🔴 Section 5 — The two hard questions your resume creates
+## 🔴🔴 Section 5 — The three things on your resume to sort out tonight
 
-**Both of these will come up. Neither is a problem. Both are a problem if you are
-unprepared.**
+These are the parts of your resume an interviewer will probe. None of them is a problem.
+All of them are a problem if you are working out the answer live.
 
-### 1. "You were a Talent Acquisition Executive. Why the switch to development?"
+### 1. 🔴 The two gaps in your timeline
 
-This is certain. Answer it directly, without apology, and turn it into a strength.
+Lay your own dates out:
 
-The shape that works:
+```
+2022          B.Tech, Bapatla Engineering College
+2022 – 2023   (gap, about 10 months)
+May 2023      JSPIDERS Java Full Stack programme
+Jan 2024      programme ends
+2024          (gap, about 11 months)
+Dec 2024      Zensar - Software Engineer (Backend)
+```
 
-> "I finished my B.Tech in Computer Science in 2022, so development was always the
-> direction I wanted. I did the JSPIDERS Java full stack programme through 2023 to build
-> the skills properly.
+**You will be asked about both.** The answer is short, factual and unapologetic. Two or
+three sentences, then move on.
+
+> "I graduated in 2022 and spent that period preparing to move into development properly
+> rather than taking the first thing available. I did the JSPIDERS Java full stack
+> programme through 2023 into early 2024, and then [the real reason for 2024 — job
+> searching in a slow hiring market / a family reason / preparing and interviewing]. I
+> joined Zensar in December 2024 and have been building backend banking systems since."
+
+**Fill in the real reason yourself. Do not invent one.** Gaps in 2022–2024 are extremely
+common — that was a slow hiring period for freshers across the industry, and interviewers
+know it. Evasiveness is the only thing that turns a gap into a problem.
+
+### 2. 🔴🔴 The employer that is missing from this version of your resume
+
+An earlier version of your resume listed **Talent Acquisition Executive at Artifint
+Technologies LLC, Feb 2024 – Dec 2024**. This version does not.
+
+**Two reasons to think carefully about that before tomorrow:**
+
+**It creates the gap.** With that role included, the 2024 gap disappears entirely — the
+timeline runs training, then work, then Zensar, with nothing unexplained.
+
+**Infosys runs formal background verification, and in India that includes your employment
+history.** If PF was deducted at Artifint, the employment sits in your EPFO/UAN record.
+An employer that shows up in verification but not on the resume reads as concealment, which
+is treated far more seriously than the job itself ever would be. That risk is real and it
+lands *after* you have accepted an offer.
+
+**My recommendation, and it is your call:** put it back. It fills the gap, it is verifiable
+anyway, and — read this JD again — the first responsibility listed is *"interface with the
+client for quality assurance… ensuring high customer satisfaction"*. You spent a year in
+**technical** recruitment, screening and coordinating interviews for engineering roles.
+Almost nobody applying for this role can say they are comfortable in client conversations
+and have evidence for it.
+
+**If you include it, the answer is:**
+> "I finished my B.Tech in Computer Science in 2022, so development was always where I was
+> heading, and I did the JSPIDERS Java programme to build the skills properly. The role at
+> Artifint was technical recruitment — I was screening and coordinating interviews for
+> engineering positions, so I was close to the work I wanted to do. [The real reason it
+> happened.] I moved into engineering at Zensar in December 2024.
 >
-> The recruitment role at Artifint was a technology recruitment role — I was screening
-> and coordinating interviews for technical positions, so I was around the work I wanted
-> to be doing. [Add the real reason it happened — it was the opportunity available at the
-> time / for family reasons / while I finished the training.]
->
-> I moved into engineering at Zensar in December 2024 and have been building backend
-> systems since. Honestly, the recruitment year was more useful than it sounds — I spent
-> it talking to engineers and clients every day, and I am comfortable in requirement
-> conversations and client calls in a way that is not always true of people who came
-> straight through."
+> Honestly, that year was more useful than it sounds. I spent it in conversations with
+> engineers and clients every day, and I am comfortable in requirement and client
+> discussions in a way that is not always true of people who came straight through."
 
-**Why that last paragraph matters:** read the JD again. *"Work with clients", "seek
-clarifications", "collaborate", "create requirement specifications".* Infosys is a
-consulting business. Communication is a genuine differentiator there, and you have
-evidence for it that most candidates do not.
+**If you keep it off**, then be ready to account for Feb–Dec 2024 truthfully if asked, and
+be aware of what verification may surface. Never state that you were not working during a
+period when you were.
 
-⚠️ **Fill in the real reason yourself. Do not invent one.** A career change is completely
-normal and no interviewer will hold it against you. Evasiveness is what they react to.
+### 3. "So how much experience do you have exactly?"
 
-### 2. "So how much experience do you have exactly?"
+Your summary says **"2+ years building enterprise banking applications"**, but the Zensar
+role runs from **December 2024**, which is about **1 year 9 months** as of early September
+2026.
 
-**Look at your own resume carefully.** The summary says **"2+ years building
-event-driven backend systems"**, but your engineering role runs from **December 2024**,
-which is about **1 year 9 months** as of early September 2026.
+Infosys verifies dates against payslips and employment letters, and your band and offer are
+set from that number, so this is the wrong place to round up.
 
-That gap between the claim and the dates is the kind of thing an interviewer notices,
-and **Infosys runs formal background verification** where dates are checked against
-payslips and employment letters. Your offered band and salary are set from that number.
-
-**What to do before the 5th — pick one:**
-
-- **Best:** change the summary to something accurate — *"Java developer with close to 2
-  years"*, or simply *"Java developer building event-driven backend systems…"* with no
-  number, and let the dates speak.
-- **Or:** if you are counting total professional experience including the Artifint role,
-  make that explicit rather than attaching "2+ years" to backend engineering.
-
-**In the interview, always answer with the dates, not a rounded number:**
+**In the interview, answer with dates rather than a rounded number:**
 > "I have been in my engineering role since December 2024, so about a year and nine
-> months, plus a year in technical recruitment before that."
+> months."
 
-That is straightforward, it is verifiable, and it removes the issue entirely. **Never
-inflate a date or a duration.** It is the single easiest thing to get caught on at
-background verification, and being caught costs the offer after you have already
-resigned somewhere.
+Straightforward, verifiable, and it removes the issue completely. If you also count the
+recruitment year as professional experience, say that separately rather than folding it into
+"2+ years of backend engineering".
+
+**If you have time tonight**, soften the summary line to "close to 2 years" or drop the
+number and let the dates speak. It costs you nothing and removes a line an interviewer can
+pick at.
 
 ---
 
@@ -199,8 +228,9 @@ accurately is better than being vague.
 
 ## ✅ Before the interview
 1. Say the "tell me about yourself" script out loud, twice. Time it.
-2. Write down the **real one-sentence reason** for the recruitment year, and say it until
-   it sounds calm.
+2. Write down the **real one-sentence reason** for each gap in your timeline, and decide
+   whether the Artifint role goes back on the resume. Say both out loud until they sound
+   calm rather than defensive.
 3. Decide how you will state your experience duration, and make the resume match.
 4. Be able to say every number without hesitating: **15→6, 2–3→under 1, 3 services,
    200+ profiles**.

@@ -25,41 +25,59 @@ slightly differently you can still answer it.
 
 ## 1. What the job description is really telling you
 
-The posting is an Infosys "Infoscion" template, so most of it describes how Infosys
-works rather than the role itself. The part that actually decides your interview is
-near the bottom:
+Read the posting again carefully, because it says two things that change how you prepare.
 
-> **Primary skills: Java → Spring Boot. Technology → Microservices.**
-> **Preferred: Microservices API Management, Java → Spring Boot.**
+### The only technology listed is Java and Spring Boot
 
-That is the whole technical brief. **Java, Spring Boot and Microservices.** Files 01
-to 06 cover those, and they are where you should spend most of your three days.
+> **Primary skills: Technology → Java → Springboot**
+> **Preferred Skills: Technology → Java → Springboot**
 
-But do not skip the rest of the posting, because it tells you what the **managerial
-round** will be about:
+That is the entire technical brief. Not microservices, not cloud, not a messaging platform.
+**Core Java, Spring Boot, and the data layer underneath them** are what the technical round
+will test, and that is where most of your time should go.
+
+Microservices, Kafka and RabbitMQ are still worth knowing — they are on your resume, so you
+will be asked about them, and the JD does say "validate the architecture" — but they are
+supporting material here, not the main event.
+
+### Almost everything else in the posting is about how you deliver
+
+> *"interface with the client for quality assurance, issue resolution and ensuring high
+> customer satisfaction… understand requirements, create and review designs, validate the
+> architecture… participate in project estimation, provide inputs for solution delivery,
+> conduct technical risk planning, perform code reviews and unit test plan reviews… lead
+> and guide your teams towards developing optimized high quality code deliverables,
+> continual knowledge management and adherence to the organizational guidelines and
+> processes."*
 
 | The JD says | What it means for you |
 |---|---|
-| "problem definition, effort estimation, diagnosis, solution generation" | They want to see structured thinking, not just coding. **File 10.** |
-| "research… literature surveys… vendor evaluation… build POCs" | Learning agility. Be ready for "how do you learn a new technology?" |
-| "create requirement specifications… define to-be processes" | You will be asked how you handle unclear requirements. **File 12.** |
-| "diagnose the root cause of issues, seek clarifications" | Your production-incident story is directly relevant. **File 11.** |
-| "work with clients… refining, analyzing, structuring relevant data" | Client communication. **This is where your recruitment background helps you.** |
-| "assess current processes, identify improvement areas" | Your two performance-optimisation stories are exactly this. |
-| "one or two industry domain knowledge" | You have **banking**. Say so early and often. |
+| "interface with the client for quality assurance, issue resolution" | Your production-incident and QA coordination experience. **File 13.** |
+| "understand requirements… create and review designs" | How you handle unclear requirements, and what you check in a design. **File 13.** |
+| "validate the architecture" | Your Classifieds project, and being able to state a design's **cost** as well as its benefit. **Files 05 and 13.** |
+| "project estimation… technical risk planning" | Two questions most candidates have nothing prepared for. **File 13.** |
+| "code reviews and unit test plan reviews" | Named explicitly. Your resume says you did both. **File 13.** |
+| "lead and guide your teams" | Answer honestly at your level — do not claim to have led a team. **File 13, Q7.** |
+| "knowledge management… adherence to processes" | Swagger docs, runbooks, and your SIT/UAT release process. **File 13.** |
 
-### The two things that make you a strong fit
+**This is not a pure coding role.** It is Infosys's analyst-shaped template: someone who can
+be put in front of a client, review other people's work, and be trusted to follow process.
+There will be a second conversation about all of the above, and most candidates arrive with
+nothing ready for it. **File 13 is your edge here** — and your resume already contains
+evidence for nearly every line of it.
 
-**1. You have real performance numbers.** 15 seconds to 6 seconds. 2–3 seconds to
-under 1 second. Most candidates at this level say "I optimised the API." You can say
-what was wrong (N+1 queries), what you did (indexing, lazy loading, refactored
-JOINs), and what changed. That is rare, and Infosys interviewers dig for exactly
-this.
+### The three things that make you a strong fit
 
-**2. You have banking domain experience.** The JD explicitly asks for "one or two
-industry domain knowledge". You worked on a UK private bank's transaction recall and
-card management systems. Infosys staffs by domain, so this makes you easier to place,
-and easier to place means easier to hire.
+**1. You have real numbers.** 15 seconds to 6 seconds. 2–3 seconds to under 1 second. Most
+candidates say "I optimised the API." You can say what was wrong, what you changed, and what
+it became.
+
+**2. You have banking domain experience.** A UK private bank's transaction recall and card
+management systems. Infosys staffs by domain, and easier to place means easier to hire.
+
+**3. You have done the delivery work this JD asks about** — code reviews, QA coordination,
+requirement analysis, production incident resolution, deployment validation. It is all on
+your resume. You just need to describe it as ownership rather than participation.
 
 ---
 
@@ -72,10 +90,11 @@ Core Java, Collections, Java 8, Spring Boot, Hibernate/JPA, SQL, and usually one
 coding question. Expect rapid-fire questions rather than long discussions.
 → Files 01, 02, 03, 04, 08, 09.
 
-**Round 2 — Technical / Architecture (30–45 min).**
-Microservices, messaging, security, design questions, and a deep dive into your
-projects. This is where your Kafka and RabbitMQ work stands out.
-→ Files 05, 06, 07, 10, 11.
+**Round 2 — Technical / Delivery (30–45 min).**
+A deep dive into your projects, plus the delivery half of the JD: code review, test plan
+review, estimation, risk planning, and how you work with a client. Messaging and
+microservices come up here because they are on your resume.
+→ Files 11, 13, then 05, 06, 07, 10.
 
 **Round 3 — Managerial + HR (20–30 min).**
 Behavioural questions, the JD's consulting language, your career change, notice
@@ -106,8 +125,8 @@ hours**, so this is ordered strictly by what the interview is most likely to tes
 | **7:45 – 8:45** | **Spring Boot** 🔴🔴 | `03-spring-boot.md` |
 | **8:45 – 9:15** | Dinner. Actually eat. | — |
 | **9:15 – 10:15** | **JPA, Hibernate and N+1** 🔴🔴 — your own story | `04-jpa-hibernate.md` |
-| **10:15 – 11:00** | **Your experience** 🔴🔴 — say it out loud, do not just read | `11-your-experience.md` |
-| **11:00 – 11:15** | Skim the cheat sheet, nothing new | `13-final-cheatsheet.md` |
+| **10:15 – 10:45** | **Your experience** 🔴🔴 — say it out loud, do not just read | `11-your-experience.md` |
+| **10:45 – 11:15** | **Delivery and code review** 🔴🔴 — the JD's other half | `13-delivery-and-code-review.md` |
 | **By 11:30 PM** | **Sleep.** Non-negotiable. | — |
 
 > **Do not study past midnight.** A tired candidate blanks on things they knew perfectly
@@ -118,20 +137,21 @@ hours**, so this is ordered strictly by what the interview is most likely to tes
 
 | Time | Topic | File |
 |---|---|---|
-| **8:00 – 9:15** | **Microservices** 🔴🔴 — a primary skill on the JD | `05-microservices.md` |
-| **9:15 – 10:00** | **Kafka and RabbitMQ** 🔴 — your differentiator | `06-kafka-rabbitmq.md` |
-| **10:00 – 10:45** | **Java 8 — streams, lambdas, Optional** 🔴 | `02-java8-functional.md` |
-| **10:45 – 11:30** | **SQL and indexing** 🔴 | `08-sql-and-databases.md` |
-| **11:30 – 12:00** | Break. Get away from the screen. | — |
-| **12:00 – 12:45** | **HR and managerial** 🔴 — say these out loud | `12-hr-and-behavioural.md` |
-| **12:45 – 13:30** | **Coding round** — type three problems, do not read them | `09-coding-round.md` |
+| **8:00 – 8:45** | **Delivery and code review** 🔴🔴 — finish it properly, out loud | `13-delivery-and-code-review.md` |
+| **8:45 – 9:30** | **Java 8 — streams, lambdas, Optional** 🔴 | `02-java8-functional.md` |
+| **9:30 – 10:15** | **SQL and indexing** 🔴 | `08-sql-and-databases.md` |
+| **10:15 – 11:00** | **Coding round** — type three problems, do not read them | `09-coding-round.md` |
+| **11:00 – 11:30** | Break. Get away from the screen. | — |
+| **11:30 – 12:15** | **Microservices** 🟠 — on your resume, so expect questions | `05-microservices.md` |
+| **12:15 – 12:45** | **Kafka and RabbitMQ** 🟠 — your differentiator | `06-kafka-rabbitmq.md` |
+| **12:45 – 13:30** | **HR and managerial** 🔴 — say these out loud | `12-hr-and-behavioural.md` |
 | **13:30 – 14:00** | Skim only: Security, then System design | `07`, `10` |
 
 ### Tomorrow afternoon — the last two hours
 
 | Time | What |
 |---|---|
-| **14:00 – 14:45** | **Cheat sheet only.** Nothing new. | `13-final-cheatsheet.md` |
+| **14:00 – 14:45** | **Cheat sheet only.** Nothing new. | `14-final-cheatsheet.md` |
 | **14:45 – 15:15** | Say **out loud, twice**: your intro, the career-change answer, the 15s→6s story |
 | **15:15 – 15:40** | Laptop, charger, network, ID, printed resumes, water, documents |
 | **15:40 – 15:55** | Close every file. Sit up. Breathe. |
@@ -142,12 +162,14 @@ hours**, so this is ordered strictly by what the interview is most likely to tes
 Drop in this order, from the first thing to sacrifice:
 
 1. System design (file 10) — skim the six-step framework only
-2. Spring Security (file 07) — learn the JWT structure and why it suits microservices
-3. Coding round (file 09) — do problems 1, 3 and 4 only
-4. Java 8 (file 02) — learn `groupingBy`, `map` vs `flatMap`, and `Optional`
+2. Spring Security (file 07) — learn the JWT structure and the RBAC story
+3. Microservices and messaging (files 05, 06) — know your own project and the Kafka
+   versus RabbitMQ answer; skip the rest
+4. Coding round (file 09) — do problems 1, 3 and 4 only
 
-**Never drop:** Core Java, Spring Boot, JPA/N+1, Microservices, or your own experience.
-Those five are the interview.
+**Never drop:** Core Java, Spring Boot, JPA and N+1, your own experience, or file 13.
+Those five are the interview, because Java and Spring Boot are the only technologies the
+JD names and everything else in it is about delivery.
 
 ---
 
@@ -159,15 +181,16 @@ Those five are the interview.
 | `02-java8-functional.md` | Streams, lambdas, functional interfaces, Optional | 🔴 High |
 | `03-spring-boot.md` | IoC, DI, annotations, bean scopes, auto-configuration | 🔴 Highest |
 | `04-jpa-hibernate.md` | JPA, lazy vs eager, **N+1**, transactions, caching | 🔴 Highest |
-| `05-microservices.md` | Patterns, Eureka, API Gateway, resilience, saga | 🔴 Highest |
-| `06-kafka-rabbitmq.md` | Messaging, when to use which — your differentiator | 🔴 High |
+| `05-microservices.md` | Patterns, Eureka, API Gateway, resilience, saga | 🟠 Medium |
+| `06-kafka-rabbitmq.md` | Messaging, when to use which — your differentiator | 🟠 Medium |
 | `07-spring-security-jwt.md` | Authentication, RBAC, JWT flow | 🟠 Medium |
 | `08-sql-and-databases.md` | Joins, indexing, execution plans, optimisation | 🔴 High |
 | `09-coding-round.md` | Coding problems with full solutions | 🔴 High |
 | `10-system-design.md` | Backend design questions and a framework | 🟠 Medium |
 | `11-your-experience.md` | Your stories, and the two hard resume questions | 🔴 Highest |
-| `12-hr-and-behavioural.md` | Infosys HR, the career change, salary, questions to ask | 🔴 High |
-| `13-final-cheatsheet.md` | One page. Interview morning only. | 🔴 Read last |
+| `12-hr-and-behavioural.md` | Infosys HR, salary, questions to ask | 🔴 High |
+| `13-delivery-and-code-review.md` | **Code review, test plan review, estimation, risk, clients** | 🔴 Highest |
+| `14-final-cheatsheet.md` | One page. Interview morning only. | 🔴 Read last |
 
 PDF versions are in `pdf/`. The cheat sheet is meant to be printed.
 

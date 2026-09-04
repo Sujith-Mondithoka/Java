@@ -1,12 +1,17 @@
-# 05 · Microservices 🔴🔴
-**Time needed: 90 minutes**
+# 05 · Microservices 🟠
+**Time needed: 45 minutes on the current plan**
 
-The JD lists **"Technology → Microservices → Microservices"** as a primary skill, and
-repeats it under preferred skills with **API Management**. Along with Spring Boot this
-is the most important technical file for this interview.
+⚠️ **Read this first.** This posting lists **only Java and Spring Boot** as primary and
+preferred skills — microservices is not named. So this file is no longer top priority.
 
-You have a real microservices project — the Classifieds platform with three services,
-Eureka and an API Gateway. Anchor your answers to it.
+It still matters for two reasons: microservices, Eureka and API Gateway are on **your
+resume**, so you will be asked about them, and the JD does say **"validate the
+architecture"**, which is a design-review conversation.
+
+**So learn this file for your own project and the trade-offs, not for depth on every
+pattern.** If you are short of time, the parts that earn marks are Q1 (the patterns and
+what you give up), Q3 (circuit breaker), and Q7 (your Classifieds walkthrough). The rest
+is useful but not where this interview will be decided.
 
 ---
 
