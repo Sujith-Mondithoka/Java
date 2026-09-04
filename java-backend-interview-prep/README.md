@@ -65,22 +65,23 @@ prepared for it. On a services company interview it is the cheapest edge availab
   are prominent on your resume and they are the most senior-sounding thing on it. **File 06.**
 - **Pan India** matches your position, so say you are open to relocating early and clearly.
 
-### 🔴 One thing to be ready for: Posting B asks for 3 to 15 years
+### On the 3 to 15 year range — already settled
 
-You have about **1 year 9 months** of engineering experience, plus the recruitment year —
-so roughly **2 years 7 months of professional experience** in total. You are under the
-stated minimum.
+Posting B states 3 to 15 years. **You have already told the recruiter you have 2 years and
+they were fine with it**, so this is closed. Do not re-open it, and do not bring it up
+yourself.
 
-**This is not a reason to panic.** You applied, and you have an interview, which means
-somebody looked at your profile and wanted to talk. Ranges in job postings are guidance for
-sourcing, not a hard gate, and Infosys hires across bands.
+Two small things only:
 
-**But have the answer ready, because it may be asked directly.** The strategy is in
-**file 11, section 5** — short version: answer with **dates, never a rounded-up number**,
-then move immediately to evidence. You have production banking systems, two measurable
-performance improvements, and full SDLC involvement including code reviews and QA
-coordination. Depth of evidence is the only thing that offsets a shorter tenure, and you
-have more of it than most people with three years.
+- **Be consistent.** Say the same figure to the interviewer that you gave the recruiter.
+  Different numbers to different people is the only way this becomes a problem.
+- **Know the dates behind it**, in case anyone asks for specifics: engineering at Zensar
+  from **December 2024**, and professional experience from **February 2024** — which puts
+  you at roughly two and a half years overall. Your dates support the number comfortably.
+
+Then move straight to what you have actually done. Two banking platforms, 15 seconds to 6,
+2–3 seconds to under 1, and full SDLC involvement. That is what the conversation should be
+about.
 
 ### The three things that make you a strong fit
 

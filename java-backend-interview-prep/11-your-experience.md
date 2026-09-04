@@ -130,43 +130,30 @@ rather than only worked inside one service.
 
 None of these is a problem. All of them are a problem if you work out the answer live.
 
-### 1. 🔴🔴 "Posting B asks for 3 to 15 years. You have less than that."
+### 1. Your experience figure — settled, just keep it consistent
 
-Your dates:
+You have already told the recruiter **2 years** and they were fine with it. This is closed.
+**Do not raise it yourself and do not sound apologetic about it if it comes up.**
+
+Your dates back the number up:
 
 ```
-Dec 2024 – present   Software Engineer (Backend), Zensar   ~1 year 9 months
-Feb 2024 – Dec 2024  Talent Acquisition Executive          ~10 months
-                     total professional experience         ~2 years 7 months
+Feb 2024 – Dec 2024  Talent Acquisition Executive, Artifint
+Dec 2024 – present   Software Engineer (Backend), Zensar
+                     professional experience    ~2 years 7 months
+                     of which engineering       ~1 year 9 months
 ```
 
-**First, the reassurance.** You applied and you have an interview. Somebody looked at your
-profile, saw your dates, and still wanted to talk. Experience ranges in postings are
-sourcing guidance, not a gate, and a large services company hires across bands. The
-interview would not be happening if this were disqualifying.
+The only rule is **consistency** — give the interviewer the same figure you gave the
+recruiter. If someone asks for specifics, answer with the dates rather than a different
+number:
 
-**Second, never round up.** Infosys verifies dates against payslips and employment letters,
-and your band and offer are set from the verified number. Claiming three years is the
-easiest thing in the world to catch, and it costs you the offer at the worst possible
-moment — after you have resigned.
+> "I have been in my engineering role at Zensar since December 2024, and I have been working
+> professionally since early 2024."
 
-**The answer if it is raised directly:**
-> "In engineering, since December 2024, so about a year and nine months — and around two
-> and a half years of professional experience in total. I know that is at the lower end of
-> the range.
->
-> What I would say is that it has been dense. I have owned features end to end on two
-> banking platforms, taken report generation from 15 seconds to 6 and API responses from 2
-> to 3 seconds down to under a second, and worked the full SDLC including code reviews, QA
-> coordination and production incident resolution. I would rather be judged on that than on
-> the number."
-
-Say it calmly and without apologising. **Do not volunteer it if they do not raise it** —
-but do not dodge it either if they do.
-
-**And this is the reason file 13 matters so much for you.** The thing a shorter tenure
-usually means is less exposure to reviews, estimation and client work. You have that
-exposure. Being fluent about it is the single strongest way to close the perceived gap.
+Then get straight to the work: two banking platforms, the two performance improvements, and
+full SDLC involvement including code reviews and QA coordination. **That** is the
+conversation you want to be having, and it is the one where you are strong.
 
 ### 2. 🔴 The gap between graduation and your first role
 

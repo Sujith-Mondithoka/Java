@@ -195,11 +195,10 @@ JSPIDERS to build the skills, and the Artifint role was **technical** recruitmen
 close to the work. **Then turn it:** *"That year is why I am comfortable in client and
 requirement conversations"* — which is the first responsibility listed in both postings.
 
-**"You have less than 3 years."** *(Posting B says 3–15.)* → Do not flinch and do not round
-up. *"About a year and nine months in engineering, and around two and a half years of
-professional experience overall."* Then go straight to evidence: production banking systems,
-15s→6s, 2–3s→under 1s, full SDLC including code reviews and QA coordination. **You were
-shortlisted knowing your dates.**
+**Experience figure** → You already told the recruiter **2 years** and they were fine with
+it. Settled. Keep it **consistent**, do not raise it yourself, do not apologise. If pressed
+for detail: engineering since **Dec 2024**, professional since **Feb 2024**. Then go
+straight to 15s→6s, 2–3s→under 1s, full SDLC.
 
 **"How much experience do you have?"** → **Answer with dates, never a rounded number.**
 *"Engineering since December 2024, so about a year and nine months, plus a year in
