@@ -23,24 +23,14 @@ slightly differently you can still answer it.
 
 ---
 
-## 1. What the job description is really telling you
+## 1. Two job descriptions — what they have in common, and what differs
 
-Read the posting again carefully, because it says two things that change how you prepare.
+You have applied to two Infosys postings. Prepare for the **union** of the two, because you
+may not know which one the interviewer is working from.
 
-### The only technology listed is Java and Spring Boot
+### What is identical in both
 
-> **Primary skills: Technology → Java → Springboot**
-> **Preferred Skills: Technology → Java → Springboot**
-
-That is the entire technical brief. Not microservices, not cloud, not a messaging platform.
-**Core Java, Spring Boot, and the data layer underneath them** are what the technical round
-will test, and that is where most of your time should go.
-
-Microservices, Kafka and RabbitMQ are still worth knowing — they are on your resume, so you
-will be asked about them, and the JD does say "validate the architecture" — but they are
-supporting material here, not the main event.
-
-### Almost everything else in the posting is about how you deliver
+The entire responsibilities block is the same Infosys "Infoscion" template:
 
 > *"interface with the client for quality assurance, issue resolution and ensuring high
 > customer satisfaction… understand requirements, create and review designs, validate the
@@ -50,21 +40,47 @@ supporting material here, not the main event.
 > continual knowledge management and adherence to the organizational guidelines and
 > processes."*
 
-| The JD says | What it means for you |
-|---|---|
-| "interface with the client for quality assurance, issue resolution" | Your production-incident and QA coordination experience. **File 13.** |
-| "understand requirements… create and review designs" | How you handle unclear requirements, and what you check in a design. **File 13.** |
-| "validate the architecture" | Your Classifieds project, and being able to state a design's **cost** as well as its benefit. **Files 05 and 13.** |
-| "project estimation… technical risk planning" | Two questions most candidates have nothing prepared for. **File 13.** |
-| "code reviews and unit test plan reviews" | Named explicitly. Your resume says you did both. **File 13.** |
-| "lead and guide your teams" | Answer honestly at your level — do not claim to have led a team. **File 13, Q7.** |
-| "knowledge management… adherence to processes" | Swagger docs, runbooks, and your SIT/UAT release process. **File 13.** |
+**Almost none of that is about writing code.** It is about how you deliver: reviewing other
+people's work, estimating, planning for risk, and being someone who can be put in front of
+a client. **File 13 is entirely about this**, and most candidates arrive with nothing
+prepared for it. On a services company interview it is the cheapest edge available.
 
-**This is not a pure coding role.** It is Infosys's analyst-shaped template: someone who can
-be put in front of a client, review other people's work, and be trusted to follow process.
-There will be a second conversation about all of the above, and most candidates arrive with
-nothing ready for it. **File 13 is your edge here** — and your resume already contains
-evidence for nearly every line of it.
+### Where they differ
+
+| | **Posting A** (Back End Developer) | **Posting B** (huge Java requirement) |
+|---|---|---|
+| Must-have skills | Java, Spring Boot | **Java, Spring Boot, Microservices** |
+| Stated as | Primary and preferred | *"mandatory (Java, Spring Boot and Microservices) OR (Java, Spring Boot)"* |
+| Experience asked | Not stated | **3 to 15 years** |
+| Location | — | Pan India |
+
+**What that means for your prep:**
+
+- **Java and Spring Boot are non-negotiable in both.** They are the whole technical brief of
+  Posting A and the first two mandatory skills of Posting B. Files 01, 02, 03 and 04 are
+  where most of your time goes.
+- **Microservices is back to mandatory** because of Posting B. It is also all over your own
+  resume — Eureka, API Gateway, JWT, a three-service project. Expect to be asked. **File 05.**
+- **Messaging is your differentiator.** Not named in either posting, but Kafka and RabbitMQ
+  are prominent on your resume and they are the most senior-sounding thing on it. **File 06.**
+- **Pan India** matches your position, so say you are open to relocating early and clearly.
+
+### 🔴 One thing to be ready for: Posting B asks for 3 to 15 years
+
+You have about **1 year 9 months** of engineering experience, plus the recruitment year —
+so roughly **2 years 7 months of professional experience** in total. You are under the
+stated minimum.
+
+**This is not a reason to panic.** You applied, and you have an interview, which means
+somebody looked at your profile and wanted to talk. Ranges in job postings are guidance for
+sourcing, not a hard gate, and Infosys hires across bands.
+
+**But have the answer ready, because it may be asked directly.** The strategy is in
+**file 11, section 5** — short version: answer with **dates, never a rounded-up number**,
+then move immediately to evidence. You have production banking systems, two measurable
+performance improvements, and full SDLC involvement including code reviews and QA
+coordination. Depth of evidence is the only thing that offsets a shorter tenure, and you
+have more of it than most people with three years.
 
 ### The three things that make you a strong fit
 
@@ -75,9 +91,9 @@ it became.
 **2. You have banking domain experience.** A UK private bank's transaction recall and card
 management systems. Infosys staffs by domain, and easier to place means easier to hire.
 
-**3. You have done the delivery work this JD asks about** — code reviews, QA coordination,
-requirement analysis, production incident resolution, deployment validation. It is all on
-your resume. You just need to describe it as ownership rather than participation.
+**3. You have already done the delivery work both postings ask about** — code reviews, QA
+coordination, requirement analysis, production incident resolution, deployment validation.
+It is on your resume. You just need to describe it as ownership rather than participation.
 
 ---
 
@@ -126,7 +142,7 @@ hours**, so this is ordered strictly by what the interview is most likely to tes
 | **8:45 – 9:15** | Dinner. Actually eat. | — |
 | **9:15 – 10:15** | **JPA, Hibernate and N+1** 🔴🔴 — your own story | `04-jpa-hibernate.md` |
 | **10:15 – 10:45** | **Your experience** 🔴🔴 — say it out loud, do not just read | `11-your-experience.md` |
-| **10:45 – 11:15** | **Delivery and code review** 🔴🔴 — the JD's other half | `13-delivery-and-code-review.md` |
+| **10:45 – 11:15** | **Delivery and code review** 🔴🔴 — the half both postings share | `13-delivery-and-code-review.md` |
 | **By 11:30 PM** | **Sleep.** Non-negotiable. | — |
 
 > **Do not study past midnight.** A tired candidate blanks on things they knew perfectly
@@ -138,14 +154,14 @@ hours**, so this is ordered strictly by what the interview is most likely to tes
 | Time | Topic | File |
 |---|---|---|
 | **8:00 – 8:45** | **Delivery and code review** 🔴🔴 — finish it properly, out loud | `13-delivery-and-code-review.md` |
-| **8:45 – 9:30** | **Java 8 — streams, lambdas, Optional** 🔴 | `02-java8-functional.md` |
-| **9:30 – 10:15** | **SQL and indexing** 🔴 | `08-sql-and-databases.md` |
-| **10:15 – 11:00** | **Coding round** — type three problems, do not read them | `09-coding-round.md` |
-| **11:00 – 11:30** | Break. Get away from the screen. | — |
-| **11:30 – 12:15** | **Microservices** 🟠 — on your resume, so expect questions | `05-microservices.md` |
-| **12:15 – 12:45** | **Kafka and RabbitMQ** 🟠 — your differentiator | `06-kafka-rabbitmq.md` |
-| **12:45 – 13:30** | **HR and managerial** 🔴 — say these out loud | `12-hr-and-behavioural.md` |
-| **13:30 – 14:00** | Skim only: Security, then System design | `07`, `10` |
+| **8:45 – 9:45** | **Microservices** 🔴🔴 — mandatory in Posting B, and on your resume | `05-microservices.md` |
+| **9:45 – 10:30** | **Java 8 — streams, lambdas, Optional** 🔴 | `02-java8-functional.md` |
+| **10:30 – 11:15** | **SQL and indexing** 🔴 | `08-sql-and-databases.md` |
+| **11:15 – 11:45** | Break. Get away from the screen. | — |
+| **11:45 – 12:20** | **Kafka and RabbitMQ** 🔴 — your differentiator | `06-kafka-rabbitmq.md` |
+| **12:20 – 13:05** | **Coding round** — type three problems, do not read them | `09-coding-round.md` |
+| **13:05 – 13:45** | **HR and managerial** 🔴 — say these out loud | `12-hr-and-behavioural.md` |
+| **13:45 – 14:00** | Skim only: Security, then System design | `07`, `10` |
 
 ### Tomorrow afternoon — the last two hours
 
@@ -163,13 +179,13 @@ Drop in this order, from the first thing to sacrifice:
 
 1. System design (file 10) — skim the six-step framework only
 2. Spring Security (file 07) — learn the JWT structure and the RBAC story
-3. Microservices and messaging (files 05, 06) — know your own project and the Kafka
-   versus RabbitMQ answer; skip the rest
-4. Coding round (file 09) — do problems 1, 3 and 4 only
+3. Coding round (file 09) — do problems 1, 3 and 4 only
+4. Java 8 (file 02) — `groupingBy`, `map` vs `flatMap`, `Optional`, and nothing else
+5. Microservices (file 05) — if you must cut it, keep Q1, Q3 and Q7 (your own project)
 
 **Never drop:** Core Java, Spring Boot, JPA and N+1, your own experience, or file 13.
-Those five are the interview, because Java and Spring Boot are the only technologies the
-JD names and everything else in it is about delivery.
+Java and Spring Boot are mandatory in both postings, and everything the two postings share
+beyond that is about delivery.
 
 ---
 
@@ -181,8 +197,8 @@ JD names and everything else in it is about delivery.
 | `02-java8-functional.md` | Streams, lambdas, functional interfaces, Optional | 🔴 High |
 | `03-spring-boot.md` | IoC, DI, annotations, bean scopes, auto-configuration | 🔴 Highest |
 | `04-jpa-hibernate.md` | JPA, lazy vs eager, **N+1**, transactions, caching | 🔴 Highest |
-| `05-microservices.md` | Patterns, Eureka, API Gateway, resilience, saga | 🟠 Medium |
-| `06-kafka-rabbitmq.md` | Messaging, when to use which — your differentiator | 🟠 Medium |
+| `05-microservices.md` | Patterns, Eureka, API Gateway, resilience, saga | 🔴 High |
+| `06-kafka-rabbitmq.md` | Messaging, when to use which — your differentiator | 🔴 High |
 | `07-spring-security-jwt.md` | Authentication, RBAC, JWT flow | 🟠 Medium |
 | `08-sql-and-databases.md` | Joins, indexing, execution plans, optimisation | 🔴 High |
 | `09-coding-round.md` | Coding problems with full solutions | 🔴 High |

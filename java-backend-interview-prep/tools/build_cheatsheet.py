@@ -38,6 +38,7 @@ blockquote p { margin: 0; }
 .tick { color: #128a3c; font-weight: bold; } .warn { color: #b45309; font-weight: bold; }
 table { width: 100%; border-collapse: collapse; font-size: 7.2pt; margin: 2mm 0; break-inside: avoid; }
 th { background: #14356b; color: #fff; padding: 1.2mm; text-align: left; }
+th strong, th em, th code { color: #fff; background: none; }
 td { padding: 1.2mm; border: 1px solid #ccd4e0; }
 """
 

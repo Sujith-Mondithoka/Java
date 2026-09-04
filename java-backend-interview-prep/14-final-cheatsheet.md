@@ -79,7 +79,7 @@ If a line here does not ring a bell, open that file for three minutes and come b
 - Use `@Enumerated(EnumType.STRING)`, never the ORDINAL default.
 - Money is **BigDecimal**, never `double`.
 
-## Microservices 🟠 *(not a named skill on this JD — know your own project)*
+## Microservices 🔴 *(mandatory in Posting B — and all over your resume)*
 
 - Gains: independent deploy, independent scale, fault isolation. **Costs: network
   failure, no distributed transaction, harder debugging.** Say the costs.
@@ -186,12 +186,20 @@ handling.
 
 **"Tell me about yourself"** → Now → What you built → Why this role. Under 2 minutes.
 
-**"Walk me through your timeline / the gaps."** → B.Tech 2022 · JSPIDERS Java programme
-May 2023–Jan 2024 · Zensar from Dec 2024. Two or three sentences, the **real** reason, no
-apology. Gaps in 2022–2024 were common and interviewers know it. If the Artifint
-recruitment year is on your resume, it fills the 2024 gap — and *"a year of technical
-recruitment made me comfortable in client and requirement conversations"* is a genuine
-strength for **this** JD.
+**"Walk me through your timeline."** → B.Tech 2022 · JSPIDERS Java programme May 2023 –
+Jan 2024 · Artifint technical recruitment Feb – Dec 2024 · Zensar from Dec 2024. The one
+gap is 2022 to mid-2023 — two sentences, the **real** reason, no apology.
+
+**"Why recruitment, then development?"** → B.Tech in CS, development was always the plan,
+JSPIDERS to build the skills, and the Artifint role was **technical** recruitment so I was
+close to the work. **Then turn it:** *"That year is why I am comfortable in client and
+requirement conversations"* — which is the first responsibility listed in both postings.
+
+**"You have less than 3 years."** *(Posting B says 3–15.)* → Do not flinch and do not round
+up. *"About a year and nine months in engineering, and around two and a half years of
+professional experience overall."* Then go straight to evidence: production banking systems,
+15s→6s, 2–3s→under 1s, full SDLC including code reviews and QA coordination. **You were
+shortlisted knowing your dates.**
 
 **"How much experience do you have?"** → **Answer with dates, never a rounded number.**
 *"Engineering since December 2024, so about a year and nine months, plus a year in

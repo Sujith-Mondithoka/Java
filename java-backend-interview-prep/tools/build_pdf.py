@@ -94,6 +94,7 @@ thead { display: table-header-group; }
 tr { page-break-inside: avoid; }
 th { background: #14356b; color: #fff; text-align: left; padding: 2mm 2.5mm;
      font-weight: bold; border: 1px solid #14356b; }
+th strong, th em, th code { color: #fff; background: none; }
 td { padding: 2mm 2.5mm; border: 1px solid #ccd4e0; vertical-align: top; }
 tbody tr:nth-child(even) td { background: #f6f8fb; }
 

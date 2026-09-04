@@ -1,17 +1,17 @@
-# 05 · Microservices 🟠
-**Time needed: 45 minutes on the current plan**
+# 05 · Microservices 🔴🔴
+**Time needed: 60 minutes**
 
-⚠️ **Read this first.** This posting lists **only Java and Spring Boot** as primary and
-preferred skills — microservices is not named. So this file is no longer top priority.
+**Posting B lists microservices as a mandatory skill** — *"(Java, Spring Boot and
+Microservices) OR (Java, Spring Boot)"* — so this is back to top priority. It is also all
+over your own resume: Eureka, API Gateway, JWT, and a three-service project you designed
+yourself. You will be asked about it whichever posting the interviewer is working from.
 
-It still matters for two reasons: microservices, Eureka and API Gateway are on **your
-resume**, so you will be asked about them, and the JD does say **"validate the
-architecture"**, which is a design-review conversation.
+Both postings also say **"validate the architecture"**, which is a design-review
+conversation. Being able to state the **cost** of a design, not just its benefit, is what
+that question is really testing.
 
-**So learn this file for your own project and the trade-offs, not for depth on every
-pattern.** If you are short of time, the parts that earn marks are Q1 (the patterns and
-what you give up), Q3 (circuit breaker), and Q7 (your Classifieds walkthrough). The rest
-is useful but not where this interview will be decided.
+If you are short of time, the highest-value parts are **Q1** (the patterns and what you
+give up), **Q3** (circuit breaker), **Q4** (saga) and **Q7** (your Classifieds walkthrough).
 
 ---
 
