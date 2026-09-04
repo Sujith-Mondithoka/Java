@@ -35,6 +35,18 @@ clause of a LEFT JOIN silently turns it into an INNER JOIN, because `NULL` fails
 condition. If you want to filter the joined table without losing left rows, the
 condition belongs in the `ON` clause.
 
+
+**Say this.**
+> "An inner join returns only rows that match on both sides. A left join returns every row
+> from the left table and nulls where the right has no match, which is what I use when the
+> absence is the thing I care about — customers with no transactions, or requests with no
+> approval yet. Right joins are the mirror image and people usually rewrite them as left
+> joins for readability.
+>
+> The trap is putting a condition on the right-hand table in the `WHERE` clause of a left
+> join. Null fails the condition, so those rows are dropped and you have silently turned it
+> back into an inner join. The condition has to go in the `ON` clause."
+
 ## Q2. 🔴🔴 Indexing — the answer that matters most here
 
 ### What an index actually is
@@ -173,6 +185,16 @@ FROM employees;
 ```
 Unlike `GROUP BY`, a window function keeps every row and adds a computed column.
 
+
+**Say this when they give you a query to write.**
+> "Let me state what I am aiming for first — I want the second highest distinct salary, so
+> I need to handle duplicates, and decide what should happen if there is no second value."
+
+Then write it. The pattern that scores is: restate, mention the edge case, write, then say
+the complexity or the index it would need. For the duplicates query, mention that
+`GROUP BY ... HAVING COUNT(*) > 1` is the standard shape and that on a large table the
+grouped column wants an index.
+
 ## Q6. ACID
 - **Atomicity** — all of the transaction, or none of it.
 - **Consistency** — the database moves from one valid state to another; constraints hold.
@@ -181,6 +203,18 @@ Unlike `GROUP BY`, a window function keeps every row and adds a computed column.
 
 **The banking example makes this concrete:** a transfer is a debit and a credit. Without
 atomicity, a crash between them destroys money. Use that example — it fits your domain.
+
+
+**Say this — use the banking example, it is your domain.**
+> "A transfer is the clearest example. Debiting one account and crediting another must be
+> **atomic** — both or neither, because a crash between them destroys money.
+> **Consistency** means constraints still hold afterwards, so the ledger still balances.
+> **Isolation** means two concurrent transfers on the same account cannot interleave and
+> produce a wrong balance. And **durability** means once it is committed it survives a
+> crash — the customer has been told it happened, so it has to have happened.
+>
+> That is also why I would not move something like a ledger entry to eventual consistency
+> without the business explicitly agreeing to it."
 
 ## Q7. SQL vs NoSQL — you have MongoDB on your resume
 > "I would use a relational database when the data is structured and relational and I

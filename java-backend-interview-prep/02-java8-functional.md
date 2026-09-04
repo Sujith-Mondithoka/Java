@@ -52,6 +52,14 @@ Runnable r = () -> System.out.println("running");
 
 The compiler knows `Runnable` has one method, so you only supply the body.
 
+
+**Say this.**
+> "A lambda is a compact way to supply the implementation of an interface that has one
+> method. Before Java 8 I would write an anonymous inner class of five lines to pass
+> behaviour into a method; a lambda is the same thing with the boilerplate removed. It is
+> what makes the Streams API readable — `filter(t -> t.getAmount() > 1000)` says what it
+> does in one line."
+
 ## Q2. What is a functional interface? 🔴
 An interface with **exactly one abstract method**. That is what makes it a valid target
 for a lambda. `@FunctionalInterface` is optional but makes the compiler enforce it.
@@ -75,6 +83,15 @@ Supplier<Txn> empty     = () -> new Txn();
 Also worth naming: `BiFunction<T,U,R>` (two arguments), `UnaryOperator<T>` (T to T),
 and `BinaryOperator<T>` (two Ts to one T, used by `reduce`).
 
+
+**Say this.**
+> "An interface with exactly one abstract method. That single method is what lets the
+> compiler match a lambda to it. `@FunctionalInterface` is optional but I add it, because
+> it makes the compiler fail if someone later adds a second abstract method and silently
+> breaks every lambda using it. The four I use most are `Predicate` for filtering,
+> `Function` for mapping, `Consumer` for side effects and `Supplier` for a lazily produced
+> value."
+
 ## Q3. Method references
 Shorthand for a lambda that just calls one method.
 
@@ -82,6 +99,13 @@ Shorthand for a lambda that just calls one method.
 .map(t -> t.getCustomerName())   →   .map(Txn::getCustomerName)
 .forEach(x -> System.out.println(x))  →  .forEach(System.out::println)
 ```
+
+
+**Say this.**
+> "A method reference is a shorter form of a lambda that does nothing but call one method.
+> `t -> t.getCustomerName()` becomes `Txn::getCustomerName`. It is purely readability —
+> the compiler produces the same thing — but in a stream chain it removes noise and leaves
+> only the intent."
 
 ## Q4. 🔴🔴 Streams — intermediate vs terminal operations
 
@@ -214,6 +238,15 @@ list.parallelStream().filter(...).collect(...);
 - **`CompletableFuture`** — asynchronous composition, useful for calling several
   services in parallel.
 
+
+**Say this.**
+> "The three I actually use beyond streams. **Default methods** in interfaces, which let a
+> library add a method without breaking every existing implementation — that is how
+> `Collection` gained `stream()` without breaking the world. **`java.time`**, because the
+> old `Date` and `Calendar` were mutable and not thread safe, and `LocalDate` and
+> `LocalDateTime` are neither. And **`CompletableFuture`** when I need to call two
+> independent services in parallel instead of one after the other."
+
 ## Q9. Later versions, in one line each
 If asked "what have you used beyond Java 8":
 - **Java 11** — `var` for local variables, `String.isBlank()`, `strip()`, `lines()`.
@@ -221,6 +254,17 @@ If asked "what have you used beyond Java 8":
 - A **record** is a compact immutable data carrier: `record TxnDto(String id, double amount) {}`
   generates the constructor, getters, `equals`, `hashCode` and `toString`. Very useful
   for DTOs.
+
+
+**Say this — and be honest about what you have used.**
+> "My day-to-day is Java 8, which is still what most banking codebases run. I have kept up
+> with the LTS releases: Java 11 added `var` and some String utilities, and Java 17 added
+> records, sealed classes and switch expressions. Records are the one I would most want to
+> use — a DTO becomes a single line instead of forty lines of constructor, getters,
+> `equals` and `hashCode`."
+
+Do not claim production experience with a version you have not used. Knowing what changed
+and why is enough at this level.
 
 ---
 

@@ -50,6 +50,16 @@ public class SecurityConfig {
 }
 ```
 
+
+**Say this.**
+> "Spring Security is a chain of servlet filters that runs before the request reaches a
+> controller. For a token-based API the key filter reads the `Authorization` header,
+> validates the token, and puts an `Authentication` object into the `SecurityContext` —
+> after which everything downstream knows who the caller is and what roles they hold.
+>
+> The important point is that it runs **before** my code, so an unauthenticated request
+> never reaches business logic at all. I do not have to remember to check in each method."
+
 ## Q2. 🔴 Role-based access control — your story
 Two ways to enforce it. Know both.
 
@@ -142,6 +152,15 @@ Never store plain text, and never a plain hash like MD5 or SHA-256. BCrypt is
 deliberately **slow** and **salts** each password automatically, which defeats rainbow
 tables and makes brute force expensive.
 
+
+**Say this.**
+> "Passwords are stored as a BCrypt hash, never plain text and never a plain SHA or MD5
+> hash. Two properties matter. BCrypt salts each password automatically, so two users with
+> the same password get different hashes and a precomputed rainbow table is useless. And it
+> is deliberately **slow** with a tunable work factor, so brute forcing is expensive —
+> which is the opposite of what you want from a general-purpose hash. That slowness is the
+> feature."
+
 ## Q7. Other things worth a sentence
 - **OAuth2 vs JWT** — not alternatives. OAuth2 is the authorisation *framework*; a JWT
   is a token *format* often used within it.
@@ -150,6 +169,16 @@ tables and makes brute force expensive.
 - **Method security vs URL security** — URL rules are coarse and can be bypassed if
   another entry point reaches the same service method. Method-level annotations protect
   the method itself.
+
+
+**Say this if they probe the distinctions.**
+> "OAuth2 and JWT are not alternatives — OAuth2 is an authorisation framework describing
+> how a token is obtained, and JWT is a token format often used inside it. CORS and CSRF
+> also get confused: CORS is a browser rule about which origins may read a response, and
+> CSRF is an attack where another site makes the browser send an authenticated request.
+> And URL-level security is coarse — if another entry point reaches the same service
+> method it is unprotected, so for anything sensitive I put `@PreAuthorize` on the method
+> itself."
 
 ---
 

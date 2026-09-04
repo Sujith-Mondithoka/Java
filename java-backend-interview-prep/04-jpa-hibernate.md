@@ -56,6 +56,18 @@ public class Transaction {
 stores the enum's position as a number — so inserting a new value in the middle of the
 enum silently corrupts every existing row. In banking data that is a serious bug.
 
+
+**Say this.**
+> "`@Entity` marks the class as mapped to a table and `@Id` is the primary key, with
+> `@GeneratedValue` telling Hibernate the database generates it. `@Column` constrains the
+> mapping, and `@ManyToOne` with `@JoinColumn` maps the foreign key.
+>
+> Two details I always set explicitly. `@Enumerated(EnumType.STRING)`, because the default
+> stores the enum's numeric position — so if someone inserts a new value in the middle of
+> the enum, every existing row silently means something different. And `BigDecimal` for
+> money, never `double`, because floating point cannot represent decimal fractions exactly
+> and the rounding errors accumulate."
+
 ## Q2. 🔴 Lazy vs eager loading
 
 - **EAGER** — the related entity is loaded immediately, with the parent.
@@ -237,6 +249,17 @@ are read on nearly every request and change perhaps twice a year. That is textbo
 second-level cache material. Transactions themselves are **never** cached that way — the
 data changes constantly and stale financial data is worse than a slow query.
 
+
+**Say this.**
+> "The first-level cache is the persistence context. It is always on and scoped to a single
+> transaction, so loading the same entity twice in one transaction only hits the database
+> once. That one is free and you get it whether you think about it or not.
+>
+> The second-level cache is optional and shared across transactions, and it needs a
+> provider like Ehcache. It is worth it for reference data that is read constantly and
+> changes rarely. I would not cache transactional data that way — stale financial data is
+> worse than a slow query, and cache invalidation across instances is where the bugs live."
+
 ## Q6. Spring Data JPA repositories
 ```java
 public interface TxnRepository extends JpaRepository<Transaction, Long> {
@@ -264,6 +287,17 @@ Hierarchy: `Repository` → `CrudRepository` → `PagingAndSortingRepository` �
 Page<Transaction> page = repo.findByStatus(PENDING, PageRequest.of(0, 20, Sort.by("createdAt").descending()));
 ```
 
+
+**Say this.**
+> "Spring Data generates the implementation from the method name, so
+> `findByStatusAndAmountGreaterThan` needs no code at all. I use derived queries while the
+> name stays readable, and switch to `@Query` with JPQL once the name would become
+> unreadable — which is usually around three conditions. Native SQL only when I need
+> something database-specific.
+>
+> The one thing I always add on a list endpoint is `Pageable`. Returning an unbounded
+> collection is fine in testing and falls over in production when the table grows."
+
 ## Q7. `save()` vs `saveAndFlush()`, and entity states
 Three states: **transient** (a new object, not known to Hibernate), **persistent**
 (managed by the persistence context — changes are tracked automatically), **detached**
@@ -276,11 +310,33 @@ issues an UPDATE only for the fields that changed.
 `saveAndFlush()` pushes the SQL to the database immediately instead of waiting for the
 transaction to commit. Useful when you need a generated ID within the same transaction.
 
+
+**Say this.**
+> "An entity is transient when it is a plain new object Hibernate does not know about,
+> persistent once it is managed by the persistence context, and detached after the context
+> closes. The important consequence is **dirty checking**: while an entity is managed I do
+> not need to call `save()` at all. I change a field, and at flush time Hibernate compares
+> it with the snapshot it loaded and issues an update for only the changed columns.
+>
+> `saveAndFlush` pushes the SQL immediately instead of waiting for the commit, which I use
+> when I need a generated ID within the same transaction."
+
 ## Q8. `getOne`/`getReferenceById` vs `findById`
 `findById` hits the database and returns `Optional`. `getReferenceById` returns a
 **lazy proxy** without querying — useful when you only need to set a foreign key
 relationship and never read the object's fields. Touching a field on a proxy for a row
 that does not exist throws `EntityNotFoundException`.
+
+
+**Say this.**
+> "`findById` goes to the database and returns an `Optional`. `getReferenceById` returns a
+> lazy proxy without querying at all, which is what I want when I only need to set a
+> foreign key — for example attaching an existing customer to a new transaction. There is
+> no point loading the whole customer row just to write its ID.
+>
+> The catch is that if the row does not exist you do not find out until you touch a field
+> on the proxy, and then it throws `EntityNotFoundException` — possibly somewhere far from
+> where you called it."
 
 ---
 

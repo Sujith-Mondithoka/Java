@@ -95,6 +95,17 @@ public class TxnService {
 
 Since Spring 4.3, if a class has one constructor you do not even need `@Autowired`.
 
+
+**Say this.**
+> "I use constructor injection. Three reasons. The fields can be `final`, so the object is
+> immutable once it is built. The dependencies cannot be missing, because you cannot
+> construct the object without them — with field injection you find out at runtime with a
+> null pointer. And it is testable without Spring at all: `new TxnService(mockRepo)` just
+> works, whereas field injection needs reflection or a full context.
+>
+> There is a fourth benefit — it makes bad design visible. A constructor with eight
+> parameters obviously does too much. Field injection hides that."
+
 ## Q2. 🔴 The annotations you must know
 
 | Annotation | What it does |
@@ -149,6 +160,15 @@ public class TxnController {
 ```
 `@PathVariable` reads from the URL path. `@RequestParam` reads a query parameter.
 `@RequestBody` deserialises the JSON body. `@Valid` triggers Bean Validation.
+
+
+**Say this.**
+> "`@RestController` is `@Controller` plus `@ResponseBody`, so the return value is
+> serialised to JSON rather than resolved as a view name. `@RequestMapping` at class level
+> sets the base path. Then `@PathVariable` reads a value out of the URL path,
+> `@RequestParam` reads a query parameter, and `@RequestBody` deserialises the JSON body
+> into an object. I put `@Valid` on the request body so Bean Validation runs before the
+> method is entered, which means invalid input never reaches my business logic."
 
 ## Q4. 🔴 Bean scopes
 
@@ -238,8 +258,34 @@ public class CreateTxnRequest {
 fractions exactly, so `0.1 + 0.2` is not `0.3`. In a banking interview, using
 `BigDecimal` for currency is a detail that gets noticed.
 
+
+**Say this.**
+> "Bean Validation with `@Valid` moves input checking to the edge of the application, so
+> the controller rejects bad requests before any business code runs. The rules live on the
+> DTO next to the field, which is easier to keep correct than validation scattered through
+> a service.
+>
+> The important caveat is that this is not a security control. It runs on my server, so it
+> is trustworthy, but it is only one layer — for something like a transfer amount I would
+> still check business rules in the service, because a validation annotation cannot know
+> the account balance."
+
+**Real-time example.** On the card request form the DTO carried `@NotBlank` on the
+employee ID and `@DecimalMin` on the limit. Those failures come back as a 400 with a
+field-level message, handled by the same `@RestControllerAdvice` as everything else, so
+the UI could show the error against the right field.
+
 ## Q7. Configuration and profiles
 ```yaml
+
+**Say this.**
+> "Profiles let one build behave differently per environment, so the artefact that passed
+> SIT is the exact artefact that goes to UAT and production — only the profile changes.
+> Anything environment-specific, especially credentials, comes from environment variables
+> rather than being committed. And I use `@ConfigurationProperties` rather than scattering
+> `@Value` annotations, because it groups related settings into one typed object that
+> fails at startup if something is missing, instead of failing later at runtime."
+
 # application.yml
 spring:
   datasource:
@@ -270,6 +316,17 @@ Adds production endpoints: `/actuator/health` (used by load balancers and Kubern
 to decide if the instance is alive), `/actuator/metrics`, `/actuator/info`.
 Say that you would **secure these**, because they expose internals.
 
+
+**Say this.**
+> "Actuator exposes operational endpoints — health, metrics and info. The health endpoint
+> is the practical one: a load balancer or container orchestrator calls it to decide
+> whether the instance should receive traffic, and it can include the database and message
+> broker status, so an instance that has lost its database is taken out of rotation
+> automatically.
+>
+> I would secure these endpoints, because they expose internals. On a banking system I
+> would not have them open."
+
 ## Q9. How does auto-configuration actually work?
 A step above the basics, and a good one to know:
 > "Spring Boot ships configuration classes annotated with conditions such as
@@ -298,6 +355,18 @@ class TxnControllerTest {
 
 Your resume mentions unit tests for state-transition validation, so be ready to say
 what you actually tested and why.
+
+
+**Say this.**
+> "I write mostly slice tests rather than loading the whole context, because they are much
+> faster and a fast suite is one people actually run. `@WebMvcTest` for the controller
+> layer with the service mocked, `@DataJpaTest` for repository queries against an in-memory
+> database, and plain JUnit with Mockito for service logic, which needs no Spring at all.
+> `@SpringBootTest` I keep for a small number of genuine end-to-end paths.
+>
+> What I test first is the state transitions — that a rejected request cannot be approved,
+> that an already-approved one cannot be approved twice. Those are the rules that cost
+> money if they break."
 
 ---
 

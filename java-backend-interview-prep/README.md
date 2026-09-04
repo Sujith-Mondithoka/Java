@@ -1,5 +1,5 @@
 # Infosys — Java Backend Developer Interview Prep
-### For Neelima Jana · Interview: 5 September · Plan starts 2 September
+### For Neelima Jana · Interview: **tomorrow, 5 September, 4:00 PM**
 
 ---
 
@@ -12,8 +12,14 @@ Every topic follows the same four steps, so you always know what you are reading
 3. **Why it matters** — where it is used in real work.
 4. **"Say this"** — the answer to give in the room.
 
-Do not memorise the answers. Understand the idea, so that when the question comes
-out slightly differently, you can still answer it.
+**Every one of the 71 questions in this guide has a written answer** in the words you
+would actually say, and most carry a **real-time example** from the banking systems you
+worked on. That is deliberate: at this level, "give me a real-time example" is asked as a
+question in its own right, and a banking example from your own project beats a textbook
+one every time.
+
+Do not memorise them word for word. Learn the shape, so when the question comes out
+slightly differently you can still answer it.
 
 ---
 
@@ -84,57 +90,64 @@ period, location, salary.
 
 ---
 
-## 3. The three-day plan
+## 3. The plan — tonight and tomorrow morning
 
-### Day 1 — Tuesday 2 September (today, from now)
-*Goal: the fundamentals they screen hardest on.*
+You have this evening and tomorrow until about 3 PM. That is roughly **ten working
+hours**, so this is ordered strictly by what the interview is most likely to test.
 
-| Block | Topic | File |
+**If you fall behind, drop from the bottom. Never from the top.**
+
+### Tonight — 4 September
+
+| Time | Topic | File |
 |---|---|---|
-| 0:00 – 0:15 | Read this file | `README.md` |
-| 0:15 – 2:00 | **Core Java and Collections** 🔴🔴 | `01-core-java.md` |
-| 2:00 – 3:00 | **Java 8 — streams, lambdas, Optional** 🔴 | `02-java8-functional.md` |
-| 3:00 – 3:15 | Break | — |
-| 3:15 – 4:45 | **Spring Boot and dependency injection** 🔴🔴 | `03-spring-boot.md` |
-| 4:45 – 6:00 | **JPA, Hibernate and the N+1 problem** 🔴🔴 | `04-jpa-hibernate.md` |
-| Evening | Say your two performance stories out loud | `11-your-experience.md` §2 |
+| **6:00 – 6:15** | Read this file | `README.md` |
+| **6:15 – 7:45** | **Core Java and Collections** 🔴🔴 — HashMap above all | `01-core-java.md` |
+| **7:45 – 8:45** | **Spring Boot** 🔴🔴 | `03-spring-boot.md` |
+| **8:45 – 9:15** | Dinner. Actually eat. | — |
+| **9:15 – 10:15** | **JPA, Hibernate and N+1** 🔴🔴 — your own story | `04-jpa-hibernate.md` |
+| **10:15 – 11:00** | **Your experience** 🔴🔴 — say it out loud, do not just read | `11-your-experience.md` |
+| **11:00 – 11:15** | Skim the cheat sheet, nothing new | `13-final-cheatsheet.md` |
+| **By 11:30 PM** | **Sleep.** Non-negotiable. | — |
 
-### Day 2 — Wednesday 3 September
-*Goal: the primary skill on the JD, plus your differentiators.*
+> **Do not study past midnight.** A tired candidate blanks on things they knew perfectly
+> at 1 AM. The 4 PM slot is late enough that being rested matters more than one extra hour
+> tonight.
 
-| Block | Topic | File |
+### Tomorrow morning — 5 September
+
+| Time | Topic | File |
 |---|---|---|
-| 0:00 – 1:30 | **Microservices** 🔴🔴 | `05-microservices.md` |
-| 1:30 – 2:30 | **Kafka and RabbitMQ** 🔴 | `06-kafka-rabbitmq.md` |
-| 2:30 – 3:15 | **Spring Security and JWT** 🔴 | `07-spring-security-jwt.md` |
-| 3:15 – 4:30 | **SQL and query optimisation** 🔴 | `08-sql-and-databases.md` |
-| 4:30 – 6:00 | **Coding round practice — write the code, do not read it** | `09-coding-round.md` |
-| Evening | **Your experience and the career change** 🔴 | `11-your-experience.md` |
+| **8:00 – 9:15** | **Microservices** 🔴🔴 — a primary skill on the JD | `05-microservices.md` |
+| **9:15 – 10:00** | **Kafka and RabbitMQ** 🔴 — your differentiator | `06-kafka-rabbitmq.md` |
+| **10:00 – 10:45** | **Java 8 — streams, lambdas, Optional** 🔴 | `02-java8-functional.md` |
+| **10:45 – 11:30** | **SQL and indexing** 🔴 | `08-sql-and-databases.md` |
+| **11:30 – 12:00** | Break. Get away from the screen. | — |
+| **12:00 – 12:45** | **HR and managerial** 🔴 — say these out loud | `12-hr-and-behavioural.md` |
+| **12:45 – 13:30** | **Coding round** — type three problems, do not read them | `09-coding-round.md` |
+| **13:30 – 14:00** | Skim only: Security, then System design | `07`, `10` |
 
-### Day 3 — Thursday 4 September
-*Goal: consolidate, and prepare the non-technical half.*
-
-| Block | Topic | File |
-|---|---|---|
-| 0:00 – 1:15 | **Backend system design** 🔴 | `10-system-design.md` |
-| 1:15 – 2:15 | **HR and managerial round** 🔴 | `12-hr-and-behavioural.md` |
-| 2:15 – 3:30 | Re-do the coding problems you got wrong | `09-coding-round.md` |
-| 3:30 – 4:30 | Weak areas from days 1 and 2 — your call | — |
-| 4:30 – 5:00 | Say your intro and project pitches out loud, twice | `11-your-experience.md` |
-| By 11:00 PM | **Sleep.** | — |
-
-### Day 4 — Friday 5 September, interview day
+### Tomorrow afternoon — the last two hours
 
 | Time | What |
 |---|---|
-| Wake, then 45 min | **Cheat sheet only** — `13-final-cheatsheet.md` |
-| 30 min | Say your intro, the career-change answer and both project stories out loud |
-| 20 min | Re-read the questions you will ask them |
-| 20 min | Laptop, charger, network, ID, printed resumes, water |
-| Before | Close everything. Breathe. |
+| **14:00 – 14:45** | **Cheat sheet only.** Nothing new. | `13-final-cheatsheet.md` |
+| **14:45 – 15:15** | Say **out loud, twice**: your intro, the career-change answer, the 15s→6s story |
+| **15:15 – 15:40** | Laptop, charger, network, ID, printed resumes, water, documents |
+| **15:40 – 15:55** | Close every file. Sit up. Breathe. |
+| **16:00** | **Go.** |
 
-**Learn nothing new on interview day.** New material only pushes out what has already
-settled and raises your anxiety. Revision only.
+### If you run out of time
+
+Drop in this order, from the first thing to sacrifice:
+
+1. System design (file 10) — skim the six-step framework only
+2. Spring Security (file 07) — learn the JWT structure and why it suits microservices
+3. Coding round (file 09) — do problems 1, 3 and 4 only
+4. Java 8 (file 02) — learn `groupingBy`, `map` vs `flatMap`, and `Optional`
+
+**Never drop:** Core Java, Spring Boot, JPA/N+1, Microservices, or your own experience.
+Those five are the interview.
 
 ---
 
@@ -190,4 +203,5 @@ and honest answer ready:
 1. Your summary says **"2+ years"**, but Dec 2024 to Sept 2026 is about **21 months**.
 2. The move from **Talent Acquisition Executive** to **Software Engineer**.
 
-Neither is a problem. Both are a problem if you are caught unprepared by them.
+Neither is a problem. Both are a problem if you are caught unprepared by them, and you
+have one evening to decide how you will answer each. Do that tonight, not tomorrow.

@@ -61,7 +61,7 @@ def main():
 <title>Morning Cheat Sheet</title><style>{CSS}</style></head><body>
 <div class="masthead">
   <h1>Morning Cheat Sheet &mdash; read this and nothing else</h1>
-  <div class="sub">Java Backend &middot; Infosys &middot; 5 September &middot;
+  <div class="sub">Java Backend &middot; Infosys &middot; 5 September, 4:00 PM &middot;
   Learn nothing new today &mdash; revision only.</div>
 </div>
 <div class="cols">{md.convert(body_md)}</div></body></html>"""

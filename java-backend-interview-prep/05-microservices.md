@@ -193,6 +193,23 @@ silent undo. In finance that is exactly how it has to work.
 processing must be safe to repeat. The usual approach is a unique message or request ID
 that you record and check before acting.
 
+
+**Say this.**
+> "Once each service has its own database there is no distributed transaction to fall back
+> on, so a business operation spanning services becomes a sequence of local transactions,
+> each publishing an event that triggers the next. If a step fails, you cannot roll the
+> earlier ones back, so you run **compensating transactions** that undo them as new
+> business actions.
+>
+> The two styles are choreography, where services react to each other's events, and
+> orchestration, where a coordinator drives the sequence. Choreography is simpler to start
+> but the overall flow is not written down anywhere, so I would prefer orchestration for
+> anything with more than about three steps or anything auditable.
+>
+> The thing to be explicit about with the business is that this is eventual consistency —
+> there is a window where the system is partly updated. That is a business decision, not a
+> technical one, and in finance it needs to be an informed one."
+
 ## Q5. Observability — the question people forget
 > "Once a request crosses five services, a stack trace is not enough. You need three
 > things. **Centralised logging**, so all logs land in one place — ELK or Splunk.

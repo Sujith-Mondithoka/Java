@@ -155,7 +155,7 @@ def build_html(page_map=None) -> str:
   <h1>Java Backend Developer<br>Infosys</h1>
   <div class="rule"></div>
   <div class="sub">Core Java &middot; Spring Boot &middot; Microservices &middot; Kafka &middot; SQL &middot; HR<br>
-  Prepared for Neelima Jana &middot; Interview: 5 September</div>
+  Prepared for Neelima Jana &middot; Interview: 5 September, 4:00 PM</div>
   <div class="legend">
     <p><b>How to use this guide.</b> Work the sections in order. The plan on the next
     page is timed &mdash; if you fall behind, drop from the bottom, never from the top.</p>

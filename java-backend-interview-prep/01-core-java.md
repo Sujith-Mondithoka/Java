@@ -35,6 +35,15 @@ public class Account {
 negative number and no validation would run. Encapsulation means the object protects
 its own rules. In a banking system that is not a style preference.
 
+
+**Say this.**
+> "Encapsulation means the object owns its data and its rules. The fields are private and
+> the only way in is through methods that validate. In the card system, a credit limit
+> could not just be assigned — it had to go through a method that checked the approval
+> status and the band the customer qualified for. If that field were public, any code
+> anywhere could set it and skip every check, and you would never find out where it
+> happened."
+
 ## Q2. Inheritance
 One class reuses another's behaviour with `extends`. A `SavingsAccount extends
 Account` gets `deposit()` for free and adds interest calculation.
@@ -81,6 +90,16 @@ sending code does not change at all — that is polymorphism doing real work.
 **Trap:** *"Can you override a static method?"* → No. Static methods belong to the
 class, not the instance, so they are **hidden**, not overridden. Which one runs is
 decided by the reference type, not the object.
+
+
+**Say this.**
+> "Overloading is compile time — same method name, different parameters, and the compiler
+> picks. Overriding is runtime — a subclass replaces the parent's behaviour, and which one
+> runs depends on the actual object, not the reference type.
+>
+> Overriding is what makes dependency injection work. My service holds a `Notifier`
+> reference, and at runtime it is an email or SMS implementation. The service never
+> changes when a new channel is added."
 
 ## Q4. Abstraction
 Hiding *how* something works and exposing *what* it does.
@@ -130,6 +149,18 @@ Map (separate, NOT a Collection) — key/value  → HashMap, LinkedHashMap, Tree
 
 ⚠️ `Map` does **not** extend `Collection`. It stores pairs, not single elements. A
 small detail interviewers like to check.
+
+
+**Say this — how you choose a collection.**
+> "I pick by the access pattern. If I need order and index access, `List`, and `ArrayList`
+> unless I have a reason. If I need uniqueness, `Set`. If I need lookup by a key, `Map`.
+> Then the second question is whether ordering matters — `LinkedHashSet` or `TreeSet`
+> instead of `HashSet` — and whether it is accessed by multiple threads, which means
+> `ConcurrentHashMap` rather than `HashMap`."
+
+**Real-time example.** In the recall batch: a `List` for the page of transactions being
+processed, a `Set` of already-processed reference numbers so a retry does not double
+process, and a `Map` of status code to description loaded once for the report.
 
 ## Q6. ArrayList vs LinkedList 🔴
 
@@ -236,6 +267,14 @@ interest rate slabs that must be walked from lowest to highest to find the appli
 band. `LinkedHashSet` when I need uniqueness but the output must stay in the order the
 records arrived, which matters for a report a human reads.
 
+
+**Say this.**
+> "All three guarantee uniqueness; the difference is ordering and cost. `HashSet` is O(1)
+> with no order guarantee. `LinkedHashSet` is also O(1) but keeps insertion order, which
+> matters when a human reads the output. `TreeSet` keeps them sorted, which costs O(log n)
+> because it is a red-black tree. I use `HashSet` by default and only pay for ordering
+> when I actually need it."
+
 ## Q10. Fail-fast vs fail-safe iterators
 > "Fail-fast iterators, like ArrayList's and HashMap's, throw
 > `ConcurrentModificationException` if the collection is structurally modified while
@@ -292,6 +331,15 @@ reference could change an account number *after* it had been validated and after
 been used to place an entry in a map — the entry would then be unreachable. Immutability
 is what makes them safe to share.
 
+
+**Say this.**
+> "Because too much depends on a String not changing under you. The string pool reuses
+> identical literals, which is only safe if nobody can modify one. Strings are used for
+> account numbers, file paths and connection URLs, so if they were mutable a value could
+> be validated and then changed before it was used. And String caches its own hash code,
+> which is what makes it a fast HashMap key — that cache is only valid because the value
+> is fixed."
+
 ## Q13. String vs StringBuilder vs StringBuffer
 | | Mutable? | Thread safe | Use when |
 |---|---|---|---|
@@ -318,6 +366,15 @@ a.equals(c)   // true  - same characters
 ```
 This is a favourite quick question. Learn the three lines.
 
+
+**Say this.**
+> "`==` compares references — is this the same object in memory. `.equals()` compares
+> values, as the class defines them. For Strings this catches people out because literals
+> are pooled, so two identical literals are the same object and `==` happens to be true.
+> But `new String("abc")` forces a separate object and `==` is false, while `.equals()` is
+> still true. So I never use `==` for value comparison — it works by accident until it
+> does not."
+
 ## Q15. Stack vs Heap
 - **Stack** — one per thread. Holds method calls, local variables and references. Freed
   automatically when the method returns.
@@ -325,6 +382,15 @@ This is a favourite quick question. Learn the three lines.
 
 `StackOverflowError` means runaway recursion. `OutOfMemoryError` means the heap is
 full, usually a leak or an unbounded collection.
+
+
+**Say this.**
+> "The stack is per thread and holds method frames, local variables and references. It is
+> cleaned up automatically when a method returns. The heap is shared across threads and
+> holds all the objects, and the garbage collector manages it. A `StackOverflowError`
+> means runaway recursion; an `OutOfMemoryError` means the heap filled up, which in my
+> experience usually means something unbounded — loading an entire table into a list
+> instead of paginating it."
 
 ---
 
@@ -374,12 +440,29 @@ Anything implementing `AutoCloseable` works. This replaced the old
 (`System.exit()`) or the thread is killed. And if `finally` contains a `return`, it
 overrides the one in `try` — which is why you never return from `finally`.
 
+
+**Say this.**
+> "Try-with-resources closes anything that implements `AutoCloseable` automatically, even
+> if an exception is thrown, so I do not need a `finally` block that null-checks and
+> closes. It replaced a pattern that people got wrong constantly — forgetting to close in
+> one branch, or throwing a second exception inside `finally` that hid the original one.
+> With JPA and Spring I rarely manage connections myself, but for file and stream handling
+> it is what I use."
+
 ## Q18. `throw` vs `throws` vs `final` vs `finally` vs `finalize`
 - `throw` — actually raise an exception now.
 - `throws` — declare that this method may raise one.
 - `final` — a constant, a non-overridable method, or a non-extendable class.
 - `finally` — the block that runs whatever happens.
 - `finalize()` — a deprecated, unreliable method the GC used to call. Never use it.
+
+
+**Say this.**
+> "`throw` raises an exception now, `throws` declares that a method might. `final` means a
+> constant, a method that cannot be overridden or a class that cannot be extended.
+> `finally` is the block that runs whatever happens. And `finalize()` is a deprecated
+> method the garbage collector used to call — it is unreliable and should not be used;
+> try-with-resources or an explicit close is the correct approach."
 
 ---
 
