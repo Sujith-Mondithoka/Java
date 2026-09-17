@@ -1,5 +1,6 @@
 # Lloyds — Software Engineer (Java · Spring Boot · Microservices)
-### Interview prep for Vallu Ravikoti Narendra
+### Grade C Software Engineer · Banking domain
+### Interview: **today, 17 September, 2:00 PM IST** — Microsoft Teams
 
 ---
 
@@ -43,6 +44,35 @@ certainly the entity.
   verification and payments across multiple vendors. That is financial services, with KYC
   and money movement. **Say that early** — domain familiarity is worth a lot to a bank.
 
+### 🔴 Two details that change how you should pitch yourself
+
+**1. It is a Grade C Software Engineer role.** Lloyds uses internal grades, and Grade C is an
+**early-career engineering grade** — roughly the band for someone with a couple of years, not
+a lead or architect. *(I cannot confirm the exact internal mapping, but the level is
+consistent with your 1 year 8 months.)*
+
+**This is good news, and it should change your posture.** They are not expecting
+architectural ownership or production Kafka. They are expecting solid fundamentals, clear
+thinking, honesty about your level, and evidence that you write careful code. **That is
+exactly the profile you have.** Stop worrying about the gaps and go and be precise about
+what you have done.
+
+**2. It is explicitly the banking domain.** Your Tradu work is financial services —
+onboarding, identity verification, payments across multiple vendors. That is KYC and money
+movement, which is the same shape of problem a retail bank has.
+
+**Say it in your opening, and use banking language when you describe it:**
+> "The platform handled user onboarding and identity verification — effectively KYC — and
+> processed transactions through several payment vendors. So a lot of what I worked on was
+> money movement and the checks around it, which I imagine maps fairly closely to what you
+> do."
+
+**What the banking domain means for your answers all day:** whenever you describe a design or
+a fix, add the sentence most candidates never say — **"and here is how we would know
+afterwards what happened."** Audit trails, traceable logging, idempotency so a payment is
+never taken twice, authorisation enforced server side, never logging sensitive data. That
+instinct is the single clearest signal to a bank that you understand their world.
+
 > ⚠️ **Verify the format with your recruiter.** What follows is my prediction based on how
 > this kind of role is usually run, not something I can confirm for your specific process.
 > It is a completely normal thing to ask: *"Could you tell me what the rounds look like and
@@ -84,54 +114,50 @@ can look better than your years.
 
 ---
 
-## 3. The plan
+## 3. The plan — you have hours, not days
 
-I do not know your interview date. Below is a **two-day plan**; if you have only one day,
-use the compressed version underneath.
+**Interview is at 2:00 PM IST today on Teams.** Work the list below in order and stop when
+you run out of time. It is ordered so that if you only get through the first three items you
+have still covered the things most likely to decide the outcome.
 
-### Day 1 — fundamentals
+### Do these in order
 
-| Block | Topic | File |
-|---|---|---|
-| 0:00 – 0:15 | Read this file | `README.md` |
-| 0:15 – 2:00 | **Core Java and Collections** 🔴🔴 — HashMap above all | `01-core-java.md` |
-| 2:00 – 3:00 | **Java 8 — streams, lambdas, Optional** 🔴 | `02-java8-functional.md` |
-| 3:00 – 3:15 | Break | — |
-| 3:15 – 4:45 | **Spring Boot** 🔴🔴 | `03-spring-boot.md` |
-| 4:45 – 6:00 | **JPA, Hibernate and N+1** 🔴🔴 | `04-jpa-hibernate.md` |
-| Evening | **Your experience** — fill in the templates, say them out loud | `11-your-experience.md` |
+| # | What | Minutes | File |
+|---|---|---|---|
+| **1** | **Your experience + the four honesty answers** — say them **out loud** | 40 | `11-your-experience.md` |
+| **2** | **Microservices Q7** — the depth answer. Read it twice. | 15 | `05-microservices.md` |
+| **3** | **Core Java and Collections** — HashMap, then the rest | 50 | `01-core-java.md` |
+| **4** | **Spring Boot** — DI, annotations, bean scope, exception handling | 40 | `03-spring-boot.md` |
+| **5** | **Testing and code review** — your strongest ground | 30 | `13-engineering-practice.md` |
+| **6** | **JPA, N+1, `@Transactional`** | 30 | `04-jpa-hibernate.md` |
+| **7** | **Behavioural** — the 7 questions, out loud | 25 | `12-behavioural-and-values.md` |
+| **8** | **SQL and indexing** | 20 | `08-sql-and-databases.md` |
+| **9** | Skim only: REST/security, then Java 8 | 20 | `07`, `02` |
 
-### Day 2 — the rest, and the parts about you
+**If you have very little time, do 1, 2 and 3 and nothing else.** Items 1 and 2 are the ones
+where an unprepared answer actively costs you; item 3 is the one most likely to be asked.
 
-| Block | Topic | File |
-|---|---|---|
-| 0:00 – 1:15 | **Microservices** 🔴🔴 — especially Q7, the honest answer | `05-microservices.md` |
-| 1:15 – 2:00 | **REST, Spring Security and JWT** 🔴 | `07-spring-security-jwt.md` |
-| 2:00 – 2:45 | **SQL and indexing** 🔴 | `08-sql-and-databases.md` |
-| 2:45 – 3:00 | Break | — |
-| 3:00 – 4:00 | **Testing, code review and engineering practice** 🔴🔴 | `13-engineering-practice.md` |
-| 4:00 – 5:00 | **Coding round** — type the problems, do not read them | `09-coding-round.md` |
-| 5:00 – 5:45 | **Behavioural and values** 🔴 — say these out loud | `12-behavioural-and-values.md` |
-| 5:45 – 6:15 | Skim: messaging, then system design | `06`, `10` |
+### The last hour before 2 PM
 
-### Interview day
-
-| Time | What |
+| When | What |
 |---|---|
-| 45 min | **Cheat sheet only.** Nothing new. | `14-final-cheatsheet.md` |
-| 30 min | Say out loud, twice: your intro, the microservices-depth answer, two project stories |
-| 20 min | Re-read the questions you will ask them |
-| 20 min | Laptop, charger, network, ID, printed resume, water |
+| **T-60** | **Cheat sheet only.** Nothing new. | `14-final-cheatsheet.md` |
+| **T-35** | Say out loud, twice: your intro, the microservices-depth answer, the "why did the role end" answer |
+| **T-20** | **Test the Teams link now, not at 1:58.** Camera, microphone, audio. Sign in early. |
+| **T-15** | Resume open on screen, notepad and pen, water, phone silent, quiet room, plain background |
+| **T-5** | Close every other tab. Sit up. Breathe out slowly. |
+| **2:00** | Join. Smile before you speak. |
 
-**Learn nothing new on the day.** It only displaces what has settled and raises your anxiety.
+### Teams specifics
+- **Join five minutes early.** If the link fails you want to be emailing the recruiter at
+  1:56, not 2:01.
+- Have the **meeting ID and passcode** to hand as a fallback in case the link misbehaves.
+- Have a **phone hotspot ready** in case your connection drops — and if it does, rejoin and
+  carry on; it happens and nobody holds it against you.
+- If they ask you to share your screen for coding, **close anything you would not want seen**
+  beforehand.
 
-### If you only have one day
-
-Do, in this order, and stop when you run out: **01 Core Java → 03 Spring Boot → 11 your
-experience → 05 microservices (Q7 especially) → 13 engineering practice → 04 JPA → 14 cheat
-sheet.** Skip 02, 06, 08, 09 and 10 entirely if you must.
-
-**Never skip:** Core Java, Spring Boot, file 11, and file 05 Q7.
+**Learn nothing new after T-60.** It only displaces what has settled and raises your anxiety.
 
 ---
 

@@ -1,6 +1,39 @@
-# 14 · Final Cheat Sheet — INTERVIEW DAY ONLY 🔴
+# 14 · Final Cheat Sheet — THE LAST HOUR 🔴
+### Lloyds · Grade C Software Engineer · Banking · today, 2:00 PM IST, Teams
 **45 minutes. Nothing else. No new material.**
 If a line here does not ring a bell, open that file for three minutes and come back.
+
+---
+
+
+## Banking domain — the instinct to show all day 🔴
+
+**Tradu was financial services.** Onboarding and identity verification is effectively **KYC**;
+transactions across multiple payment vendors is **money movement**. Say it in those words —
+it is the same shape of problem Lloyds has.
+
+**Add this sentence to any design or fix you describe:** *"and here is how we would know
+afterwards what happened."* Then pick from:
+
+- **Audit trail** — append-only, who did what and when. `REQUIRES_NEW` so it survives a
+  rollback.
+- **Idempotency** — a double-click or a retry must never debit someone twice. The single most
+  important rule on a payments platform.
+- **Authorisation server side** — a UI check only hides the button.
+- **Never log sensitive data** — card numbers, credentials, personal details. Compliance, not
+  style.
+- **Traceable logging** — an id you can follow one transaction by, so you can diagnose
+  production without a debugger.
+
+That instinct, offered unprompted, is the clearest signal to a bank that you understand their
+world. Most candidates at your level never mention any of it.
+
+## Grade C — what it means for your posture
+
+Early-career engineering grade. **They are not expecting architecture ownership or production
+Kafka.** They expect solid fundamentals, clear reasoning, honesty about your level, and
+evidence you write careful code. That is your actual profile — so be precise about what you
+have done rather than anxious about what you have not.
 
 ---
 
