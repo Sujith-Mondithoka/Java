@@ -1,0 +1,378 @@
+# 03 · Spring Boot 🔴🔴
+**Time needed: 90 minutes**
+
+"Java → Spring Boot" is listed as the **primary skill** on the job description. Along
+with Core Java, this is where most of your technical round will be spent.
+
+---
+
+## First, the context: what problem does Spring solve?
+
+### The problem: tight coupling
+Without Spring, an object creates the things it depends on:
+
+```java
+public class TransactionService {
+    private final EmailNotifier notifier = new EmailNotifier();   // hard-wired
+}
+```
+
+Two problems. To switch to SMS you must edit this class. And in a unit test you cannot
+replace the notifier with a fake, so your test sends real emails.
+
+### The solution: Inversion of Control
+The object stops creating its dependencies and **receives** them instead:
+
+```java
+@Service
+public class TransactionService {
+    private final Notifier notifier;                    // an interface
+
+    public TransactionService(Notifier notifier) {      // handed in from outside
+        this.notifier = notifier;
+    }
+}
+```
+
+Now the class depends on an interface, not a concrete class. Something else decides
+which implementation to supply. That "something else" is the Spring container.
+
+**Inversion of Control (IoC)** is the principle: control of creating objects is
+inverted, moving from your class to the framework.
+**Dependency Injection (DI)** is how Spring implements it: it constructs objects and
+passes their dependencies in.
+
+**Say it in one line:**
+> "IoC is the principle that the framework, not my class, controls object creation and
+> wiring. Dependency injection is the mechanism. The practical benefit is that my
+> classes depend on interfaces, so I can swap implementations and inject mocks in
+> tests without changing the class."
+
+**Real-time example.** The card approval service depends on a `NotificationSender`
+interface. In production Spring injects the RabbitMQ implementation. In unit tests I pass
+a mock and assert that approval publishes exactly one message — no broker, no emails, and
+the test runs in milliseconds. That is only possible because the service never says `new`.
+
+### And Spring Boot on top of Spring
+Plain Spring needed a lot of XML and manual configuration. Spring Boot adds:
+- **Auto-configuration** — sees a database driver on the classpath and configures a
+  DataSource for you.
+- **Starter dependencies** — `spring-boot-starter-web` pulls in a compatible set of
+  libraries so you are not resolving versions by hand.
+- **Embedded server** — Tomcat is inside the JAR, so `java -jar app.jar` runs it. No
+  separate application server to install.
+- **Production features** — Actuator gives health checks and metrics endpoints.
+
+> "Spring Boot is Spring with opinionated defaults. It removes the configuration work
+> so you start with a running application and override only what you need."
+
+---
+
+## Q1. 🔴 The three types of injection, and which to use
+
+```java
+// 1. CONSTRUCTOR injection - what you should use
+@Service
+public class TxnService {
+    private final TxnRepository repo;
+    public TxnService(TxnRepository repo) { this.repo = repo; }
+}
+
+// 2. FIELD injection - convenient, but avoid
+@Autowired private TxnRepository repo;
+
+// 3. SETTER injection - for genuinely optional dependencies
+@Autowired public void setRepo(TxnRepository repo) { this.repo = repo; }
+```
+
+**Why constructor injection — four reasons, give two or three:**
+1. The field can be `final`, so the object is **immutable** once built.
+2. Dependencies **cannot be missing** — the object cannot be constructed without them.
+3. **Testable without Spring** — `new TxnService(mockRepo)` just works. With field
+   injection you need reflection or a Spring context.
+4. It makes bad design **visible** — a constructor with eight parameters is obviously
+   doing too much. Field injection hides that.
+
+Since Spring 4.3, if a class has one constructor you do not even need `@Autowired`.
+
+
+**Say this.**
+> "I use constructor injection. Three reasons. The fields can be `final`, so the object is
+> immutable once it is built. The dependencies cannot be missing, because you cannot
+> construct the object without them — with field injection you find out at runtime with a
+> null pointer. And it is testable without Spring at all: `new TxnService(mockRepo)` just
+> works, whereas field injection needs reflection or a full context.
+>
+> There is a fourth benefit — it makes bad design visible. A constructor with eight
+> parameters obviously does too much. Field injection hides that."
+
+## Q2. 🔴 The annotations you must know
+
+| Annotation | What it does |
+|---|---|
+| `@SpringBootApplication` | The main class. Combines the next three. |
+| `@Configuration` | This class defines beans |
+| `@EnableAutoConfiguration` | Turn on Boot's auto-config |
+| `@ComponentScan` | Scan this package and below for components |
+| `@Component` | A generic Spring-managed bean |
+| `@Service` | A `@Component` marking business logic |
+| `@Repository` | A `@Component` for data access — **also translates DB exceptions** into Spring's `DataAccessException` hierarchy |
+| `@Controller` | Returns view names |
+| `@RestController` | `@Controller` + `@ResponseBody` — returns JSON |
+| `@Autowired` | Inject a dependency |
+| `@Qualifier("name")` | Choose between multiple beans of the same type |
+| `@Primary` | Make one bean the default when several match |
+| `@Value("${prop}")` | Inject a property from configuration |
+| `@Bean` | Declare a bean from a method, usually for third-party classes |
+| `@Transactional` | Wrap the method in a database transaction |
+| `@ControllerAdvice` | Global exception handling across controllers |
+
+**Trap:** *"`@Component` vs `@Service` vs `@Repository` — is there a functional
+difference?"*
+> "Technically `@Service` and `@Component` behave identically; the difference is
+> intent, so the layer is obvious to a reader and to tooling. `@Repository` is the
+> exception — it does real work, translating vendor-specific database exceptions into
+> Spring's `DataAccessException` hierarchy, so my service layer is not coupled to a
+> particular database's error codes."
+
+## Q3. REST annotations
+```java
+@RestController
+@RequestMapping("/api/transactions")
+public class TxnController {
+
+    @GetMapping("/{id}")
+    public TxnDto get(@PathVariable Long id) { ... }
+
+    @GetMapping
+    public List<TxnDto> search(@RequestParam(defaultValue = "0") int page) { ... }
+
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    public TxnDto create(@Valid @RequestBody CreateTxnRequest req) { ... }
+
+    @PutMapping("/{id}")
+    public TxnDto replace(@PathVariable Long id, @RequestBody TxnDto dto) { ... }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> delete(@PathVariable Long id) { ... }
+}
+```
+`@PathVariable` reads from the URL path. `@RequestParam` reads a query parameter.
+`@RequestBody` deserialises the JSON body. `@Valid` triggers Bean Validation.
+
+
+**Say this.**
+> "`@RestController` is `@Controller` plus `@ResponseBody`, so the return value is
+> serialised to JSON rather than resolved as a view name. `@RequestMapping` at class level
+> sets the base path. Then `@PathVariable` reads a value out of the URL path,
+> `@RequestParam` reads a query parameter, and `@RequestBody` deserialises the JSON body
+> into an object. I put `@Valid` on the request body so Bean Validation runs before the
+> method is entered, which means invalid input never reaches my business logic."
+
+## Q4. 🔴 Bean scopes
+
+| Scope | Meaning |
+|---|---|
+| **singleton** | **The default.** One instance for the whole application context. |
+| prototype | A new instance every time it is requested. |
+| request | One per HTTP request (web only). |
+| session | One per HTTP session (web only). |
+
+🔴 **The follow-up:** *"Singleton beans are shared across all requests. Is that a
+problem?"*
+> "Only if the bean holds mutable state. Spring beans should be stateless — request
+> data belongs in method parameters and local variables, not in instance fields. A
+> singleton service with a mutable instance field is a genuine concurrency bug,
+> because many threads share that one object."
+
+**Real-time example — a real bug this causes.** If a service stores the current request's
+user in an instance field to avoid passing it around, two concurrent approvals will
+overwrite each other's value, and an action gets attributed to the wrong user. On a
+regulated financial platform that is an audit failure, not just a bug. Request-scoped data
+belongs in method parameters, or in the `SecurityContext`, never in a field on a
+singleton.
+
+That answer shows you understand *why* the default is safe, which is what they are
+checking.
+
+## Q5. 🔴 Global exception handling
+Nearly always asked, because it separates people who have shipped an API from people
+who have followed a tutorial.
+
+```java
+@RestControllerAdvice
+public class GlobalExceptionHandler {
+
+    @ExceptionHandler(TransactionNotFoundException.class)
+    public ResponseEntity<ErrorResponse> handleNotFound(TransactionNotFoundException ex) {
+        return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                .body(new ErrorResponse("TXN_NOT_FOUND", ex.getMessage()));
+    }
+
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public ResponseEntity<ErrorResponse> handleValidation(MethodArgumentNotValidException ex) {
+        String msg = ex.getBindingResult().getFieldErrors().stream()
+                .map(e -> e.getField() + ": " + e.getDefaultMessage())
+                .collect(Collectors.joining(", "));
+        return ResponseEntity.badRequest().body(new ErrorResponse("VALIDATION_ERROR", msg));
+    }
+
+    @ExceptionHandler(Exception.class)
+    public ResponseEntity<ErrorResponse> handleAll(Exception ex) {
+        log.error("Unexpected error", ex);      // log the detail...
+        return ResponseEntity.status(500)
+                .body(new ErrorResponse("INTERNAL_ERROR", "Something went wrong"));
+                                                 // ...but do not leak it to the client
+    }
+}
+```
+
+**Say why it matters:**
+> "It keeps error handling out of every controller, so the API returns one consistent
+> error shape. The last handler matters for security: I log the stack trace but return
+> a generic message, because a raw stack trace tells an attacker about your framework
+> versions and internal structure. On a banking system that is a real concern."
+
+**Real-time example.** Before this was centralised, each controller had its own
+try/catch and every endpoint returned a slightly different error body — some with a
+`message`, some with an `error`, some just a stack trace. The UI team had to special-case
+each one. One `@RestControllerAdvice` gave every endpoint the same
+`{ code, message, timestamp }` shape, and their error handling became a single function.
+
+## Q6. Bean Validation
+```java
+public class CreateTxnRequest {
+    @NotBlank(message = "Account number is required")
+    private String accountNumber;
+
+    @NotNull @DecimalMin(value = "0.01", message = "Amount must be positive")
+    private BigDecimal amount;
+
+    @Email private String notifyEmail;
+}
+```
+`@Valid` on the `@RequestBody` triggers it, and a failure raises
+`MethodArgumentNotValidException`, handled above.
+
+⚠️ Note `BigDecimal` for money, never `double`. Floating point cannot represent decimal
+fractions exactly, so `0.1 + 0.2` is not `0.3`. In a banking interview, using
+`BigDecimal` for currency is a detail that gets noticed.
+
+
+**Say this.**
+> "Bean Validation with `@Valid` moves input checking to the edge of the application, so
+> the controller rejects bad requests before any business code runs. The rules live on the
+> DTO next to the field, which is easier to keep correct than validation scattered through
+> a service.
+>
+> The important caveat is that this is not a security control. It runs on my server, so it
+> is trustworthy, but it is only one layer — for something like a transfer amount I would
+> still check business rules in the service, because a validation annotation cannot know
+> the account balance."
+
+**Real-time example.** On the card request form the DTO carried `@NotBlank` on the
+employee ID and `@DecimalMin` on the limit. Those failures come back as a 400 with a
+field-level message, handled by the same `@RestControllerAdvice` as everything else, so
+the UI could show the error against the right field.
+
+## Q7. Configuration and profiles
+```yaml
+
+**Say this.**
+> "Profiles let one build behave differently per environment, so the artefact that passed
+> SIT is the exact artefact that goes to UAT and production — only the profile changes.
+> Anything environment-specific, especially credentials, comes from environment variables
+> rather than being committed. And I use `@ConfigurationProperties` rather than scattering
+> `@Value` annotations, because it groups related settings into one typed object that
+> fails at startup if something is missing, instead of failing later at runtime."
+
+# application.yml
+spring:
+  datasource:
+    url: ${DB_URL}
+    username: ${DB_USER}
+    password: ${DB_PASSWORD}     # from environment, never committed
+---
+spring:
+  config.activate.on-profile: dev
+  jpa.show-sql: true
+```
+Run with `-Dspring.profiles.active=dev`. Profiles let one build behave differently per
+environment without rebuilding.
+
+**Real-time example — this is your SIT and UAT workflow.** The same artefact is promoted
+through dev, SIT, UAT and production. Only the profile changes: different database URLs,
+different queue names, SQL logging on in dev and off in production. That is what makes it
+the *same build* being tested and released, rather than a rebuild per environment — which
+is the whole point of promoting a tested artefact.
+
+```java
+@ConfigurationProperties(prefix = "app.payments")   // type-safe, grouped config
+public class PaymentProperties { private int timeoutMs; private String vendorBaseUrl; }
+```
+
+## Q8. Spring Boot Actuator
+Adds production endpoints: `/actuator/health` (used by load balancers and Kubernetes
+to decide if the instance is alive), `/actuator/metrics`, `/actuator/info`.
+Say that you would **secure these**, because they expose internals.
+
+
+**Say this.**
+> "Actuator exposes operational endpoints — health, metrics and info. The health endpoint
+> is the practical one: a load balancer or container orchestrator calls it to decide
+> whether the instance should receive traffic, and it can include the database and message
+> broker status, so an instance that has lost its database is taken out of rotation
+> automatically.
+>
+> I would secure these endpoints, because they expose internals. On a banking system I
+> would not have them open."
+
+## Q9. How does auto-configuration actually work?
+A step above the basics, and a good one to know:
+> "Spring Boot ships configuration classes annotated with conditions such as
+> `@ConditionalOnClass` and `@ConditionalOnMissingBean`. At startup it evaluates those
+> conditions against what is on the classpath and what you have already defined. So if
+> H2 is on the classpath and I have not declared a DataSource, it creates one — but the
+> moment I define my own bean, `@ConditionalOnMissingBean` backs off and mine wins.
+> That is why defaults never fight your own configuration."
+
+## Q10. Testing a Spring Boot application
+```java
+@WebMvcTest(TxnController.class)          // controller layer only, fast
+class TxnControllerTest {
+    @Autowired MockMvc mockMvc;
+    @MockBean TxnService service;          // replaces the real bean
+
+    @Test void returns404WhenMissing() throws Exception {
+        when(service.findById(1L)).thenThrow(new TransactionNotFoundException(1L));
+        mockMvc.perform(get("/api/transactions/1")).andExpect(status().isNotFound());
+    }
+}
+```
+- `@SpringBootTest` loads the whole context — integration tests, slower.
+- `@WebMvcTest` / `@DataJpaTest` load one slice — much faster.
+- `@MockBean` swaps a bean for a Mockito mock.
+
+Your resume mentions unit tests for state-transition validation, so be ready to say
+what you actually tested and why.
+
+
+**Say this.**
+> "I write mostly slice tests rather than loading the whole context, because they are much
+> faster and a fast suite is one people actually run. `@WebMvcTest` for the controller
+> layer with the service mocked, `@DataJpaTest` for repository queries against an in-memory
+> database, and plain JUnit with Mockito for service logic, which needs no Spring at all.
+> `@SpringBootTest` I keep for a small number of genuine end-to-end paths.
+>
+> What I test first is the state transitions — that a rejected request cannot be approved,
+> that an already-approved one cannot be approved twice. Those are the rules that cost
+> money if they break."
+
+---
+
+## ✅ Check yourself before moving on
+1. Explain IoC and DI, and why constructor injection is preferred — three reasons.
+2. Explain what a singleton bean means for thread safety.
+3. Write a `@RestControllerAdvice` handler from memory.
+4. Explain how auto-configuration decides what to configure.
