@@ -256,15 +256,65 @@ If asked "what have you used beyond Java 8":
   for DTOs.
 
 
-**Say this — and be honest about what you have used.**
-> "My day-to-day is Java 8, which is still what most banking codebases run. I have kept up
-> with the LTS releases: Java 11 added `var` and some String utilities, and Java 17 added
-> records, sealed classes and switch expressions. Records are the one I would most want to
-> use — a DTO becomes a single line instead of forty lines of constructor, getters,
-> `equals` and `hashCode`."
+⚠️ **The JD says "Java 8/11/17+", and your resume says Java 8.** So expect this question.
+Being able to name what changed in each LTS is enough — nobody expects production experience
+with all three.
 
-Do not claim production experience with a version you have not used. Knowing what changed
-and why is enough at this level.
+**Java 11 (LTS)**
+```java
+var list = new ArrayList<String>();          // local variable type inference
+"  hi  ".strip();                            // Unicode-aware trim()
+"".isBlank();                                // blank vs isEmpty()
+"a\nb".lines();                              // stream of lines
+String.join(", ", list);
+list.toArray(String[]::new);
+Files.readString(path);                      // read a whole file in one call
+```
+
+**Java 17 (LTS)**
+```java
+// record - an immutable data carrier. Constructor, getters, equals,
+// hashCode and toString are all generated.
+record CardApplicationDto(Long id, String reference, BigDecimal limit) { }
+
+// text block
+String query = """
+    SELECT id, status FROM card_application
+    WHERE status = ?
+    """;
+
+// switch expression - returns a value, no fall-through, must be exhaustive
+String label = switch (status) {
+    case PENDING, IN_REVIEW -> "Awaiting action";
+    case APPROVED           -> "Approved";
+    case REJECTED           -> "Rejected";
+};
+
+// pattern matching for instanceof
+if (obj instanceof CardApplication app && app.isPending()) {
+    app.approve();                            // no cast needed
+}
+
+// sealed - restricts who may extend, so a switch over them can be exhaustive
+sealed interface Event permits Approved, Rejected { }
+```
+
+**Say this — honestly.**
+> "My production work has been Java 8, which is what the platform ran on. I have kept up with
+> the LTS releases: Java 11 added `var`, the String utilities and `Files.readString`, and
+> Java 17 added records, text blocks, switch expressions, pattern matching for `instanceof`
+> and sealed classes.
+>
+> Records are the one I would most want in day-to-day work — a DTO goes from forty lines of
+> constructor, getters, `equals` and `hashCode` to a single line, and it is immutable by
+> default. On the platform we used Lombok to solve the same problem, and a record is the
+> language doing it natively."
+
+**That Lombok connection is a strong detail** — it is on your resume, and it shows you
+understand *what problem* records solve rather than just naming the feature.
+
+Do not claim production experience with a version you have not used. Knowing what changed and
+why is enough at this level.
 
 ---
 

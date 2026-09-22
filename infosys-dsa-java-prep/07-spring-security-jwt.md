@@ -1,8 +1,12 @@
-# 07 · Spring Security and JWT 🟠
+# 07 · Spring Security and JWT 🔴
 **Time needed: 45 minutes**
 
-Your resume lists Spring Security with role-based access control, and JWT in your
-microservices project. Expect a few questions, especially in a banking context.
+**The job description names Spring Security explicitly**, alongside Spring MVC and Spring
+Data JPA, so this is not optional. It also asks for *"secure, high-performance, scalable
+applications"* — security is in the responsibilities twice.
+
+Your resume has role-based access control on the card approval flow, which is a real example
+to anchor to. Expect questions, and expect them to go past the annotations.
 
 ---
 

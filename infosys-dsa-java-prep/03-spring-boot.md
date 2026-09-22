@@ -170,6 +170,50 @@ public class TxnController {
 > into an object. I put `@Valid` on the request body so Bean Validation runs before the
 > method is entered, which means invalid input never reaches my business logic."
 
+## Q3b. 🔴 Spring MVC and the DispatcherServlet — the JD names this
+
+**What happens when a request arrives**, which is the question behind "do you know Spring
+MVC":
+
+```
+HTTP request
+   → Servlet container (embedded Tomcat)
+   → DispatcherServlet          the "front controller" - every request goes through it
+   → HandlerMapping             which controller method handles this URL?
+   → HandlerAdapter             invokes it, binding path variables, params, body
+   → your @RestController method
+   → HttpMessageConverter       return value -> JSON (Jackson)
+   → HTTP response
+```
+
+**Say this.**
+> "Spring MVC uses the front controller pattern. A single `DispatcherServlet` receives every
+> request and delegates: handler mapping works out which controller method matches the URL
+> and verb, a handler adapter invokes it and binds the arguments, and on the way back a
+> message converter serialises the return value. With `@RestController` that converter is
+> Jackson producing JSON, which is why I do not write serialisation code myself.
+>
+> The practical value of knowing this is debugging. If a request 404s, that is handler
+> mapping. If the JSON comes back wrong or a field is missing, that is the message converter
+> and Jackson annotations. If binding fails, that is the handler adapter. Knowing the stages
+> tells you where to look."
+
+That last paragraph is what turns a memorised diagram into something useful.
+
+**`@Controller` vs `@RestController`:** `@Controller` returns a **view name** resolved by a
+view resolver — the older server-rendered model. `@RestController` is `@Controller` plus
+`@ResponseBody`, so the return value goes through a message converter into the response body.
+For a REST API you want the second.
+
+**Filter vs Interceptor**, a common follow-up:
+> "A filter is a servlet-level concept, so it runs **before** the DispatcherServlet and sees
+> every request including static resources — that is where Spring Security sits. An
+> interceptor is a Spring MVC concept, runs inside the DispatcherServlet, and knows which
+> handler was selected — so it is the right place for things like logging or timing a
+> specific controller."
+
+---
+
 ## Q4. 🔴 Bean scopes
 
 | Scope | Meaning |

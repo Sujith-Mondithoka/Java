@@ -159,7 +159,33 @@ this.
 
 That is credible because it explains the frontend rather than hiding it.
 
-### 3. The AI tools on your resume
+### 3. 🔴 The three things the JD asks for that your resume does not show
+
+Prepare a one-line honest answer for each. None is disqualifying; being caught without an
+answer is what costs you.
+
+**Mockito.** The JD names *"JUnit, Mockito, and unit testing frameworks"*. Your resume lists
+JUnit only.
+> "I have written JUnit unit and integration tests for REST APIs and workflow logic, validated
+> through SIT and UAT. My mocking has been lighter than my JUnit usage, so I would not
+> overstate it — but I understand the model." *(Then demonstrate it — file 15, Q3.)*
+
+**Cloud platforms.** The JD mentions integrating with cloud platforms. You have Docker, not a
+cloud platform.
+> "Docker in the development setup and Bamboo for deployment, but I have not owned cloud
+> infrastructure — exposure rather than depth. I understand the model: containerise the
+> application and take configuration from the environment, so the same artefact is promoted
+> from SIT to UAT to production."
+
+**Java 11 and 17.** The JD says "Java 8/11/17+". You list Java 8.
+> "My production work has been Java 8. I have kept up with the LTS releases — records, text
+> blocks, switch expressions and pattern matching in 17, `var` and the String utilities in
+> 11." *(File 02, Q9. And connect records to Lombok, which you did use.)*
+
+**The pattern in all three:** name the boundary, then show the understanding. That is a
+strong answer at 1–2 years. Bluffing and then being asked a second question is not.
+
+### 4. The AI tools on your resume
 
 You list Claude, GitHub Copilot and "LLM-assisted coding" under skills, plus GenAI
 certifications. At a services company that is more likely to be a **positive** — Infosys is

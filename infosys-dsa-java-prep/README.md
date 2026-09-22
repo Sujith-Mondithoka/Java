@@ -20,43 +20,73 @@ slightly differently you can still answer it.
 
 ---
 
-## 1. What you are preparing for
+## 1. The job description, decoded
 
-**Java and Spring Boot** is the brief, and you have asked to cover **DSA** alongside it.
-That is the right instinct — Infosys almost always includes a coding question, and it is the
-part candidates most often walk into cold.
+Service line: **Engineering Services**. Preferred skills: **Core Java** and **Spring Boot**.
+This is a build role, and the spec is unusually specific — which is good news, because it
+tells you exactly what to revise.
 
-### Set your DSA expectations correctly
+### What it names, and where it is covered
 
-This matters, because over-preparing the wrong thing is the classic way to waste four days.
+| The JD asks for | Your position | File |
+|---|---|---|
+| **Core Java (8/11/17+)** | ⚠️ You list Java 8 — know what 11 and 17 added | `01`, `02` |
+| **Spring Boot** | ✅ Strong — you built two backends | `03` |
+| **Spring MVC** | Know the DispatcherServlet flow | `03`, Q3b |
+| **Spring Data JPA, Hibernate** | ✅ Strong | `04` |
+| **Spring Security** | ✅ You did RBAC on the card flow | `07` |
+| **Microservices architecture** | ⚠️ "Strong understanding" — read Q7, answer honestly | `05` |
+| **RESTful APIs** | ✅ Strong — consumed by a 14-screen React frontend | `03`, `11` |
+| **SQL: Oracle, MySQL, PostgreSQL, SQL Server** | ✅ PostgreSQL and MySQL. The skills transfer; say so | `08` |
+| **Git** | ✅ Git and Bitbucket | `15`, Q8 |
+| **Maven or Gradle** | ✅ Maven. Know the lifecycle | `15`, Q7 |
+| **JUnit, Mockito** | ⚠️ **Your resume says JUnit, not Mockito.** Close this gap | `15`, Part A |
+| **Cloud platforms** (integration) | ⚠️ Docker yes, cloud no. Answer honestly | `12`, `15` Q13 |
+| **Code reviews, coding standards** | ✅ You did these | `14` |
+| **Agile ceremonies** | ✅ Scrum and Jira — have a line on each ceremony | `15`, Part C |
+| **Technical documentation** | ✅ Swagger. And Liquibase for schema | `15`, Q11 |
+| **Production deployment support** | ✅ Bamboo CI/CD, SIT/UAT | `15`, Q12 |
 
-**What Infosys asks:** arrays, strings, HashMap-based counting, two pointers, basic
-recursion, sorting and searching, sometimes a linked list or a stack. Usually **one or two
-problems**, at easy to lower-medium difficulty.
+### The four gaps, and the pattern for all of them
 
-**What they almost never ask:** dynamic programming, graphs, tries. **If you find yourself
-on DP on Friday night, stop.**
+**Mockito · cloud platforms · Java 11/17 · microservices depth.**
 
-**What they are really checking:** can you write compiling Java without an IDE, do you pick
-the right collection and know why, do you handle edge cases, can you state complexity, and
-do you talk while you think. The last two are free marks that most people drop.
+None is disqualifying. The answer pattern is the same every time: **name the boundary, then
+show the understanding.**
 
-### Your position
+> "My mocking has been lighter than my JUnit usage, so I would not overstate it — but I
+> understand the model: mock the collaborators you do not own, stub with `when/thenReturn`,
+> verify interactions." *…then demonstrate it.*
 
-You are strong here, and you should go in knowing it:
+At one to two years that is a strong answer. Claiming depth and then failing the second
+question is not — and the second question always comes.
 
-- **You built real backends** — Spring Boot, Spring Data JPA and PostgreSQL for two
-  applications on a platform used by 10,000+ corporate clients.
-- **You have numbers**: card processing time down **60%**, an audit system writing
-  **50,000+ transactions a day**, 1,000+ monthly reports.
-- **You have unusual depth for your level** — Camunda BPMN, Spring AOP with `@Aspect`,
-  Liquibase, JasperReports, FileNet, Kafka and RabbitMQ. Most candidates at two years have
-  CRUD APIs and nothing else.
+**Mockito is the one to actually fix this week**, not just frame. It is named in the JD, it
+takes an hour to learn properly, and it is the cheapest marks available. File 15, Part A.
 
-**Two things to prepare rather than hope about**, both in file 12:
-1. **You left in February.** That is roughly seven months, and it is the first thing an
-   interviewer will notice. Rehearse this more than any technical answer.
-2. **"Why backend, when your GitHub looks frontend?"** You need a clean answer.
+### Where you are genuinely strong
+
+- **You built the backends**, not just consumed them — Spring Boot, Spring Data JPA and
+  PostgreSQL for two applications on a platform used by 10,000+ corporate clients.
+- **Real numbers**: card processing time down **60%**, an audit system writing **50,000+
+  transactions a day**, 1,000+ monthly reports.
+- **Unusual depth for your level** — Camunda BPMN, Spring AOP with `@Aspect`, Liquibase,
+  JasperReports, FileNet, Kafka and RabbitMQ. Most candidates at two years have CRUD APIs.
+- **The JD's whole responsibilities list is things you have done**: requirements analysis
+  with BAs, code reviews, troubleshooting and optimisation, Agile ceremonies, documentation,
+  supporting releases.
+
+### And DSA, which you asked about
+
+Infosys almost always includes a coding question, and it is what candidates most often walk
+into cold. Set expectations correctly: **arrays, strings, HashMap counting, two pointers,
+basic recursion, sorting and searching**, sometimes a linked list or stack. Easy to
+lower-medium. **They essentially never ask dynamic programming or graphs** — if you are on DP
+on Friday night, stop.
+
+What they check: compiling Java without an IDE, the right collection and why, edge cases,
+**stating complexity**, and **thinking out loud**. The last two are free marks most
+candidates drop. Files 09 and 10, and every solution in them is compile-tested.
 
 ---
 
@@ -96,6 +126,7 @@ location. → Files 13, 14.
 | 1:15 | **JPA, Hibernate, N+1, `@Transactional`** 🔴🔴 | `04-jpa-hibernate.md` |
 | 1:00 | **SQL and indexing** 🔴 | `08-sql-and-databases.md` |
 | 0:45 | **DSA: two pointers + sliding window** 🔴 — type them | `09-dsa-arrays-strings.md` |
+| 0:30 | **Spring MVC — the DispatcherServlet flow** 🔴 | `03-spring-boot.md` Q3b |
 
 ### Thursday — DSA day, and your stories
 
@@ -110,21 +141,23 @@ location. → Files 13, 14.
 
 | Block | Topic | File |
 |---|---|---|
-| 1:00 | **Delivery and code review** 🔴 | `14-delivery-and-code-review.md` |
-| 0:45 | **HR and managerial** 🔴 — say these out loud | `13-hr-and-behavioural.md` |
-| 0:45 | **Spring Security and JWT** 🟠 | `07-spring-security-jwt.md` |
+| 1:15 | **JUnit, Mockito, Maven, Agile** 🔴🔴 — the JD names all of it | `15-testing-build-agile.md` |
+| 0:45 | **Spring Security and JWT** 🔴 — named in the JD | `07-spring-security-jwt.md` |
+| 0:45 | **Delivery and code review** 🔴 | `14-delivery-and-code-review.md` |
+| 0:30 | **HR and managerial** 🔴 — say these out loud | `13-hr-and-behavioural.md` |
 | 0:45 | **Re-do your five weakest DSA problems from memory** 🔴🔴 | `09`, `10` |
 | 0:30 | Skim: messaging, then system design | `06`, `11` |
 | — | **Sleep properly.** Do not cram Friday night. | — |
 
 ### Saturday morning
 
-45 minutes on `15-final-cheatsheet.md` and nothing else. Then say your intro, the gap answer
+45 minutes on `16-final-cheatsheet.md` and nothing else. Then say your intro, the gap answer
 and the AOP story out loud, twice. **Learn nothing new.**
 
 ### If you fall behind
 Drop in this order: system design → messaging → Spring Security → microservices beyond Q7.
-**Never drop:** Core Java, Spring Boot, JPA, DSA Part 1, or file 12.
+**Never drop:** Core Java, Spring Boot, JPA, DSA Part 1, file 12, or **file 15 Part A
+(Mockito)** — that last one is named in the JD and missing from your resume.
 
 ---
 
@@ -138,7 +171,7 @@ Drop in this order: system design → messaging → Spring Security → microser
 | `04-jpa-hibernate.md` | JPA, lazy vs eager, **N+1**, transactions, caching | 🔴 Highest |
 | `05-microservices.md` | Patterns, resilience, saga — **read Q7** | 🟠 Medium |
 | `06-kafka-rabbitmq.md` | Messaging, queue vs event log | 🟠 Medium |
-| `07-spring-security-jwt.md` | Authentication, RBAC, JWT | 🟠 Medium |
+| `07-spring-security-jwt.md` | Authentication, RBAC, JWT — **named in the JD** | 🔴 High |
 | `08-sql-and-databases.md` | Joins, indexing, EXPLAIN, optimisation | 🔴 High |
 | `09-dsa-arrays-strings.md` | **Patterns, complexity, arrays, strings, hashing** | 🔴 Highest |
 | `10-dsa-structures.md` | **Linked lists, stacks, recursion, search, trees** | 🔴 High |
@@ -146,7 +179,8 @@ Drop in this order: system design → messaging → Spring Security → microser
 | `12-your-experience.md` | **Your stories, the gap, "why backend"** | 🔴 Highest |
 | `13-hr-and-behavioural.md` | HR round, salary, questions to ask | 🔴 High |
 | `14-delivery-and-code-review.md` | Code review, estimation, working with clients | 🔴 High |
-| `15-final-cheatsheet.md` | One page. Saturday morning only. | 🔴 Read last |
+| `15-testing-build-agile.md` | **JUnit, Mockito, Maven, Git, Agile ceremonies** | 🔴 Highest |
+| `16-final-cheatsheet.md` | One page. Saturday morning only. | 🔴 Read last |
 
 ---
 
