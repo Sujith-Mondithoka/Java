@@ -103,6 +103,12 @@ domains, codebases and stacks.
 
 It is deliberately short. You already have the long guides; this is the walk-in version.
 
+**Every technical topic also explains where the memory goes**, in plain English with a small
+example — stack versus heap, what an object actually costs, why mutating state does nothing in
+React, why a forgotten timer is a memory leak. Memory is asked directly in Java interviews, and
+knowing where things live is what makes the other answers make sense rather than be memorised.
+**File 01, Part 0 is the foundation — read that first.**
+
 | Section | Read when |
 |---|---|
 | `01-core-java.md` | **Everyone reads this.** Round 1 opens here regardless of track. |

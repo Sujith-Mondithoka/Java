@@ -20,6 +20,26 @@ three or more features on the platform."*
 **Virtual DOM** → a JS object tree; React diffs the new tree against the old (reconciliation)
 and applies the minimum real DOM changes, because DOM operations trigger layout and paint.
 
+**Memory — JavaScript keeps things in a stack and a heap too**, the same split as Java:
+
+```js
+let count = 5;                    // a number - the value sits in the stack
+let user  = { name: 'Sujith' };   // the OBJECT is in the heap,
+                                  // `user` holds a reference to it
+```
+Primitives (number, string, boolean, null, undefined) hold their value. Objects, arrays and
+**functions** are heap values, and the variable holds a reference. That single fact explains
+three React behaviours at once:
+
+- **Why mutating state does nothing.** `items.push(x)` changes the object in the heap but the
+  reference is unchanged, so React's comparison sees the same address and skips the render.
+  `[...items, x]` allocates a **new** array at a **new** address, which is what React detects.
+- **Why `useCallback` exists.** A function is a heap object. Every render creates a *new* one
+  at a *new* address, even though the code is identical — so a `React.memo` child sees a
+  "changed" prop. `useCallback` keeps the same object.
+- **What the Virtual DOM is.** A tree of plain JS objects in the heap — cheap to build and
+  throw away, which is the whole reason the approach works.
+
 **🔴 `key` and why index is dangerous** → A key is a stable identity across renders. With
 `key={index}`, deleting the first item makes React think the item at index 0 just changed its
 props, so it **reuses the DOM node** — a typed input value stays on the wrong row. With
@@ -61,6 +81,28 @@ hooks **by call order**, so a skipped hook shifts the order and you get the wron
 when x changes. The `return` is **cleanup** — clear timers, remove listeners, abort fetches,
 or you leak and get "setState on an unmounted component".
 
+**Memory — this is what a leak in React actually is.** JavaScript frees an object when nothing
+references it any more. A timer, an event listener or an open request **still holds a
+reference to your component's function and everything it closed over** — so the component is
+removed from the screen but cannot be freed.
+
+```jsx
+useEffect(() => {
+  const id = setInterval(tick, 1000);
+  window.addEventListener('resize', onResize);
+
+  return () => {                      // without this, both keep the component alive
+    clearInterval(id);
+    window.removeEventListener('resize', onResize);
+  };
+}, []);
+```
+A page the user opens and closes fifty times then holds fifty live components in memory. That
+is the real reason cleanup matters — the console warning is just the symptom.
+
+**Memory — closures.** A closure keeps the whole scope it captured alive. That is what makes
+`useState` and debounce work, and it is also why a forgotten listener holds on to so much.
+
 🔴 **When NOT to use `useEffect`** → for anything derivable. `const filtered =
 items.filter(...)` during render beats storing it in state and syncing it in an effect.
 
@@ -93,6 +135,24 @@ the spread operators."*
 **🔴 Memoised selectors** → `createSelector` from Reselect only recomputes when its inputs
 change and returns the same reference otherwise. **This is your Lighthouse story — be ready
 to explain it, because you listed it.**
+
+**Memory — say it this way, it is the clearest version of your story:**
+```js
+// ❌ allocates a NEW array in the heap on every call
+const selectPending = state => state.apps.filter(a => a.status === 'PENDING');
+
+// ✅ returns the SAME array reference until state.apps actually changes
+const selectPending = createSelector([state => state.apps],
+                                     apps => apps.filter(a => a.status === 'PENDING'));
+```
+> "The unmemoised version returns a new array every time it runs. React compares props by
+> reference, not by contents — so even when the data was identical, the address had changed,
+> every connected component saw a new prop and re-rendered on unrelated state changes.
+> Memoising it meant the same reference came back until the input genuinely changed."
+
+**Trade-off to mention:** memoisation is not free — it stores the last inputs and the last
+result, so it trades a little memory for avoided work. Worth it on a hot path, not worth it
+everywhere.
 
 ---
 

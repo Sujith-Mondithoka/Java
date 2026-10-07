@@ -43,6 +43,41 @@ first ten minutes. Both rounds are the same day, so expect to be there a while �
 
 ---
 
+## Memory — the backbone answer 🔴
+
+**Stack** = one per thread, holds method frames and local variables, cleared automatically
+when the method returns. **Heap** = one, shared, holds every object, cleaned by the GC.
+
+**Primitives hold the value. Objects hold a reference — an address into the heap.**
+
+```java
+void change(int n, StringBuilder s) { n = 99; s.append(" world"); }
+// n unchanged (copied the value) · s changed (copied the address)
+// -> Java is always pass-by-value; for objects the value IS the address
+```
+
+- **StackOverflowError** = recursion with no base case · **OutOfMemoryError** = too many live
+  objects, usually something unbounded.
+- **A Java memory leak** = keeping a reference you no longer need, so the GC is not allowed to
+  collect it.
+- **ArrayList** = one array, compact, cache friendly · **LinkedList** = a separate node per
+  item with two pointers, ~3× the overhead, scattered.
+- **HashMap holds** a table array + **one Node per entry** + deliberately empty slots (0.75
+  load factor). Resizing allocates a new array **twice the size** while the old one still exists.
+- **String pool** — literals are shared, `new String()` is a separate object. `a == b` true,
+  `a == c` false.
+- **`+` in a loop** — new String object every iteration, O(n²) and garbage. Use StringBuilder.
+- **Integer cache** −128..127. `int` is a stack value; `Integer` is a heap object.
+- **Spring singleton** — one object in the heap for all requests; locals are per-request stack,
+  **instance fields are shared**.
+- **JPA persistence context** keeps the entity **plus a snapshot** for dirty checking — two
+  copies per row, which is why batch jobs OOM. DTO projections avoid it.
+- **React:** mutating state keeps the same reference so no re-render; a new function each
+  render is a new heap object, which is why `useCallback` exists; **an uncleaned timer or
+  listener holds the whole component alive** — that is what a React leak is.
+
+---
+
 ## Your numbers — say them without hesitating
 
 **20,000+** corporate clients · **Lighthouse 62 → 88** · **60%** off card processing ·

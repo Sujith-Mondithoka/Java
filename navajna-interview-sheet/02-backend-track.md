@@ -35,6 +35,25 @@ eight parameters also makes bad design visible, which field injection hides.
 platform an audit failure, because two requests overwrite each other's value. Request data
 belongs in parameters, not fields.
 
+**Memory — why singleton is the default:** one `@Service` object sits in the heap for the
+whole application's life, however many requests arrive. A thousand concurrent requests share
+that one object; what is *not* shared is each request's **stack**, which holds its own local
+variables. That is exactly why locals are safe and instance fields are not.
+
+```java
+@Service
+public class ApplicationService {
+    private String currentUser;          // ❌ ONE field, shared by every request
+
+    public void approve(String user) {   // ✅ a parameter lives in THIS request's stack frame
+        ...
+    }
+}
+```
+Two requests running `approve` at the same moment each get their own stack frame, so the
+parameter is private to each. The field is one piece of heap memory they both write to — and
+the second one wins.
+
 **Global exception handling** — worth volunteering:
 ```java
 @RestControllerAdvice
@@ -83,6 +102,11 @@ columns."*
 > **`@EntityGraph`**, **batch fetching**, or a **DTO projection** for a read-only screen,
 > which selects only the columns needed and skips loading entities entirely."
 
+**N+1 costs memory as well as time**, which few candidates mention: each of those 101 queries
+returns entities that go into the persistence context with their snapshots. So you are not
+only paying 101 network round trips, you are filling the heap with objects the screen may only
+need three fields from.
+
 **`@Transactional`** → Spring wraps the bean in a **proxy** that opens a transaction before
 the method and commits after. Two things to know:
 - It rolls back on **unchecked** exceptions only, unless you set `rollbackFor`.
@@ -91,6 +115,19 @@ the method and commits after. Two things to know:
 
 **Dirty checking** → a managed entity needs no `save()`; Hibernate compares it with the loaded
 snapshot at flush time and updates only changed columns.
+
+**Memory — the persistence context is a cache in your heap.** For dirty checking to work,
+Hibernate keeps **two copies** of every entity you load inside the transaction: the entity
+itself and a snapshot of how it looked when loaded. That is the *first-level cache*, and it is
+always on.
+
+**Two consequences worth saying out loud:**
+- Loading 100,000 rows in one transaction puts 200,000 objects in the heap, and that is a very
+  common cause of `OutOfMemoryError` in batch jobs. The fixes are paging, or clearing the
+  persistence context periodically.
+- A **DTO projection** avoids all of it — it selects only the columns you need and never puts
+  managed entities in the context, so there is no snapshot and no dirty checking. That is why
+  it is the right choice for a read-only screen or report.
 
 **Details you can claim from your own work:** `@Enumerated(EnumType.STRING)` not the ordinal
 default · `BigDecimal` for money, never `double` · **Liquibase** for versioned schema
