@@ -1,4 +1,4 @@
-# 05 · Walk-In Checklist and One-Page Recall 🔴
+# 06 · Walk-In Checklist and One-Page Recall 🔴
 **Read the night before, and again in the auto on the way.**
 
 ---
@@ -75,6 +75,31 @@ void change(int n, StringBuilder s) { n = 99; s.append(" world"); }
 - **React:** mutating state keeps the same reference so no re-render; a new function each
   render is a new heap object, which is why `useCallback` exists; **an uncleaned timer or
   listener holds the whole component alive** — that is what a React leak is.
+
+---
+
+## Scenario questions — the five-step method 🔴
+
+**Clarify → Diagnose → Causes → Fix + cost → Prevent.**
+
+Most candidates jump to the fix. The marks are in **diagnose** (say how you would find out
+before saying what you would change) and **prevent** (a test, a log, an alert, so it cannot
+recur). Almost nobody does the last one.
+
+**The line to reuse:** *"Before I change anything I would want to know where the time is
+actually going — my first guess is usually wrong."*
+
+**The five most likely, all from your own work:**
+- **Slow in prod, fast in testing** → N+1. Count the queries in the SQL log. Join fetch,
+  `@EntityGraph`, or a DTO projection. *Index cost: slows writes.*
+- **Two approvers at once** → lost update. `@Version` optimistic locking; the second write
+  hits zero rows and you tell them it is already actioned.
+- **Missing audit record** → the **AOP proxy**: an internal `this.method()` call never goes
+  through the proxy, so the aspect never fires. Same caveat as `@Transactional`.
+- **Slow list page** → server-side pagination first; virtualise if it must be one list;
+  memoise the row.
+- **Legacy codebase, no tests** → read one request end to end, make one small safe change,
+  then add tests **as you touch things**, not as a project.
 
 ---
 

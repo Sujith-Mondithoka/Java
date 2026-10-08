@@ -9,7 +9,8 @@ OUT = Path("/home/user/Java/navajna-interview-sheet/pdf")
 SCRATCH = Path("/tmp/claude-0/-home-user-Java/511b1e01-f010-504c-a181-1e9c535fa679/scratchpad")
 
 ORDER = ["README.md", "01-core-java.md", "02-backend-track.md",
-         "03-frontend-track.md", "04-round2-and-you.md", "05-walk-in-checklist.md"]
+         "03-frontend-track.md", "04-round2-and-you.md", "05-scenario-questions.md",
+         "06-walk-in-checklist.md"]
 
 # Emoji -> print-safe markup (no colour-emoji font exists in this environment)
 def deemoji(text: str) -> str:

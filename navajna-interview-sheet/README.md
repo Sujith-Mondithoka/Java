@@ -115,7 +115,12 @@ knowing where things live is what makes the other answers make sense rather than
 | `02-backend-track.md` | If you go backend — or to be safe, skim it anyway |
 | `03-frontend-track.md` | **If you take my recommendation, this is your main file** |
 | `04-round2-and-you.md` | Your project stories, the gap, why navAjna, questions to ask |
-| `05-walk-in-checklist.md` | The night before and the morning of |
+| `05-scenario-questions.md` | **22 "what would you do if…" questions built from your own features** |
+| `06-walk-in-checklist.md` | The night before and the morning of |
 
-**Priority if you are short of time:** `01` → `03` (or `02`) → `04`. Section 04 matters more
-than people expect, because Round 2 is explicitly about fitment.
+**Priority if you are short of time:** `01` → `03` (or `02`) → `04` → `05`.
+
+Sections **04 and 05** matter more than people expect. Round 1 is the one you revise for;
+**Round 2 is the one that is won or lost**, because it is project experience, problem solving
+and fitment — and that round is almost entirely scenario questions aimed at what is on your
+resume.
