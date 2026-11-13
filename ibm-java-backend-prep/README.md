@@ -1,5 +1,5 @@
-# NCG — GCC Java Backend Developer (BFSI)
-### Neelima Jana · Interview: **Monday 16 November** · Hyderabad · Job ID 88875
+# IBM — Java Backend Developer
+### Neelima Jana · Client **IBM**, payroll **JOY IT** · Hyderabad · F2F **Monday 16 / Tuesday 17 November**
 
 ---
 
@@ -18,26 +18,70 @@ shape, not the wording.
 
 ---
 
-## 1. A note on who you are interviewing with
+## 1. 🔴 Who you are actually interviewing with — and the two JDs
 
-The job description is from **NCG (NetConnect Global)** — a digital engineering and
-professional services company, Hyderabad, hiring for a **GCC** role in **BFSI**.
+You now have **two job descriptions for what looks like the same client**, and it is worth
+being clear about the structure before Monday, because it affects what you ask and what you
+negotiate.
 
-You mentioned IBM. **GCC** means **Global Capability Centre** — the in-house engineering centre
-a large enterprise runs in India. NCG is a services company that staffs those centres, so the
-most likely arrangement is **NCG is the employer and the GCC is the client**.
+### The arrangement
 
-> 🔴 **Confirm this with the recruiter before Monday — it is a completely normal question and
-> it changes things that matter to you:**
-> - Who is on the payroll — NCG, or the client directly?
-> - Is this a deputation to a client site, and is there a path to conversion?
-> - Which client, and which platform would you be on?
->
-> *"Could you tell me a bit about the engagement — would I be on NCG payroll working at the
-> client's GCC, and which client is it?"* Ask it early, in the HR or screening conversation.
+| | |
+|---|---|
+| **Client** — where you would actually sit and work | **IBM** |
+| **Payroll** — who employs you and pays you | **JOY IT** (JOY IT Solutions / JOY IT Consulting) |
+| **Employment type** | Full-time with JOY |
+| **Location** | Hyderabad |
+| **Recruiter** | Prasanthi P, JOY IT |
+| **Mode** | AI interview (**done — you passed at 69%**), then F2F Monday/Tuesday |
 
-**What is certain from the JD** either way: **Java, Spring Boot, microservices, BFSI, Hyderabad,
-client-facing, reporting to a technical lead.** That is what you prepare for.
+This is a standard staffing arrangement: **JOY IT is your employer, IBM is the client.** It is
+the same shape as your current position — Zensar employs you, C. Hoare & Co is the client. Say
+that out loud if it comes up, because it means the model is already familiar to you and you
+have worked successfully inside it for eighteen months.
+
+**What it means for Monday:** the F2F is most likely **IBM's technical panel**, not JOY's. JOY
+has already screened you with the AI round; a vendor does not usually run a second technical
+round of its own. So prepare to impress **the client**, and expect IBM-style questions —
+fundamentals, depth on what you actually built, and clean reasoning rather than buzzwords.
+
+### 🔴 The thing to clarify: NCG and JOY IT
+
+Earlier you were given a **NCG (NetConnect Global)** JD for a GCC Java Backend role, also for
+IBM, also Hyderabad, also Monday. Now JOY IT has sent an IBM JD with the same interview days.
+
+Most likely one of two things is happening:
+
+1. **They are the same opportunity**, and NCG and JOY IT are both vendors on IBM's panel — or
+   one is subcontracting to the other.
+2. **They are two different IBM requirements** that happen to be running the same week.
+
+> ⚠️ **This matters, and it is worth one phone call today.** If two vendors submit the *same
+> candidate* to the *same client requirement*, the client usually accepts only the first
+> submission and may drop the profile altogether to avoid a dispute between vendors. That is a
+> bad way to lose a role you have already passed a round for.
+
+**Ask Prasanthi directly, today. It is a normal question and recruiters respect it:**
+
+> "Quick question before Monday — I was also approached for an IBM Java backend role in
+> Hyderabad by another vendor. I want to make sure my profile has not gone to IBM twice for the
+> same requirement, because I know that can cause problems. Could you confirm which requirement
+> you have submitted me for?"
+
+Then ask the same of the NCG recruiter. Whichever submitted you first is the one to go with;
+tell the other honestly. **Do not let both run silently.**
+
+### The other questions worth asking JOY IT before you accept anything
+
+Not on Monday with the IBM panel — these are for Prasanthi, on the phone:
+
+- Is this a **permanent JOY position deployed to IBM**, or tied to a fixed project duration?
+- **Contract length**, if there is one, and what happens at the end of it.
+- Is there a path to **conversion to IBM payroll**, and has it happened for others?
+- **Who manages your appraisal and increment** — JOY or the IBM lead?
+- Which IBM account or project, and what is the tech stack on it day to day?
+
+**None of this belongs in the technical round.** Keep it with the recruiter.
 
 ---
 
@@ -87,16 +131,44 @@ comes.
 **Docker and Kubernetes are the one gap worth genuinely closing this weekend.** You have three
 days, it is three hours of reading, and it is named three times in the spec. File 09.
 
-### 🔴 On the experience band
+### ✅ On the experience band — this is now good news
 
-The posting says **Level 3 (3–6 years)**. Your engineering experience is **December 2024 to June
-2026 — about 18 months** — plus the recruitment year, so roughly **two years four months
-professional**.
+The earlier NCG posting said **3–6 years**, and a lot of file 13 was written to handle being
+under it.
 
-**You are under the band.** You already have the interview, so someone looked at your profile
-and still wanted to talk; ranges are sourcing guidance, not a gate. But **answer with dates and
-never round up** — these roles verify against payslips, and your band and offer are set from the
-verified number. The full answer is in **file 13, section 5**.
+**The JOY IT / IBM JD says "Experience Required: 1+".**
+
+You have roughly **18 months of backend engineering** and about **two years four months of
+professional experience** in total. **You clear that bar comfortably.** Stop treating your
+experience as something to defend — it is not the issue in this process, and carrying that worry
+into the room will show.
+
+Two things still hold, for a different reason:
+
+- **Answer with dates, and never round up.** Not because the band is a risk, but because JOY IT
+  will verify against payslips and Form 16 at offer stage, and your salary is fixed from the
+  verified number. Getting caught costs the offer after you have resigned somewhere.
+- **A "1+" posting means they expect to interview people with less experience than you.** That is
+  an advantage: the bar in the room is fundamentals done properly, not architecture war stories.
+  Depth on what you actually built will stand out.
+
+File 13 section 5 has the wording, now rewritten for this bar.
+
+### What the JOY IT JD adds that NCG's did not
+
+Four things appear in this JD that are worth ten minutes each:
+
+| New in this JD | Where you stand | File |
+|---|---|---|
+| **"relational and NoSQL databases"** | MongoDB is on your resume — be ready to say what you used it for and when you would choose it over MySQL | `08` Q7 |
+| **"integrate with third-party services"** | You have done API work; the interview answer is timeouts, retries, circuit breaker and idempotency | `05` Q2b |
+| **"troubleshoot production issues and provide timely resolutions"** | A real strength — you have incident stories | `13` Story 4 |
+| **"Git, Maven, Gradle"** | Git daily, Maven yes; know Gradle's difference in one line | `15` |
+
+Everything else in the JOY IT JD — Java 8/11/17, Spring Boot, Spring MVC, Spring Data JPA,
+microservices, REST, Hibernate, MySQL/PostgreSQL/Oracle, Docker, Kubernetes, Kafka, RabbitMQ,
+ActiveMQ, JWT, OAuth2, Jenkins, GitHub Actions, Azure DevOps — **is already covered in this
+pack.** The two JDs are about 90% the same list. You are not starting again.
 
 ---
 
@@ -104,9 +176,15 @@ verified number. The full answer is in **file 13, section 5**.
 
 ### 🔴 First: the format is not confirmed
 
-HR has said Monday is **a technical written assessment, a technical interview, or both** —
-they do not yet know which. Plan for both; it covers every case and costs nothing if only
-one happens. Do not treat that as two preparations. The overlap is about 80%;
+The JOY IT JD states the mode plainly: **"AI interview, F2F — Monday, Tuesday."**
+
+So the pipeline is **AI screen → face to face**, and you have already cleared the AI screen at
+69%. The F2F spans **two days**, which usually means either several candidates across two days,
+or more than one round for you across Monday and Tuesday — so do not assume Monday is the end of
+it. Keep Tuesday loose if you can.
+
+HR could not confirm whether Monday is a written assessment, a technical interview, or both.
+Plan for both; it covers every case and costs nothing if only one happens. Do not treat that as two preparations. The overlap is about 80%;
 only the *form of the answer* changes.
 
 - **If it is a written test** → read `00b-if-its-a-written-test.md`. Output traps, stream

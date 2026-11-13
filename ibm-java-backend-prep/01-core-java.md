@@ -1,7 +1,7 @@
 # 01 · Core Java and Collections 🔴🔴
 **Time needed: 105 minutes**
 
-This is where Infosys screens hardest. Service company interviews go deep on
+This is where an IBM panel screens hardest. Enterprise interviews go deep on
 fundamentals, because fundamentals are what transfer across the many different client
 projects they will put you on. Expect rapid-fire questions here.
 

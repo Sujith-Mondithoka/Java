@@ -4,8 +4,8 @@ import re, subprocess, sys, os, html
 from pathlib import Path
 import markdown
 
-SRC = Path("/home/user/Java/ncg-java-backend-prep")
-OUT = Path("/home/user/Java/ncg-java-backend-prep/pdf")
+SRC = Path("/home/user/Java/ibm-java-backend-prep")
+OUT = Path("/home/user/Java/ibm-java-backend-prep/pdf")
 SCRATCH = Path("/tmp/claude-0/-home-user-Java/511b1e01-f010-504c-a181-1e9c535fa679/scratchpad")
 
 ORDER = ["README.md", "00-ai-round-debrief.md", "00b-if-its-a-written-test.md",
@@ -155,7 +155,7 @@ def build_html(page_map=None) -> str:
     cover = """
 <div class="cover">
   <div class="eyebrow">Interview Preparation Guide</div>
-  <h1>GCC Java Backend Developer<br>NCG</h1>
+  <h1>Java Backend Developer<br>IBM</h1>
   <div class="rule"></div>
   <div class="sub">Spring Boot &middot; Microservices &middot; Kafka &middot; Docker &middot; Kubernetes &middot; BFSI<br>
   Prepared for Neelima Jana &middot; Interview: Monday 16 November</div>
@@ -172,7 +172,7 @@ def build_html(page_map=None) -> str:
 
     toc = ('<div class="toc"><h1>Contents</h1><ol>' + "".join(toc_rows) + "</ol></div>")
     return (f"<!doctype html><html><head><meta charset='utf-8'>"
-            f"<title>NCG Java Backend Prep</title><style>{CSS}</style></head>"
+            f"<title>IBM Java Backend Prep</title><style>{CSS}</style></head>"
             f"<body>{cover}{toc}{''.join(sections)}</body></html>")
 
 def render(html_path: Path, pdf_path: Path):
@@ -233,7 +233,7 @@ def stamp(pdf_path: Path, out_path: Path, footer: str):
     writer = PdfWriter(clone_from=str(pdf_path))
     for i, page in enumerate(writer.pages):
         page.merge_page(ov.pages[i])
-    writer.add_metadata({"/Title": "GCC Java Backend Interview Prep - NCG",
+    writer.add_metadata({"/Title": "Java Backend Interview Prep - IBM via JOY IT",
                          "/Author": "Neelima Jana",
                          "/Subject": "Java, Spring Boot, microservices, containers and interview Q&A"})
     with open(out_path, "wb") as f:
@@ -253,8 +253,8 @@ def main():
     # pass 2 - TOC with real page numbers
     html_path.write_text(build_html(pm), encoding="utf-8")
     render(html_path, tmp_pdf)
-    final = OUT / "NCG-Java-Backend-Interview-Prep.pdf"
-    total = stamp(tmp_pdf, final, "GCC Java Backend Interview Prep  |  NCG")
+    final = OUT / "IBM-Java-Backend-Interview-Prep.pdf"
+    total = stamp(tmp_pdf, final, "Java Backend Interview Prep  |  IBM via JOY IT")
     print(f"built {final} ({total} pages, {final.stat().st_size // 1024} KB)")
 
 if __name__ == "__main__":

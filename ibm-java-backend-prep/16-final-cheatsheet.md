@@ -6,8 +6,9 @@ If a line here does not ring a bell, open that file for three minutes and come b
 
 ## Monday, whatever the format
 
-In person, at a venue. Written test, interview, or both — assume **both, written first**,
-and expect an HR conversation the same day.
+**IBM is the client; JOY IT is the payroll.** The panel is most likely IBM's. In person, at a
+venue. Written test, interview, or both — assume **both, written first**. F2F runs Monday *and*
+Tuesday, so Monday may not be the end of it.
 
 - **You are holding the printed copy of this. That is the point** — your phone is probably
   at reception.
@@ -20,6 +21,9 @@ and expect an HR conversation the same day.
 - Your eight fixed facts do not change between rounds: 15s→6s, 2–3s→<1s, RabbitMQ for
   approval emails, Kafka for compliance state-change events, JWT roles, C. Hoare & Co.
 - Have your notice period and your salary number ready before you walk in.
+- **The JD asks for 1+ years. You clear it.** No apologising, no "only two years".
+- Payroll, contract and conversion questions go to JOY IT on the phone — **never to the
+  IBM panel.**
 
 ---
 

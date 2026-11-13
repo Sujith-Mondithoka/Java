@@ -1,7 +1,7 @@
 # 12 · Backend System Design 🟠
 **Time needed: 75 minutes**
 
-At this level Infosys will not ask you to design Netflix. But the JD is full of
+At this level nobody will ask you to design Netflix. But the JD is full of
 consulting language — *"problem definition, effort estimation, diagnosis, solution
 generation and design"* — so expect one design question, and expect them to be watching
 **how you think**, not whether you produce a perfect architecture.

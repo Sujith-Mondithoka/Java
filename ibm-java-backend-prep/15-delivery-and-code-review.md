@@ -19,7 +19,7 @@ Almost the entire responsibilities section of this posting is about things that 
 The only technical requirement listed is **Java and Spring Boot**, as both primary and
 preferred skill. Everything else in that block is about **how you deliver**.
 
-**What that tells you:** this is not a pure coding role. It is Infosys's analyst-shaped
+**What that tells you:** this is not a pure coding role. It is an analyst-shaped
 template — someone who can be put in front of a client, review other people's work, and be
 trusted to follow process. The technical round will still test Java and Spring Boot
 properly, but there will be a second conversation about all of the above, and most

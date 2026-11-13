@@ -62,13 +62,13 @@ def main():
 <title>Morning Cheat Sheet</title><style>{CSS}</style></head><body>
 <div class="masthead">
   <h1>Morning Cheat Sheet &mdash; read this and nothing else</h1>
-  <div class="sub">GCC Java Backend &middot; NCG &middot; Monday 16 November &middot;
+  <div class="sub">Java Backend &middot; IBM via JOY IT &middot; Hyderabad &middot; Monday 16 November &middot;
   Learn nothing new today &mdash; revision only.</div>
 </div>
 <div class="cols">{md.convert(body_md)}</div></body></html>"""
     hp = SCRATCH / "cheat.html"
     hp.write_text(html, encoding="utf-8")
-    out = OUT / "NCG-Cheat-Sheet.pdf"
+    out = OUT / "IBM-Cheat-Sheet.pdf"
     render(hp, out)
     from pypdf import PdfReader
     print(f"built {out} ({len(PdfReader(str(out)).pages)} pages, {out.stat().st_size//1024} KB)")

@@ -13,16 +13,16 @@ and what it became. In a services company interview that is rare and it is remem
 
 **2. You have banking domain experience.** The JD asks for "one or two industry domain
 knowledge". You worked on a UK private bank's transaction recall and card management
-systems. Infosys staffs projects by domain, and someone who already understands banking
+systems. IBM staffs projects by domain, and someone who already understands banking
 workflows is easier to place. Easier to place means easier to hire.
 
 **3. You used Kafka and RabbitMQ for different reasons.** Not just "we had messaging" —
 a task queue for one job and an event log for another. That is a design decision, and
 it is the most senior-sounding thing on your resume.
 
-**What to watch:** your experience is about 1 year 6 months of engineering. Do not
-oversell it (see section 5), and do not undersell it either. Depth on the things you
-actually did beats vague claims about things you did not.
+**What to watch:** the JD asks for **1+ years** and you have more than that, so experience is
+not the problem in this process. Do not oversell it — dates get verified — and do not undersell
+it either. Depth on the things you actually did beats vague claims about things you did not.
 
 ---
 
@@ -130,7 +130,7 @@ rather than only worked inside one service.
 
 Prepare all three. None is disqualifying. Being caught without an answer is what costs you.
 
-### 1. 🔴🔴 The experience band — the JD says 3–6 years
+### 1. ✅ The experience band — the JD says **1+ years**
 
 Your dates:
 
@@ -141,31 +141,33 @@ Dec 2024 – Jun 2026   Software Engineer (Backend), Zensar        ~18 months
                       of which backend engineering               ~1 year 6 months
 ```
 
-**You are under the stated band.** Face it calmly rather than hoping it does not come up.
+**The IBM / JOY IT posting asks for 1+ years. You are above it, not below it.**
 
-**First, the reassurance:** you have the interview. Someone looked at your profile, saw the
-dates, and still wanted to talk. Experience ranges in postings are sourcing guidance, not a
-hard gate, and services companies hire across bands when the evidence is strong.
+An earlier version of this guide prepared you to defend being under a 3–6 year band, because
+that is what the NCG posting said. **That is no longer the situation, and you should drop the
+defensive posture completely.** It changes how you sit in the room: you are not someone hoping
+to be let in under the bar, you are someone comfortably inside it who has real production
+numbers. Those are different people to interview.
 
-**Second, and this matters more here than anywhere:** NCG is a services company placing people
-into a client's GCC. **Your rate and your level are set from verified dates.** Background
-verification against payslips and employment letters is routine. So **never round up** — being
-caught costs the offer at the worst possible moment, after you have resigned somewhere.
+**If they ask how much experience you have, answer it plainly and move on:**
 
-**The answer, if it is raised directly:**
-> "In engineering, from December 2024 to June 2026 — about a year and a half — and around two
-> and a half years of professional experience in total. I know that is below the range on the
-> posting.
->
-> What I would say is that it has been dense for the time. I have worked on a UK bank's
-> platforms end to end — REST APIs with Spring Boot and JPA, event-driven work with both Kafka
-> and RabbitMQ, Spring Security with role-based access control — and I have real performance
-> results: report generation from 15 seconds to 6, and API response from 2–3 seconds to under
-> one. I have also handled production incidents and root cause analysis. I would rather be
-> judged on that than on the number."
+> "About two and a half years professional, of which around a year and a half is backend
+> engineering — December 2024 to June 2026 at Zensar, on a UK private bank's platforms."
 
-**Do not volunteer it if they do not raise it.** Do not dodge it if they do. And do not
-apologise — say it the way you would state any other fact.
+Then keep going into what you built. No apology, no hedging, no "only".
+
+**Two things still matter, for a different reason:**
+
+**1. Never round up.** JOY IT will verify your dates against payslips and Form 16 before the
+offer, and your salary is set from the verified number. Inflating it costs the offer at the
+worst possible moment — after you have resigned somewhere else.
+
+**2. A "1+" requirement tells you what the bar in the room is.** They expect to interview people
+with one year of experience. That means the panel is testing **fundamentals done properly**, not
+architecture war stories: can you explain a HashMap, can you find an N+1, do you know what
+`@Transactional` actually does, can you write a clean query. You have all of that *plus*
+production performance work and two messaging systems. **Play to that gap — depth where a
+one-year candidate would be thin is exactly how you stand out.**
 
 ### 2. 🔴🔴 The gap — you left in June
 

@@ -6,7 +6,7 @@ from an empty file.
 
 ---
 
-## What to expect at Infosys
+## What to expect
 
 The coding bar for an experienced hire at a services company is **moderate**. They are
 not asking for dynamic programming. Expect:

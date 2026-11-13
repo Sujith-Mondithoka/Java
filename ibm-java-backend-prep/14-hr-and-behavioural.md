@@ -1,32 +1,48 @@
 # 14 · HR, Managerial and the Offer Conversation 🔴
 **Time needed: 60 minutes. Say every answer out loud.**
 
-Infosys usually runs a separate managerial or HR round, and it is not a formality.
+There is usually a separate managerial or HR conversation — with JOY IT rather than IBM — and
+it is not a formality.
 People clear the technical round and lose the offer here.
 
 ---
 
-## 1. "Why Infosys?"
+## 1. "Why this role?" — and be clear who is asking
 
-Do not say "it is a big company" or "for growth". Say something only someone who read
-the posting could say.
+**Two different people may ask this, and they want different answers.**
+
+### If IBM's panel asks
+
+They want to know why *this work*, not why *this company*. Keep it about the engineering.
 
 > "Three reasons.
 >
-> The role is Java, Spring Boot and microservices, which is exactly what I have been
-> doing and where I want to go deeper. That is a straightforward fit.
+> The role is Java, Spring Boot and microservices, which is exactly what I have been doing and
+> where I want to go deeper. That is a straightforward fit.
 >
-> Second, I have banking domain experience from working on a UK private bank's systems,
-> and Infosys works across financial services. I would rather build on a domain I
-> already understand than start from nothing.
+> Second, I have banking domain experience — I work on a UK private bank's transaction recall
+> and card platforms — and IBM runs a lot of financial services work. I would rather build on a
+> domain I already understand than start from nothing.
 >
-> Third, the job description talks a lot about working with clients — requirement
-> analysis, seeking clarifications, proposing alternatives. I have done that at Zensar
-> with a client team in another country, and before that I spent a year in technical
-> recruitment, so I am comfortable in those conversations. It is the part of the work I
-> actually enjoy, and it seems central to how Infosys operates."
+> Third, the responsibilities in the spec are the parts I actually enjoy: performance and
+> scalability work, troubleshooting production issues, and working directly with QA and
+> stakeholders rather than only inside a ticket. I have done all three at Zensar."
 
-That third point is your real differentiator. Use it.
+That third point is your real differentiator — most candidates at this level talk only about
+writing features. Use it.
+
+### If JOY IT asks
+
+They want to know you understand and are comfortable with the arrangement, and that you will not
+drop out when you realise the payroll is theirs rather than IBM's. Say so directly:
+
+> "I am clear on the structure — JOY would be my employer and IBM the client. That is the same
+> model I work in today: Zensar employs me and the bank is the client, and I have worked that way
+> for the last eighteen months. I am comfortable with it, and I know how to work with a client
+> team rather than treat them as someone else's problem."
+
+**That answer is worth real money to a vendor recruiter**, because the thing they fear most is a
+candidate who accepts and then backs out over the payroll question.
 
 ## 2. "Why are you leaving Zensar?"
 
@@ -115,8 +131,8 @@ Never "I am a perfectionist" or "I work too hard".
 | Question | How to answer |
 |---|---|
 | **Notice period** | State it exactly. If it is 60 or 90 days, say so, and mention whether buyout is possible. Do not guess. |
-| **Willing to relocate?** | Your resume already says "open to relocate anywhere in India / remote", so **say it clearly and early** — it is a real advantage with Infosys, which staffs across Hyderabad, Bangalore, Pune, Chennai and Mysore. Just make sure it is actually true, because they will hold you to it. |
-| **Work from office?** | Infosys is largely back in office. Answer directly. |
+| **Based in / relocate?** | The role is **Hyderabad**. Your resume says "open to relocate anywhere in India / remote", so say it clearly and early. If you are already in or near Hyderabad, say that first — vendors strongly prefer local candidates because joining is faster. Only claim it if it is true; they will hold you to it. |
+| **Work from office?** | An IBM client site in Hyderabad will mostly be office-based, and a vendor-payroll role gives you less flexibility to negotiate that. Answer directly rather than hoping. |
 | **Shifts / on-call?** | Client projects sometimes need overlap with UK or US hours. You already work with a UK client, so say that — you know what it involves. |
 | **Do you have other offers?** | Honest and brief. Do not invent leverage; it usually backfires. |
 
@@ -135,14 +151,51 @@ and the number you want. Do not do arithmetic live.
 > it."
 
 **Rules:**
-- **Never lie about your current CTC.** Infosys verifies with payslips and Form 16.
+- **Never lie about your current CTC.** JOY IT verifies with payslips and Form 16.
   Being caught costs the offer, usually after you have resigned elsewhere.
 - **Ask for the breakup** at offer stage: fixed, variable, retention bonus, and what the
   in-hand figure is. Large companies often put a meaningful share in variable pay.
-- **Ask about the band or level.** Infosys has defined levels, and the band affects your
-  future increments more than the starting number does.
+- **Ask how the salary is structured on JOY's payroll** — fixed versus variable, and whether any
+  part is tied to the IBM engagement continuing. This matters more in a vendor arrangement than
+  in a direct one.
 - If they ask first, it is completely normal to ask **"what range have you budgeted for
   this role and level?"**
+
+## 6b. 🔴 The payroll question — JOY IT employs you, IBM is the client
+
+This is new since the earlier version of this guide, and it is the part most candidates handle
+badly. **Do not raise it with the IBM panel.** Keep every one of these for Prasanthi at JOY IT,
+on the phone, before you accept anything.
+
+**What to establish:**
+
+1. **Is the position permanent with JOY, or tied to the IBM project?** "Full-Time with JOY" in
+   the mail suggests permanent, but confirm what happens if the IBM engagement ends — do they
+   redeploy you, is there a bench, or does the employment end?
+2. **Contract duration**, if there is one, and notice period on both sides.
+3. **Conversion.** Has anyone moved from JOY payroll onto IBM's directly, and after how long?
+   Ask for the honest answer, not the sales one. A vague answer here is itself information.
+4. **Who writes your appraisal** — a JOY manager who does not see your work, or the IBM lead who
+   does? This affects your increments more than the starting salary.
+5. **Which IBM account and project**, and the day-to-day stack on it. "Java backend at IBM" can
+   mean a modern Spring Boot product team or a fifteen-year-old maintenance application, and
+   those are very different for your next move.
+6. **Benefits** — insurance, PF, leave policy. These are JOY's, not IBM's, and vendors vary a
+   lot.
+7. **Where you would sit** — IBM's office, JOY's office, or hybrid.
+
+**How to ask without sounding suspicious.** Tone matters; curiosity, not interrogation:
+
+> "I am genuinely interested, and I just want to understand the engagement properly so there are
+> no surprises later. Could you tell me how the arrangement works — is it a permanent JOY role
+> deployed to IBM, which account it is, and who I would report to day to day?"
+
+**The honest framing for yourself:** vendor payroll at a large client is a completely normal way
+to work in Indian IT, and it is exactly what you do now. It is not something to be wary of. But
+the terms vary a great deal between vendors, and the time to find out is **before** you resign,
+not after.
+
+---
 
 ## 7. 🔴 Questions YOU ask them
 
@@ -157,7 +210,7 @@ Have four ready, ask two or three. Ending with "no, I'm good" reads as no intere
 **Role and growth:**
 5. "What would a successful first three months look like?"
 6. "Is there scope to move toward design and client-facing work over time?"
-7. "How does Infosys handle certification and upskilling for someone at this level?"
+7. "How does the team handle certification and upskilling for someone at this level?"
 
 **The one that makes you memorable, for the managerial round:**
 > "What is the biggest technical problem the team is dealing with right now that this
@@ -171,7 +224,7 @@ Then **listen**, and connect your answer to it. That is how you close.
 - **Know your own resume cold.** Everything on it is fair game — Kafka, RabbitMQ,
   Eureka, JWT, Hibernate lazy loading, MongoDB, execution plans. If you touched something
   briefly, say so honestly rather than overstating.
-- Carry your ID, and have your employment and education documents ready — Infosys
+- Carry your ID, and have your employment and education documents ready — JOY IT
   onboarding is document heavy.
 - If it is online: join five minutes early, test camera and microphone, sit somewhere
   quiet with a plain background, and keep an offline copy of your notes in case the
