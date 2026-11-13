@@ -6,16 +6,20 @@ If a line here does not ring a bell, open that file for three minutes and come b
 
 ## Monday, whatever the format
 
-Written test, interview, or both — nobody knows yet, so assume **both, written first**.
+In person, at a venue. Written test, interview, or both — assume **both, written first**,
+and expect an HR conversation the same day.
 
-- Whole day blocked. Phone on and charged in the gap; a same-day interview invite can
-  come with 15 minutes' notice.
-- ID, charger, stable connection, quiet room, pen and paper. Link open 5 minutes early.
+- **You are holding the printed copy of this. That is the point** — your phone is probably
+  at reception.
+- Arrive 20–30 minutes early. Contact number on paper, not only in the phone.
+- In the bag: resume copies ×4, photo ID, two pens, notepad, water.
+- Written answers are on paper: write large, leave a line between answers, number them.
 - **Write only what you can defend out loud an hour later.** The interviewer will have
   your written answers.
 - Jot 2–3 words per written answer. Read your own notes in the gap.
 - Your eight fixed facts do not change between rounds: 15s→6s, 2–3s→<1s, RabbitMQ for
   approval emails, Kafka for compliance state-change events, JWT roles, C. Hoare & Co.
+- Have your notice period and your salary number ready before you walk in.
 
 ---
 

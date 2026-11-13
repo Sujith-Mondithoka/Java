@@ -365,6 +365,100 @@ get rather than annoyed by. Even "keep the afternoon free" tells you it is proba
 
 ---
 
+## 🔴 "Venue details" — read that word carefully
+
+HR has said you will get a mail tomorrow with **venue details and timing**. That word
+matters. Venue means a place, which means **this is almost certainly in person, not a
+link**. Treat it as in person until the mail says otherwise.
+
+That single fact resolves most of the uncertainty, and it has consequences.
+
+### What in person changes
+
+**1. A written test at a venue is usually pen and paper, or their machine.** Either way:
+no IDE, no autocomplete, no compiler, no Google. Everything in this file that says "write
+it by hand" stops being a study technique and becomes the actual exam condition. Do the
+SQL and the stream tasks on paper this weekend — not in an editor.
+
+**2. Your handwriting is part of the answer.** A marker who cannot read it does not award
+the mark. Write larger than feels natural, leave a blank line between answers, and number
+them to match the question paper.
+
+**3. Your phone will probably be deposited at reception.** Most client sites and vendor
+offices take phones, especially in BFSI. **So print the cheat sheet.** Four pages, stapled,
+in your bag. If it only exists on your phone, you will not have it in the twenty minutes
+before you are called in — which is exactly when it is worth the most.
+
+**4. In person usually means more rounds in one visit.** Companies do not bring people to
+an office for forty-five minutes. If they are getting you there, expect written plus
+technical, and quite possibly an HR or managerial conversation the same day. Skim file 14
+before Monday so that round does not catch you cold — especially notice period,
+availability, and salary expectation, which you should have a number for before you walk
+in, not while you are sitting there.
+
+**5. Dress formals.** The client is a bank. Formal, conservative, comfortable enough to sit
+in for several hours.
+
+### 🔴 The mail arrives tomorrow — eleven things to check in it
+
+Do not just note the time. Read it properly and extract these. If any are missing, that is
+your reply:
+
+1. **Exact address**, with floor, building and a landmark.
+2. **Reporting time versus interview time** — they are often different, and the reporting
+   time is the one that binds you.
+3. **Contact name and phone number** for the day. Save it in your phone *and* write it on
+   paper, because your phone may be at reception.
+4. **Expected duration**, which tells you whether it is both rounds.
+5. **Format** — written, interview, or both, if they finally say.
+6. **Documents to carry** — usually ID, resume copies, sometimes payslips, offer letter or
+   education certificates. BFSI clients ask for more than most.
+7. **Whether to bring a laptop.**
+8. **Entry or security requirements** — some sites need the ID name to match exactly, some
+   pre-register visitors a day ahead.
+9. **Who you are meeting**, if named. Worth a quick look.
+10. **Parking or nearest station**, if you are travelling yourself.
+11. **Whether it is the NCG office or the client's office.** This is the one most people
+    skip, and it tells you who is actually interviewing you — which is the open question
+    from file 00 section 1.
+
+### Reply to that mail the same day
+
+Confirm fast. Vendors chase several candidates for one slot, and a prompt confirmation is
+quietly noticed. One short mail covers the confirmation and your remaining questions:
+
+> "Thank you — confirming I will be there on Monday [date] at [reporting time] at [venue].
+>
+> Two quick questions so I can plan the day: roughly how long should I keep free, and
+> should I expect a written assessment, a technical discussion, or both? Also, please let
+> me know if there are any documents you would like me to bring apart from my ID and
+> resume copies.
+>
+> Looking forward to it."
+
+Polite, short, and it gets you the format answer you have been missing.
+
+### What goes in the bag on Sunday night
+
+Pack it the night before, not on Monday morning.
+
+- **Printed cheat sheet**, four pages, stapled.
+- **Three or four printed copies of your resume.** The panel may not have one.
+- **Photo ID**, plus whatever documents the mail asks for.
+- **Two pens**, and a plain notepad.
+- Passport photos, if asked for.
+- Water and something small to eat — a long day with an unpredictable gap.
+- The contact number **written on paper**.
+
+### Check the route on Sunday
+
+Look up the journey properly: how long, which route, what time you need to leave to arrive
+**twenty to thirty minutes early**. Arriving early is free; arriving flustered costs you
+the first ten minutes of the first round, which is where impressions form. If the venue is
+far enough to be a real journey, plan for traffic and leave earlier than the map says.
+
+---
+
 ## If it turns out to be the interview instead
 
 Then file 00 is your preparation and this file was an hour well spent anyway — every trap

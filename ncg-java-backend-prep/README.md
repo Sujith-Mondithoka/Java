@@ -115,6 +115,11 @@ only the *form of the answer* changes.
   passed at 69%, so the panel has your transcript and knows exactly where to dig. That file is
   the ten threads they will come back to.
 
+**It is in person.** HR is sending venue details and timing tomorrow, so treat Monday as a
+visit to an office: printed cheat sheet, resume copies, phone probably left at reception, and
+most likely more than one round in the same visit. `00b` has the full checklist and the mail
+to send back.
+
 Read **both**. And block the whole of Monday — if the written test and the interview run on
 the same day, the gap between them is often short and the invitation arrives with little
 notice. `00b` has the message to send the recruiter today.
