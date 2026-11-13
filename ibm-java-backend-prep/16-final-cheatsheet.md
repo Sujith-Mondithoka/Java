@@ -274,9 +274,9 @@ did since. *"I have been working through containerisation and deployment, which 
 my last role I was furthest from"* is honest and it is exactly what this JD asks for. Close on
 being available immediately.
 
-**Recruitment → development** → B.Tech CS, JSPIDERS, and Artifint was **technical** recruitment.
-Then turn it: *"that year is why I am comfortable in client and requirement conversations"* —
-and this is a **client-facing GCC role**.
+**Recruitment → development** → B.Tech CS, JSPIDERS, and Artifint was **technical**
+recruitment. Then turn it: *"that year is why I am comfortable in client and requirement
+conversations"* — and this is a **client-facing GCC role**.
 
 **"How much experience do you have?"** → **Answer with dates, never a rounded number.**
 *"Engineering since December 2024, so about a year and nine months, plus a year in

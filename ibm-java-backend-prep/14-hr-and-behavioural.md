@@ -33,16 +33,16 @@ writing features. Use it.
 
 ### If JOY IT asks
 
-They want to know you understand and are comfortable with the arrangement, and that you will not
-drop out when you realise the payroll is theirs rather than IBM's. Say so directly:
+They want to know you understand and are comfortable with the arrangement, and that you will
+not drop out when you realise the payroll is theirs rather than IBM's. Say so directly:
 
 > "I am clear on the structure — JOY would be my employer and IBM the client. That is the same
-> model I work in today: Zensar employs me and the bank is the client, and I have worked that way
-> for the last eighteen months. I am comfortable with it, and I know how to work with a client
-> team rather than treat them as someone else's problem."
+> model I work in today: Zensar employs me and the bank is the client, and I have worked that
+> way for the last eighteen months. I am comfortable with it, and I know how to work with a
+> client team rather than treat them as someone else's problem."
 
-**That answer is worth real money to a vendor recruiter**, because the thing they fear most is a
-candidate who accepts and then backs out over the payroll question.
+**That answer is worth real money to a vendor recruiter**, because the thing they fear most is
+a candidate who accepts and then backs out over the payroll question.
 
 ## 2. "Why are you leaving Zensar?"
 
@@ -150,16 +150,14 @@ and the number you want. Do not do arithmetic live.
 > interested in the role and the project, so if the fit is right I am open to discussing
 > it."
 
-**Rules:**
-- **Never lie about your current CTC.** JOY IT verifies with payslips and Form 16.
-  Being caught costs the offer, usually after you have resigned elsewhere.
-- **Ask for the breakup** at offer stage: fixed, variable, retention bonus, and what the
-  in-hand figure is. Large companies often put a meaningful share in variable pay.
-- **Ask how the salary is structured on JOY's payroll** — fixed versus variable, and whether any
-  part is tied to the IBM engagement continuing. This matters more in a vendor arrangement than
-  in a direct one.
-- If they ask first, it is completely normal to ask **"what range have you budgeted for
-  this role and level?"**
+**Rules:** - **Never lie about your current CTC.** JOY IT verifies with payslips and Form 16.
+Being caught costs the offer, usually after you have resigned elsewhere. - **Ask for the
+breakup** at offer stage: fixed, variable, retention bonus, and what the in-hand figure is.
+Large companies often put a meaningful share in variable pay. - **Ask how the salary is
+structured on JOY's payroll** — fixed versus variable, and whether any part is tied to the IBM
+engagement continuing. This matters more in a vendor arrangement than in a direct one. - If
+they ask first, it is completely normal to ask **"what range have you budgeted for this role
+and level?"**
 
 ## 6b. 🔴 The payroll question — JOY IT employs you, IBM is the client
 
@@ -175,8 +173,8 @@ on the phone, before you accept anything.
 2. **Contract duration**, if there is one, and notice period on both sides.
 3. **Conversion.** Has anyone moved from JOY payroll onto IBM's directly, and after how long?
    Ask for the honest answer, not the sales one. A vague answer here is itself information.
-4. **Who writes your appraisal** — a JOY manager who does not see your work, or the IBM lead who
-   does? This affects your increments more than the starting salary.
+4. **Who writes your appraisal** — a JOY manager who does not see your work, or the IBM lead
+   who does? This affects your increments more than the starting salary.
 5. **Which IBM account and project**, and the day-to-day stack on it. "Java backend at IBM" can
    mean a modern Spring Boot product team or a fifteen-year-old maintenance application, and
    those are very different for your next move.
@@ -186,14 +184,14 @@ on the phone, before you accept anything.
 
 **How to ask without sounding suspicious.** Tone matters; curiosity, not interrogation:
 
-> "I am genuinely interested, and I just want to understand the engagement properly so there are
-> no surprises later. Could you tell me how the arrangement works — is it a permanent JOY role
-> deployed to IBM, which account it is, and who I would report to day to day?"
+> "I am genuinely interested, and I just want to understand the engagement properly so there
+> are no surprises later. Could you tell me how the arrangement works — is it a permanent JOY
+> role deployed to IBM, which account it is, and who I would report to day to day?"
 
-**The honest framing for yourself:** vendor payroll at a large client is a completely normal way
-to work in Indian IT, and it is exactly what you do now. It is not something to be wary of. But
-the terms vary a great deal between vendors, and the time to find out is **before** you resign,
-not after.
+**The honest framing for yourself:** vendor payroll at a large client is a completely normal
+way to work in Indian IT, and it is exactly what you do now. It is not something to be wary of.
+But the terms vary a great deal between vendors, and the time to find out is **before** you
+resign, not after.
 
 ---
 

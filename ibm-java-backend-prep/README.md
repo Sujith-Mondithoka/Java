@@ -18,17 +18,11 @@ shape, not the wording.
 
 ---
 
-## 1. 🔴 Who you are actually interviewing with — and the two JDs
-
-You now have **two job descriptions for what looks like the same client**, and it is worth
-being clear about the structure before Monday, because it affects what you ask and what you
-negotiate.
-
-### The arrangement
+## 1. Who you are interviewing with
 
 | | |
 |---|---|
-| **Client** — where you would actually sit and work | **IBM** |
+| **Client** — where you would sit and work | **IBM** |
 | **Payroll** — who employs you and pays you | **JOY IT** (JOY IT Solutions / JOY IT Consulting) |
 | **Employment type** | Full-time with JOY |
 | **Location** | Hyderabad |
@@ -38,83 +32,79 @@ negotiate.
 This is a standard staffing arrangement: **JOY IT is your employer, IBM is the client.** It is
 the same shape as your current position — Zensar employs you, C. Hoare & Co is the client. Say
 that out loud if it comes up, because it means the model is already familiar to you and you
-have worked successfully inside it for eighteen months.
+have worked successfully inside it for eighteen months. That reassures a vendor recruiter more
+than anything else you can say, because their real fear is a candidate who accepts and then
+backs out over the payroll question.
 
-**What it means for Monday:** the F2F is most likely **IBM's technical panel**, not JOY's. JOY
-has already screened you with the AI round; a vendor does not usually run a second technical
-round of its own. So prepare to impress **the client**, and expect IBM-style questions —
-fundamentals, depth on what you actually built, and clean reasoning rather than buzzwords.
+**What it means for Monday:** JOY has already screened you with the AI round, and a vendor does
+not usually run a second technical round of its own. So the F2F is most likely **IBM's
+technical panel** — prepare to impress the client. Expect IBM-style questions: fundamentals,
+depth on what you actually built, and clean reasoning rather than buzzwords.
 
-### 🔴 The thing to clarify: NCG and JOY IT
+**Note the mode line: "F2F — Monday, Tuesday."** Two days. That may mean candidates spread
+across both days, or more than one round for you. **Do not assume Monday is the end of it** —
+keep Tuesday as free as you can.
 
-Earlier you were given a **NCG (NetConnect Global)** JD for a GCC Java Backend role, also for
-IBM, also Hyderabad, also Monday. Now JOY IT has sent an IBM JD with the same interview days.
-
-Most likely one of two things is happening:
-
-1. **They are the same opportunity**, and NCG and JOY IT are both vendors on IBM's panel — or
-   one is subcontracting to the other.
-2. **They are two different IBM requirements** that happen to be running the same week.
-
-> ⚠️ **This matters, and it is worth one phone call today.** If two vendors submit the *same
-> candidate* to the *same client requirement*, the client usually accepts only the first
-> submission and may drop the profile altogether to avoid a dispute between vendors. That is a
-> bad way to lose a role you have already passed a round for.
-
-**Ask Prasanthi directly, today. It is a normal question and recruiters respect it:**
-
-> "Quick question before Monday — I was also approached for an IBM Java backend role in
-> Hyderabad by another vendor. I want to make sure my profile has not gone to IBM twice for the
-> same requirement, because I know that can cause problems. Could you confirm which requirement
-> you have submitted me for?"
-
-Then ask the same of the NCG recruiter. Whichever submitted you first is the one to go with;
-tell the other honestly. **Do not let both run silently.**
-
-### The other questions worth asking JOY IT before you accept anything
-
-Not on Monday with the IBM panel — these are for Prasanthi, on the phone:
-
-- Is this a **permanent JOY position deployed to IBM**, or tied to a fixed project duration?
-- **Contract length**, if there is one, and what happens at the end of it.
-- Is there a path to **conversion to IBM payroll**, and has it happened for others?
-- **Who manages your appraisal and increment** — JOY or the IBM lead?
-- Which IBM account or project, and what is the tech stack on it day to day?
-
-**None of this belongs in the technical round.** Keep it with the recruiter.
+> 🔴 **Payroll, contract length, conversion to IBM, appraisals and benefits are real questions —
+> and none of them belong in the technical round.** Keep them for Prasanthi, on the phone,
+> before you accept anything. The full list is in **file 14, section 6b**.
 
 ---
 
 ## 2. The JD, decoded against your resume
 
-The posting lists a lot of technologies. Here is what you actually have, and what you do not.
+This is the spec you are being interviewed against. Ten responsibilities and twelve required
+skills. Here is where you stand on every line of it.
 
-### ✅ Where you are strong — these are the bulk of the interview
+### What they will ask you to have *done* — the responsibilities
 
-| The JD asks | You | File |
+| The JD says | You | File |
 |---|---|---|
-| **Core Java 8+** | Java 8+, OOP, collections, exceptions | `01`, `02` |
-| **Spring Boot, Spring MVC, Spring Data JPA** | All three, in production | `03` |
-| **Hibernate / JPA** | Yes — and you tuned it | `04` |
-| **RESTful APIs** | Yes, with exception handling | `03`, `12` |
-| **Microservices architecture** | The Classifieds platform — Eureka, API Gateway, 3 services | `05` |
-| **Kafka, RabbitMQ** | **Both, in production, for different reasons** | `06` |
-| **JWT, application security** | Spring Security RBAC, JWT | `07` |
-| **MySQL, query optimisation, indexing** | Yes, with real numbers | `08` |
-| **MongoDB / NoSQL** | On your resume | `08` |
-| **Git, Maven** | Yes | `15` |
-| **Performance tuning, profiling** | **15s → 6s and 2–3s → under 1s** | `04`, `13` |
-| **Production troubleshooting, root cause analysis** | Yes — execution plans and logs | `13`, `15` |
-| **BFSI domain** | **A UK private bank. This is a real advantage.** | throughout |
+| Design, develop, test and deploy backend services in Java and Spring Boot | Two production platforms at a UK bank | `01`–`03`, `13` |
+| Build and maintain microservices-based applications | Classifieds — Eureka, API Gateway, three services | `05` |
+| Develop RESTful APIs **and integrate with third-party services** | APIs yes; integration is the one to rehearse | `03`, `05` Q2b |
+| **Optimise performance, scalability and security** | **Your single strongest line: 15s → 6s, 2–3s → under 1s** | `04`, `08`, `13` |
+| Work with **relational and NoSQL** databases | MySQL deeply; MongoDB on your resume | `08`, `08` Q7 |
+| Collaborate with frontend developers, QA and business stakeholders | Daily, with a client team in another country | `15` |
+| Implement CI/CD pipelines and support DevOps practices | Worked inside a release process, did not own a pipeline | `10` ⚠️ |
+| **Troubleshoot production issues and provide timely resolutions** | Real incident experience — lead with it | `13` Story 4, `15` |
+| Write clean, maintainable, well-documented code | Say what "clean" means to you concretely | `15` |
+| Participate in code reviews and technical discussions | Yes — have an example of feedback you gave *and* received | `15` |
 
-### ⚠️ Where you have gaps — four of them, all manageable
+**Read that list again.** Six of the ten are things you have genuinely done, two are strengths
+you can prove with numbers, and only one is a real gap. That is a good position.
+
+### What they will ask you to *know* — the required skills
 
 | The JD asks | Your position | File |
 |---|---|---|
-| **Docker, Kubernetes, containerisation** | **Not on your resume at all.** Named three times in the JD | `09` 🔴🔴 |
-| **Jenkins / GitHub Actions / Azure DevOps** | You worked *inside* a SIT/UAT release process, did not own a pipeline | `10` 🔴 |
-| **OAuth2** | You have JWT and Spring Security, not a full OAuth2 integration | `07` Q6b |
-| **PostgreSQL, Oracle, ActiveMQ, Gradle, Java 11/17** | Adjacent to what you have — dialect and syntax, not new concepts | `08`, `06`, `15`, `02` |
+| **Java 8 / 11 / 17+** | Java 8 solid; know what 11 and 17 added | `01`, `02` |
+| **Spring Framework, Boot, MVC, Data JPA** | All four, in production | `03` |
+| **Microservices architecture** | Built one end to end | `05` |
+| **RESTful APIs** | Yes, with proper exception handling | `03`, `12` |
+| **Hibernate / JPA** | Yes — and you tuned it, which is better | `04` |
+| **MySQL, PostgreSQL, Oracle** | MySQL deeply; the others are dialect differences | `08` |
+| **Git, Maven, Gradle** | Git and Maven yes; one line on how Gradle differs | `15` |
+| **Docker, Kubernetes, containerisation** | **Not on your resume — the main gap** | `09` 🔴🔴 |
+| **Kafka, RabbitMQ, ActiveMQ** | **Kafka and RabbitMQ in production, for different reasons** | `06` |
+| **JWT, OAuth2, application security** | JWT and Spring Security RBAC; OAuth2 is reading | `07` |
+| **Jenkins, GitHub Actions, Azure DevOps** | Used the output, did not build the pipeline | `10` ⚠️ |
+
+### ⚠️ Your three real gaps
+
+**1. Docker and Kubernetes 🔴🔴 — close this one.** It is the only required skill you have no
+exposure to, and "containerization" is spelled out as its own bullet. Three hours of reading
+closes it to interview standard. **File 09, Friday evening.**
+
+**2. CI/CD tooling ⚠️** — you have worked inside a SIT/UAT release process without owning the
+pipeline. That is a normal position at your experience and easy to say well. **File 10.**
+
+**3. OAuth2 ⚠️** — you have JWT, which is not the same thing. The distinction itself is the
+answer: *OAuth2 is how a token is obtained; JWT is a format a token can be written in.*
+**File 07, Q6b.**
+
+Everything else on that list is either yours already or a dialect difference from something
+that is.
 
 ### 🔴 The pattern for every gap — use it all day
 
@@ -124,51 +114,41 @@ The posting lists a lot of technologies. Here is what you actually have, and wha
 > platform. So I would call that understanding rather than hands-on. What I do know is the
 > model and why it is used…"*
 
-Then explain it properly. **At two years that is a strong answer.** Claiming hands-on Kubernetes
-and then being asked why a pod is in CrashLoopBackOff is not — and the second question always
-comes.
+Then explain it properly. **With a 1+ year requirement, that is a strong answer** — they are
+not expecting a DevOps engineer. Claiming hands-on Kubernetes and then being asked why a pod is
+in CrashLoopBackOff is what loses you the room, and the second question always comes.
 
-**Docker and Kubernetes are the one gap worth genuinely closing this weekend.** You have three
-days, it is three hours of reading, and it is named three times in the spec. File 09.
+### ✅ What this JD does *not* ask for — stop worrying about it
 
-### ✅ On the experience band — this is now good news
+- **It does not ask for a domain.** Your banking background is a bonus with IBM, not a
+  requirement. Use it as evidence that you understand regulated, audited systems — do not build
+  your whole pitch on it.
+- **It does not ask for 3+ years.** See below.
+- **It does not ask for frontend, cloud certifications, or system design at scale.** If those
+  come up they are conversation, not assessment.
 
-The earlier NCG posting said **3–6 years**, and a lot of file 13 was written to handle being
-under it.
+### ✅ On the experience band — this is good news
 
-**The JOY IT / IBM JD says "Experience Required: 1+".**
+**The JD says "Experience Required: 1+".**
 
 You have roughly **18 months of backend engineering** and about **two years four months of
-professional experience** in total. **You clear that bar comfortably.** Stop treating your
-experience as something to defend — it is not the issue in this process, and carrying that worry
-into the room will show.
+professional experience** in total. **You clear that bar comfortably.** Do not treat your
+experience as something to defend — it is not the issue in this process, and carrying that
+worry into the room will show.
 
 Two things still hold, for a different reason:
 
-- **Answer with dates, and never round up.** Not because the band is a risk, but because JOY IT
-  will verify against payslips and Form 16 at offer stage, and your salary is fixed from the
+- **Answer with dates, and never round up.** Not because the bar is a risk, but because JOY IT
+  verifies against payslips and Form 16 at offer stage, and your salary is fixed from the
   verified number. Getting caught costs the offer after you have resigned somewhere.
-- **A "1+" posting means they expect to interview people with less experience than you.** That is
-  an advantage: the bar in the room is fundamentals done properly, not architecture war stories.
-  Depth on what you actually built will stand out.
+- **A "1+" posting tells you what the bar in the room is.** They expect to interview people
+  with one year of experience, so the panel is testing **fundamentals done properly** — explain
+  a HashMap, find an N+1, say what `@Transactional` actually does, write a clean query — not
+  architecture war stories. You have all of that *plus* production performance numbers and two
+  messaging systems used for different reasons. **Depth where a one-year candidate would be
+  thin is exactly how you stand out.**
 
-File 13 section 5 has the wording, now rewritten for this bar.
-
-### What the JOY IT JD adds that NCG's did not
-
-Four things appear in this JD that are worth ten minutes each:
-
-| New in this JD | Where you stand | File |
-|---|---|---|
-| **"relational and NoSQL databases"** | MongoDB is on your resume — be ready to say what you used it for and when you would choose it over MySQL | `08` Q7 |
-| **"integrate with third-party services"** | You have done API work; the interview answer is timeouts, retries, circuit breaker and idempotency | `05` Q2b |
-| **"troubleshoot production issues and provide timely resolutions"** | A real strength — you have incident stories | `13` Story 4 |
-| **"Git, Maven, Gradle"** | Git daily, Maven yes; know Gradle's difference in one line | `15` |
-
-Everything else in the JOY IT JD — Java 8/11/17, Spring Boot, Spring MVC, Spring Data JPA,
-microservices, REST, Hibernate, MySQL/PostgreSQL/Oracle, Docker, Kubernetes, Kafka, RabbitMQ,
-ActiveMQ, JWT, OAuth2, Jenkins, GitHub Actions, Azure DevOps — **is already covered in this
-pack.** The two JDs are about 90% the same list. You are not starting again.
+File 13 section 5 has the wording.
 
 ---
 
@@ -180,12 +160,12 @@ The JOY IT JD states the mode plainly: **"AI interview, F2F — Monday, Tuesday.
 
 So the pipeline is **AI screen → face to face**, and you have already cleared the AI screen at
 69%. The F2F spans **two days**, which usually means either several candidates across two days,
-or more than one round for you across Monday and Tuesday — so do not assume Monday is the end of
-it. Keep Tuesday loose if you can.
+or more than one round for you across Monday and Tuesday — so do not assume Monday is the end
+of it. Keep Tuesday loose if you can.
 
 HR could not confirm whether Monday is a written assessment, a technical interview, or both.
-Plan for both; it covers every case and costs nothing if only one happens. Do not treat that as two preparations. The overlap is about 80%;
-only the *form of the answer* changes.
+Plan for both; it covers every case and costs nothing if only one happens. Do not treat that as
+two preparations. The overlap is about 80%; only the *form of the answer* changes.
 
 - **If it is a written test** → read `00b-if-its-a-written-test.md`. Output traps, stream
   tasks, SQL by hand, and how to lay out a descriptive answer so a marker can score it fast.
@@ -311,5 +291,5 @@ first makes everything else you say trustworthy. Bluffing collapses on the follo
 engineer's. Same length, completely different impression.
 
 **3. Bring every answer back to something you did.** You have a UK bank, real performance
-numbers, Kafka and RabbitMQ used for different reasons, and production incidents you root-caused.
-That is more concrete evidence than most candidates with four years. Use it.
+numbers, Kafka and RabbitMQ used for different reasons, and production incidents you
+root-caused. That is more concrete evidence than most candidates with four years. Use it.

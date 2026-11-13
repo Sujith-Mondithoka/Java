@@ -128,30 +128,27 @@ moves on.
 
 ## Q2b. 🔴 Integrating a third-party service — named in the JD
 
-The JOY IT spec says *"develop RESTful APIs and integrate with third-party services"*, so expect
-a question like **"how would you call an external payment or KYC provider from your service?"**
-The interviewer is not testing whether you can call an API. They are testing whether you assume
-it will work.
+The JOY IT spec says *"develop RESTful APIs and integrate with third-party services"*, so
+expect a question like **"how would you call an external payment or KYC provider from your
+service?"** The interviewer is not testing whether you can call an API. They are testing
+whether you assume it will work.
 
-**The rule to lead with:** *a third-party call is a network call you do not control, so you plan
-for it failing, being slow, and being called twice.*
+**The rule to lead with:** *a third-party call is a network call you do not control, so you
+plan for it failing, being slow, and being called twice.*
 
 **Say this:**
 
-> "I would keep the integration behind its own client class rather than scattering calls through
-> the services, so there is one place that knows about that provider.
->
-> On the call itself, four things. A **connect and read timeout**, always — a call without a
-> timeout can hang a thread until the pool is exhausted, and then my service is down because
-> someone else's is slow. **Retries with backoff**, but only on safe operations — retrying a
-> failed read is fine, retrying a payment is not, unless the provider supports an idempotency
-> key. A **circuit breaker**, so when the provider is clearly down I fail fast instead of piling
-> up threads waiting. And an **idempotency key** on anything that changes money or state, so a
-> retry cannot create a second transaction.
->
-> I would also log the correlation id against every outbound call, because when a third party
-> says 'we never received that request' you need to be able to show exactly what you sent and
-> when."
+> "I would keep the integration behind its own client class rather than scattering calls
+> through the services, so there is one place that knows about that provider.  On the call
+> itself, four things. A **connect and read timeout**, always — a call without a timeout can
+> hang a thread until the pool is exhausted, and then my service is down because someone else's
+> is slow. **Retries with backoff**, but only on safe operations — retrying a failed read is
+> fine, retrying a payment is not, unless the provider supports an idempotency key. A **circuit
+> breaker**, so when the provider is clearly down I fail fast instead of piling up threads
+> waiting. And an **idempotency key** on anything that changes money or state, so a retry
+> cannot create a second transaction.  I would also log the correlation id against every
+> outbound call, because when a third party says 'we never received that request' you need to
+> be able to show exactly what you sent and when."
 
 **The follow-up: "what do you return to your caller when the provider is down?"**
 

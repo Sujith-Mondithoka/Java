@@ -418,9 +418,9 @@ your reply:
    pre-register visitors a day ahead.
 9. **Who you are meeting**, if named. Worth a quick look.
 10. **Parking or nearest station**, if you are travelling yourself.
-11. **Whether it is the NCG office or the client's office.** This is the one most people
-    skip, and it tells you who is actually interviewing you — which is the open question
-    from file 00 section 1.
+11. **Whether it is JOY IT's office or IBM's.** This is the one most people skip, and it tells
+    you who is actually interviewing you. IBM's office means the client panel; JOY's office
+    means the vendor is running it, which changes the tone more than the content.
 
 ### Reply to that mail the same day
 

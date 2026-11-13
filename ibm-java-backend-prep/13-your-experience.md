@@ -143,11 +143,10 @@ Dec 2024 – Jun 2026   Software Engineer (Backend), Zensar        ~18 months
 
 **The IBM / JOY IT posting asks for 1+ years. You are above it, not below it.**
 
-An earlier version of this guide prepared you to defend being under a 3–6 year band, because
-that is what the NCG posting said. **That is no longer the situation, and you should drop the
-defensive posture completely.** It changes how you sit in the room: you are not someone hoping
-to be let in under the bar, you are someone comfortably inside it who has real production
-numbers. Those are different people to interview.
+**Drop any defensive posture about your experience.** It changes how you sit in the room: you
+are not someone hoping to be let in under the bar, you are someone comfortably inside it who
+has real production numbers. Those are different people to interview, and panels can tell which
+one is sitting in front of them.
 
 **If they ask how much experience you have, answer it plainly and move on:**
 
@@ -162,12 +161,12 @@ Then keep going into what you built. No apology, no hedging, no "only".
 offer, and your salary is set from the verified number. Inflating it costs the offer at the
 worst possible moment — after you have resigned somewhere else.
 
-**2. A "1+" requirement tells you what the bar in the room is.** They expect to interview people
-with one year of experience. That means the panel is testing **fundamentals done properly**, not
-architecture war stories: can you explain a HashMap, can you find an N+1, do you know what
-`@Transactional` actually does, can you write a clean query. You have all of that *plus*
-production performance work and two messaging systems. **Play to that gap — depth where a
-one-year candidate would be thin is exactly how you stand out.**
+**2. A "1+" requirement tells you what the bar in the room is.** They expect to interview
+people with one year of experience. That means the panel is testing **fundamentals done
+properly**, not architecture war stories: can you explain a HashMap, can you find an N+1, do
+you know what `@Transactional` actually does, can you write a clean query. You have all of that
+*plus* production performance work and two messaging systems. **Play to that gap — depth where
+a one-year candidate would be thin is exactly how you stand out.**
 
 ### 2. 🔴🔴 The gap — you left in June
 
