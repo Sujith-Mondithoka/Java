@@ -8,7 +8,8 @@ SRC = Path("/home/user/Java/ncg-java-backend-prep")
 OUT = Path("/home/user/Java/ncg-java-backend-prep/pdf")
 SCRATCH = Path("/tmp/claude-0/-home-user-Java/511b1e01-f010-504c-a181-1e9c535fa679/scratchpad")
 
-ORDER = ["README.md", "01-core-java.md", "02-java8-functional.md",
+ORDER = ["README.md", "00-ai-round-debrief.md", "00b-if-its-a-written-test.md",
+         "01-core-java.md", "02-java8-functional.md",
          "03-spring-boot.md", "04-jpa-hibernate.md", "05-microservices.md",
          "06-kafka-rabbitmq.md", "07-spring-security-jwt.md",
          "08-sql-and-databases.md", "09-docker-kubernetes.md",

@@ -100,7 +100,24 @@ verified number. The full answer is in **file 13, section 5**.
 
 ---
 
-## 3. What the interview will probably look like
+## 3. What Monday will probably look like
+
+### 🔴 First: the format is not confirmed
+
+HR has said Monday is **either a technical written assessment or a technical interview** —
+they do not yet know which. Do not treat that as two preparations. The overlap is about 80%;
+only the *form of the answer* changes.
+
+- **If it is a written test** → read `00b-if-its-a-written-test.md`. Output traps, stream
+  tasks, SQL by hand, and how to lay out a descriptive answer so a marker can score it fast.
+- **If it is an interview** → read `00-ai-round-debrief.md`. You already sat the AI screen and
+  passed at 69%, so the panel has your transcript and knows exactly where to dig. That file is
+  the ten threads they will come back to.
+
+Read **both**. Ask the recruiter the length and the platform — most will tell you if asked.
+
+### If it is the interview, the rounds usually run like this
+
 
 **Round 1 — Technical (45–60 min).** Core Java, collections, Spring Boot, JPA, SQL, usually a
 coding question. → Files 01–04, 08, 11.
@@ -124,7 +141,12 @@ that instinct is yours to show.
 
 ## 4. The three-day plan — Friday evening to Sunday
 
-### Friday evening (tonight) — close the biggest gap
+### Friday evening (tonight) — the two files written for Monday
+
+Before anything else: **`00-ai-round-debrief.md`, in full.** It is the highest-value hour you
+have, whichever format Monday takes. Then `00b-if-its-a-written-test.md`. Then the block below.
+
+### Friday evening, continued — close the biggest gap
 
 | Block | Topic | File |
 |---|---|---|
@@ -171,6 +193,8 @@ Drop in this order: system design → coding round → delivery → Java 11/17 d
 
 | File | Topic | Priority |
 |---|---|---|
+| `00-ai-round-debrief.md` | **The AI round, and the ten threads Monday will dig into** | 🔴 Read first |
+| `00b-if-its-a-written-test.md` | **Output traps, stream tasks, SQL by hand, written answers** | 🔴 Read second |
 | `01-core-java.md` | OOP, collections, HashMap internals, exceptions | 🔴 Highest |
 | `02-java8-functional.md` | Streams, lambdas, Optional, **Java 11 and 17** | 🔴 High |
 | `03-spring-boot.md` | IoC, DI, annotations, bean scopes, Spring MVC | 🔴 Highest |
