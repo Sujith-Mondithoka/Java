@@ -226,10 +226,11 @@ def stamp(pdf_path: Path, out_path: Path, footer: str):
         c.showPage()
     c.save()
     ov = PdfReader(str(overlay))
-    writer = PdfWriter()
-    for i, page in enumerate(reader.pages):
+    # pypdf >= 7 refuses merge_page on a page that is not owned by a writer,
+    # so clone the whole document into the writer first and merge in place.
+    writer = PdfWriter(clone_from=str(pdf_path))
+    for i, page in enumerate(writer.pages):
         page.merge_page(ov.pages[i])
-        writer.add_page(page)
     writer.add_metadata({"/Title": "Software Engineer Interview Prep - Lloyds",
                          "/Author": "Vallu Ravikoti Narendra",
                          "/Subject": "Core Java, Spring Boot, microservices, testing and interview Q&A"})
