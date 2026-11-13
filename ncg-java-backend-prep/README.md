@@ -104,8 +104,9 @@ verified number. The full answer is in **file 13, section 5**.
 
 ### 🔴 First: the format is not confirmed
 
-HR has said Monday is **either a technical written assessment or a technical interview** —
-they do not yet know which. Do not treat that as two preparations. The overlap is about 80%;
+HR has said Monday is **a technical written assessment, a technical interview, or both** —
+they do not yet know which. Plan for both; it covers every case and costs nothing if only
+one happens. Do not treat that as two preparations. The overlap is about 80%;
 only the *form of the answer* changes.
 
 - **If it is a written test** → read `00b-if-its-a-written-test.md`. Output traps, stream
@@ -114,7 +115,9 @@ only the *form of the answer* changes.
   passed at 69%, so the panel has your transcript and knows exactly where to dig. That file is
   the ten threads they will come back to.
 
-Read **both**. Ask the recruiter the length and the platform — most will tell you if asked.
+Read **both**. And block the whole of Monday — if the written test and the interview run on
+the same day, the gap between them is often short and the invitation arrives with little
+notice. `00b` has the message to send the recruiter today.
 
 ### If it is the interview, the rounds usually run like this
 

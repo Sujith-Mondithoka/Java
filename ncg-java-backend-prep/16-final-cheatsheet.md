@@ -4,6 +4,21 @@ If a line here does not ring a bell, open that file for three minutes and come b
 
 ---
 
+## Monday, whatever the format
+
+Written test, interview, or both — nobody knows yet, so assume **both, written first**.
+
+- Whole day blocked. Phone on and charged in the gap; a same-day interview invite can
+  come with 15 minutes' notice.
+- ID, charger, stable connection, quiet room, pen and paper. Link open 5 minutes early.
+- **Write only what you can defend out loud an hour later.** The interviewer will have
+  your written answers.
+- Jot 2–3 words per written answer. Read your own notes in the gap.
+- Your eight fixed facts do not change between rounds: 15s→6s, 2–3s→<1s, RabbitMQ for
+  approval emails, Kafka for compliance state-change events, JWT roles, C. Hoare & Co.
+
+---
+
 ## The 8 answers that carry this interview
 
 1. **HashMap:** *"`hashCode()`, then a spread of `h ^ (h >>> 16)`, then bucket index

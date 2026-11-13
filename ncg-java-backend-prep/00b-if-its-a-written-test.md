@@ -5,8 +5,8 @@
 
 ## The situation
 
-HR has told you Monday is **either a technical written assessment or a technical
-interview**, and they do not yet know which. That is normal for a GCC pipeline — the
+HR has told you Monday is **a technical written assessment, a technical interview, or
+both** — and they do not yet know which. That is normal for a GCC pipeline — the
 client decides the format and the vendor finds out late.
 
 **Do not treat this as two separate preparations.** The overlap is roughly 80%. The same
@@ -297,6 +297,71 @@ Close everything else before you start.
 **Practical checks the morning of:** charged laptop plus charger, a stable connection,
 photo ID beside you, webcam working, a quiet room, a pen and paper for working out, and
 the test link opened five minutes early rather than one minute late.
+
+---
+
+## 🔴 If Monday is BOTH — and plan as if it is
+
+HR has now said they do not know whether Monday is the written assessment, the technical
+interview, **or both**. So plan for both. It is the only version that covers every case,
+and it costs you nothing if only one happens.
+
+### How "both" usually runs
+
+Most GCC and vendor pipelines run it as a **filter followed by a conversation, on the same
+day**: the written test first, a gap while it is marked, then the interview for whoever
+cleared the cut-off. Sometimes the order is reversed, and sometimes the gap is ten minutes
+rather than two hours.
+
+**What that means practically:**
+
+- **Block the whole day.** Do not schedule anything after it. Assume 3–4 hours end to end,
+  and assume the gap between the two is unpredictable and possibly very short.
+- **Stay reachable in the gap.** Phone charged and on, email open. A same-day interview
+  invitation often arrives with 15 minutes' notice, and missing it reads as not interested.
+- **Eat beforehand, and keep water next to you.** This sounds trivial. It is not — a
+  written test plus an interview is a long concentration day, and the interview is the part
+  where being tired shows.
+
+### 🔴 The rule that matters most: what you write becomes the interview script
+
+This is the single most important thing in this file, and it is the same lesson as your AI
+round. **If both happen on the same day, the interviewer will very likely have your written
+answers in front of them.** They are the cheapest possible source of questions, and a panel
+will use them.
+
+So two rules while you write:
+
+**1. Never write something you cannot defend out loud an hour later.** If you write
+"we used RS256 for token signing", expect *"why RS256 over HS256?"* If you cannot answer
+that, write what you actually did — HS256 with a shared secret — and the interview question
+becomes one you can answer. An honest, simpler written answer you can defend beats an
+impressive one you cannot.
+
+**2. Keep a note of what you wrote.** If the platform allows paper, jot two or three words
+per descriptive answer — "lazy/eager: per-query", "Rabbit: 6 links", "second highest:
+DENSE_RANK". In the gap, read your own notes. Walking into the interview knowing what the
+interviewer just read is a genuine advantage, and it stops you contradicting yourself,
+which is the one unrecoverable mistake.
+
+### If the interview comes first instead
+
+Then the written test afterwards is mostly a formality to confirm what you said — and the
+same rule applies in reverse. Write answers that match what you just told them. Do not
+suddenly produce a more advanced version of a story in writing.
+
+### What to ask HR today
+
+Send one short message. Most recruiters answer this, and every answer narrows your planning:
+
+> "Thanks — just so I can block the time correctly: roughly how long should I keep free on
+> Monday, and is the assessment on a platform like HackerRank or Mettl, or written answers?
+> And if there is an interview the same day, is it likely to be straight after?"
+
+That is polite, it is practical, and it is the kind of question a recruiter is pleased to
+get rather than annoyed by. Even "keep the afternoon free" tells you it is probably both.
+
+**If they still do not know by Sunday, assume both, and assume written first.**
 
 ---
 
