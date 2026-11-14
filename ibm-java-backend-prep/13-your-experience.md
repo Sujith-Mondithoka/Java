@@ -26,31 +26,109 @@ it either. Depth on the things you actually did beats vague claims about things 
 
 ---
 
-## 🔴 "Tell me about yourself" — your script
+## 🔴🔴 "Tell me about yourself" — your script
 
-Structure: **Now → What you have built → Why this role.** Under two minutes.
+This is the first ninety seconds and it sets the whole interview. Get it right and the panel
+spends the rest of the time asking about the things *you* chose to mention.
 
-> "I am a backend developer with close to two years of experience, currently at Zensar
-> working on banking systems for C. Hoare & Co, a private bank in the UK.
+### ⚠️ First, settle one thing: present tense or past?
+
+Your dates are **Dec 2024 – Jun 2026** at Zensar, and it is now November. In the AI round you
+were asked about "your current role right now" and you answered. **Whatever you said there is
+what you say on Monday** — the two have to match.
+
+- **Still employed at Zensar** → use the script exactly as written below.
+- **Left in June** → change the opening line to *"Until June I was a backend engineer at
+  Zensar, working for C. Hoare & Co, a private bank in the UK"*, and keep everything else in
+  the past tense. Section 5 of this file covers the follow-up.
+
+**Pick one now, say it the same way every time, and do not improvise a third version in the
+room.**
+
+### The script — about 90 seconds
+
+**Structure: who you are → what you built → the numbers → the judgement call → why this role.**
+
+> "I am Neelima. I am a Java backend developer with about two and a half years of
+> professional experience, the last year and a half of it as a backend engineer at Zensar,
+> working for C. Hoare and Company — a private bank in the UK.
 >
-> My work is Java and Spring Boot with Spring Data JPA and MySQL, and I have built two
-> platforms there: a transaction recall system and a business card management system.
-> Both were REST APIs with role-based access control, and both had performance problems
-> when I picked them up — I took report generation from 15 seconds to 6, and the card
-> APIs from 2 to 3 seconds down to under a second, mostly by removing N+1 queries and
-> indexing properly.
+> My day to day is Java and Spring Boot — REST APIs with Spring Data JPA and MySQL, with
+> role-based access control using JWT. I have owned two platforms there end to end: a
+> transaction recall system and a business card management system.
 >
-> The part I enjoyed most was moving work off the request thread. I replaced synchronous
-> email sending with RabbitMQ so bulk approvals stopped timing out, and used Kafka to
-> publish transaction state changes to compliance and reporting consumers.
+> The part I would pick out is performance. Both platforms had problems when I picked them
+> up. Report generation was taking about fifteen seconds — I traced it to an N+1, one query
+> per row, replaced it with a projection query and fixed the indexes, and brought it down to
+> six. The card APIs were two to three seconds, and those came down to under one.
 >
-> I have also built a microservices project of my own with Eureka and an API Gateway,
-> which is why this role interested me — it is Java, Spring Boot and microservices, which
-> is exactly the direction I have been moving in."
+> I also moved work off the request thread. Approvals were sending emails inside the request,
+> so bulk approvals were timing out — I moved that to RabbitMQ with a separate consumer.
+> Separately, I published transaction state changes to Kafka for compliance and reporting. A
+> queue for one and an event log for the other, because they are different problems.
+>
+> Outside of that I built a microservices project of my own with Eureka and an API Gateway,
+> which is part of why this role interested me. Java, Spring Boot, microservices and
+> messaging is exactly the direction I have been moving in — and having worked on a bank's
+> systems, I am used to environments where auditability and access control are not optional."
 
-Practise this twice today and twice on the morning of the 5th. Time it.
+**Then stop.** Do not trail off into "...so, yeah, that's about me." Finish on the last
+sentence and let the silence sit. The panel will take it from there, and they will almost
+certainly ask about the fifteen seconds or about Kafka — which is exactly what you want,
+because both are prepared.
 
----
+### The 40-second version — if they say "briefly"
+
+Some panels ask for a quick version, especially when there are several candidates waiting.
+
+> "I am Neelima, a Java backend developer, about two and a half years in, the last year and a
+> half at Zensar on a UK private bank's platforms. Java, Spring Boot, Spring Data JPA, MySQL,
+> REST APIs with JWT-based access control. The work I am proudest of is performance — I took
+> report generation from fifteen seconds to six by removing an N+1, and the card APIs from two
+> to three seconds down to under one — and moving work off the request thread with RabbitMQ
+> and Kafka. Microservices and messaging is the direction I want to keep going in, which is
+> why this role."
+
+### The written version — if the assessment asks for a profile
+
+Four lines, no padding, same facts:
+
+> Java backend developer with ~2.5 years' experience, ~18 months as a backend engineer at
+> Zensar on platforms for C. Hoare & Co, a UK private bank. Core stack: Java, Spring Boot,
+> Spring MVC, Spring Data JPA, Hibernate, MySQL, REST APIs, Spring Security with JWT.
+> Performance work: report generation 15s → 6s (N+1 removal, projection query, indexing);
+> card APIs 2–3s → under 1s. Event-driven work with RabbitMQ (asynchronous notifications)
+> and Kafka (transaction state-change events for compliance and reporting). Built a
+> microservices project with Eureka and an API Gateway.
+
+### 🔴 Why this script works — do not "improve" it on the day
+
+Five things are doing the work. If you shorten it, keep these:
+
+1. **It opens with a number, not an adjective.** "Two and a half years" beats "passionate and
+   hardworking", which every other candidate says.
+2. **It names a real client in a real domain.** A UK private bank is specific and checkable,
+   and it signals regulated systems without you claiming domain expertise.
+3. **It contains four numbers.** 15 → 6, 2–3 → under 1. Numbers are the cheapest credibility
+   available, and almost nobody at this level has them.
+4. **It shows a decision, not just activity.** "A queue for one and an event log for the
+   other, because they are different problems" is the most senior sentence in the script. It
+   is also true, which is why it survives follow-up.
+5. **It ends by connecting to the JD** — microservices and messaging — so the panel's next
+   question lands in your prepared territory.
+
+### Delivery
+
+- **Slow down on the numbers.** Say "fifteen seconds to six" with a small pause after it. It
+  is the line you most want them to remember.
+- **Do not list technologies like a shopping list.** Group them: "Java and Spring Boot",
+  "Kafka and RabbitMQ". A list sounds memorised; a group sounds lived.
+- **Say the client's name properly** — C. Hoare and Company. Fumbling your own client sounds
+  like you were not close to the work.
+- **Practise it standing up, out loud, four times**: twice today, twice tomorrow. Time it. If
+  it runs past two minutes, cut the microservices sentence, not the numbers.
+- **Do not memorise it word for word.** Learn the five beats — who, what you built, the
+  numbers, the judgement call, why this role — and let the words vary.
 
 ## Your four stories, prepared properly
 
