@@ -1,5 +1,5 @@
 # IBM — Java Backend Developer
-### Neelima Jana · Client **IBM**, payroll **JOY IT** · Hyderabad · F2F **Monday 16 / Tuesday 17 November**
+### Neelima Jana · Client **IBM**, payroll **JOY IT** · Hyderabad · F2F **Monday 16 November, 9:00 am**
 
 ---
 
@@ -205,53 +205,85 @@ that instinct is yours to show.
 
 ---
 
-## 4. The three-day plan — Friday evening to Sunday
+## 4. The plan — two days, and a 9am start
 
-### Friday evening (tonight) — the two files written for Monday
+**Interview: Monday 16 November, 9:00 am, in person.** It is now Saturday. You have today,
+tomorrow, and about ninety minutes on Monday morning.
 
-Before anything else: **`00-ai-round-debrief.md`, in full.** It is the highest-value hour you
-have, whichever format Monday takes. Then `00b-if-its-a-written-test.md`. Then the block below.
+### 🔴 What a 9am start tells you
 
-### Friday evening, continued — close the biggest gap
+**The written assessment is very likely first.** Nobody schedules a 9am face-to-face
+conversation; 9am is when you sit people down with a question paper. So plan on written first,
+interview after, and expect the day to run long.
+
+**You have to be sharp at 9am, which is a trainable thing.** Most people's revision happens in
+the evening, and then they sit an exam at an hour their brain has never worked at.
+
+> **So: do your hardest block of the day at 9am both today and tomorrow.** Same hour, same kind
+> of work — writing SQL and Java by hand with no notes. It is the cheapest performance gain
+> available to you this weekend.
+
+### Today — Saturday
+
+Start with the two files written for this interview, then the core.
 
 | Block | Topic | File |
 |---|---|---|
 | 0:15 | Read this file | `README.md` |
-| 1:30 | **Docker and Kubernetes** 🔴🔴 — your largest gap, named three times | `09-docker-kubernetes.md` |
-| 0:45 | **CI/CD and DevOps** 🔴 | `10-cicd-and-devops.md` |
-| 0:30 | **Your experience** — the gap answer and the band answer, out loud | `13-your-experience.md` §5 |
-
-### Saturday — the core, where most of the interview lives
-
-| Block | Topic | File |
-|---|---|---|
+| 1:00 | **The AI round debrief** 🔴🔴 — the ten threads they will come back to | `00-ai-round-debrief.md` |
+| 0:45 | **If it is a written test** 🔴 — write the SQL and streams **by hand** | `00b-if-its-a-written-test.md` |
+| 1:30 | **Docker and Kubernetes** 🔴🔴 — your largest gap | `09-docker-kubernetes.md` |
 | 1:45 | **Core Java and Collections** 🔴🔴 — HashMap above all | `01-core-java.md` |
-| 1:30 | **Spring Boot** 🔴🔴 | `03-spring-boot.md` |
-| 1:15 | **JPA, Hibernate, N+1** 🔴🔴 — your own story | `04-jpa-hibernate.md` |
-| 1:00 | **SQL, indexing, Oracle/Postgres/Mongo** 🔴 | `08-sql-and-databases.md` |
-| 0:45 | **Java 8, and what 11 and 17 added** 🔴 | `02-java8-functional.md` |
+| 1:15 | **Spring Boot** 🔴🔴 | `03-spring-boot.md` |
+| 1:00 | **JPA, Hibernate, N+1** 🔴🔴 — your own story | `04-jpa-hibernate.md` |
 | Evening | **Your four stories, said out loud** 🔴🔴 | `13-your-experience.md` |
 
-### Sunday — architecture, security and rehearsal
+### Tomorrow — Sunday
 
 | Block | Topic | File |
 |---|---|---|
-| 1:15 | **Microservices** 🔴 | `05-microservices.md` |
-| 1:00 | **Kafka, RabbitMQ, ActiveMQ** 🔴 — your differentiator | `06-kafka-rabbitmq.md` |
+| **9:00** | **The ten output traps and the six SQL patterns, on paper, no notes** 🔴🔴 | `00b` |
+| 1:00 | **SQL, indexing, Postgres/Oracle/Mongo** 🔴 | `08-sql-and-databases.md` |
+| 0:45 | **Java 8, and what 11 and 17 added** 🔴 | `02-java8-functional.md` |
+| 1:00 | **Kafka, RabbitMQ, ActiveMQ** 🔴 — your differentiator, and a flagged thread | `06-kafka-rabbitmq.md` |
+| 1:00 | **Microservices**, including third-party integration | `05-microservices.md` |
 | 0:45 | **Spring Security, JWT and OAuth2** 🔴 | `07-spring-security-jwt.md` |
-| 1:00 | **Coding round** — type the problems, do not read them | `11-coding-round.md` |
-| 0:45 | **Delivery, code review, Maven/Gradle** | `15-delivery-and-code-review.md` |
-| 0:45 | **HR and managerial** — say these out loud | `14-hr-and-behavioural.md` |
-| 0:30 | Skim: system design | `12-system-design.md` |
-| By 11pm | **Sleep.** Do not cram Sunday night. | — |
+| 0:45 | **CI/CD and DevOps** 🔴 | `10-cicd-and-devops.md` |
+| 1:00 | **Coding round** — on paper, not in an IDE | `11-coding-round.md` |
+| 0:45 | **HR and managerial**, out loud | `14-hr-and-behavioural.md` |
+| 0:30 | Skim: delivery and code review | `15-delivery-and-code-review.md` |
+| Evening | **The 20-minute drill from file 00, standing up, no notes** 🔴🔴 | `00` |
+| By 10pm | Bag packed, clothes out, alarm set. **Sleep.** | — |
 
-### Monday morning
-45 minutes on `16-final-cheatsheet.md` and nothing else. Then say out loud, twice: your intro,
-the gap answer, and the 15s → 6s story. **Learn nothing new.**
+**Do not cram Sunday night.** A 9am start on five hours of sleep undoes everything above.
+
+### 🔴 Monday morning — work backwards from 9:00
+
+Fill in your own travel time, then set the alarm for the number you get. **Monday 8–9am in
+Hyderabad is peak traffic — budget roughly double what the map says**, especially if you are
+crossing town or heading toward the Gachibowli or Hitec City side.
+
+| Time | What |
+|---|---|
+| 9:00 | **Report.** This is the fixed point. |
+| 8:30 | **At the venue.** Thirty minutes early, not ten. Find the building, the floor, the desk. |
+| 8:30 − travel | **Leave.** Travel time × 2 for Monday morning. If it is 40 minutes on the map, leave 80 minutes before 8:30. |
+| −0:45 | **Cheat sheet, printed, and nothing else.** 45 minutes. Learn nothing new. |
+| −0:30 | **Eat properly.** You may not eat again until the afternoon. |
+| −0:20 | Shower, dress, final bag check. |
+
+Then, out loud before you leave: **your intro, the N+1 story, and one line on why this role.**
+Three things, two minutes, and then stop.
+
+**In the waiting room:** the printed cheat sheet, not your phone. Read the eight answers once.
+Breathe. You passed the screen that got you here.
 
 ### If you fall behind
-Drop in this order: system design → coding round → delivery → Java 11/17 detail.
-**Never drop:** Core Java, Spring Boot, JPA, file 09 (Docker/Kubernetes), or file 13.
+
+Drop in this order: system design → delivery and code review → Java 11/17 detail → coding
+round.
+
+**Never drop:** `00` (the debrief), Core Java, Spring Boot, JPA, and `09` Docker/Kubernetes.
 
 ---
 

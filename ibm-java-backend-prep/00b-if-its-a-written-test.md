@@ -470,23 +470,25 @@ nothing you prepare this weekend is wasted; it only changes the order you use it
 
 ---
 
-## Your weekend, adjusted for not knowing
+## Your weekend — two days, and a 9am start
 
-**Friday evening** — file 00 (the AI round debrief) in full. It is the highest-value hour
-you have, whichever format Monday takes.
+**The interview is Monday at 9:00 am, in person.** A 9am slot almost always means the written
+assessment runs first, so treat this file as the live one.
 
-**Saturday morning** — this file: the ten output traps, the five stream tasks, the six SQL
-patterns. Write them by hand.
+**Saturday (today)** — file 00 first, then this file: the ten output traps, the five stream
+tasks, the six SQL patterns. **Write them by hand, on paper.** Then the core files: 09, 01, 03,
+04.
 
-**Saturday afternoon** — files 01, 02, 03, 04. Core Java, Java 8, Spring Boot, JPA.
+**Sunday 9:00 am** — sit down at the same hour as the exam and write the traps, the streams and
+the SQL again from memory, no notes. Whatever comes out wrong is your afternoon.
 
-**Sunday morning** — files 07, 06, 08 (security, messaging, SQL), then file 11 and solve
-three coding problems **on paper**, not in an IDE.
+**Sunday afternoon** — 08, 02, 06, 05, 07, 10, then three coding problems on paper.
 
-**Sunday evening** — the 20-minute drill from file 00, out loud. Then stop. Lay out your
-ID and charger, and sleep.
+**Sunday evening** — the 20-minute drill from file 00, standing up. Then pack the bag, lay the
+clothes out, set the alarm, and sleep. Do not cram.
 
-**Monday morning** — the cheat sheet only. Nothing new.
+**Monday** — 45 minutes on the printed cheat sheet, eat properly, leave early enough to be at
+the venue by 8:30. Learn nothing new.
 
 ---
 
