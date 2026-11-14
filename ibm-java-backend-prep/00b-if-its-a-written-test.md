@@ -399,44 +399,60 @@ in, not while you are sitting there.
 **5. Dress formals.** The client is a bank. Formal, conservative, comfortable enough to sit
 in for several hours.
 
-### 🔴 The mail arrives tomorrow — eleven things to check in it
+### 🔴 The call letter has arrived — what it tells you
 
-Do not just note the time. Read it properly and extract these. If any are missing, that is
-your reply:
+> **Monday 16 November 2026, report 9:00 AM**
+> **Mindspace, Building 12D, Madhapur, HITEC City, Hyderabad**
+> Carry: updated resume, valid photo ID. Acknowledgement sent.
 
-1. **Exact address**, with floor, building and a landmark.
-2. **Reporting time versus interview time** — they are often different, and the reporting
-   time is the one that binds you.
-3. **Contact name and phone number** for the day. Save it in your phone *and* write it on
-   paper, because your phone may be at reception.
-4. **Expected duration**, which tells you whether it is both rounds.
-5. **Format** — written, interview, or both, if they finally say.
-6. **Documents to carry** — usually ID, resume copies, sometimes payslips, offer letter or
-   education certificates. BFSI clients ask for more than most.
-7. **Whether to bring a laptop.**
-8. **Entry or security requirements** — some sites need the ID name to match exactly, some
-   pre-register visitors a day ahead.
-9. **Who you are meeting**, if named. Worth a quick look.
-10. **Parking or nearest station**, if you are travelling yourself.
-11. **Whether it is JOY IT's office or IBM's.** This is the one most people skip, and it tells
-    you who is actually interviewing you. IBM's office means the client panel; JOY's office
-    means the vendor is running it, which changes the tone more than the content.
+**The venue is the single most informative line in that mail.** Mindspace in Madhapur is a
+large corporate campus, and Building 12D is a named building inside it — not a recruitment
+agency's office. **You are going to the client's site, which means the panel is almost
+certainly IBM's, not JOY IT's.**
 
-### Reply to that mail the same day
+That settles the open question from section 1 of the README, and it tells you how to pitch:
+**impress the client.** Expect fundamentals, depth on what you actually built, and clean
+reasoning — not vendor-style box-ticking.
 
-Confirm fast. Vendors chase several candidates for one slot, and a prompt confirmation is
-quietly noticed. One short mail covers the confirmation and your remaining questions:
+### 🔴 Mindspace is a campus, not a building — budget for the gate
 
-> "Thank you — confirming I will be there on Monday [date] at [reporting time] at [venue].
->
-> Two quick questions so I can plan the day: roughly how long should I keep free, and
-> should I expect a written assessment, a technical discussion, or both? Also, please let
-> me know if there are any documents you would like me to bring apart from my ID and
-> resume copies.
->
-> Looking forward to it."
+This is where people lose the thirty minutes they thought they had.
 
-Polite, short, and it gets you the format answer you have been missing.
+- **There is security at the campus gate and again at the building reception.** Expect a
+  visitor pass, an ID check and possibly a register. It takes time, and there is often a
+  queue at 9am on a Monday.
+- **Your ID name must match the name on the invite.** Carry the ID, not a photo of it.
+- **The campus is big and the buildings are spread out.** Entering by the wrong gate can mean
+  a ten to fifteen minute walk to 12D. Look at the campus map before Monday and know which
+  gate is nearest Building 12D.
+- **Expect electronics to be restricted.** Client sites commonly take or tag phones and
+  laptops, and some restrict cameras. Assume you will not have your phone inside — which is
+  exactly why the cheat sheet is printed and the contact number is on paper.
+- **Ask for the right person.** The mail does not say who to report to at reception. That is
+  worth one short follow-up to Prasanthi: *"Who should I ask for at the reception at
+  Building 12D, and is there any pre-registration I should complete?"* Many campuses need a
+  host to approve a visitor, and that is a bad thing to discover at 8:55.
+
+### 🔴 HITEC City on a Monday morning — plan the journey, not the distance
+
+Madhapur and HITEC City at 8–9am is the heaviest commuter traffic in Hyderabad. The Mindspace
+and Cyber Towers junctions back up badly, and so does the Gachibowli stretch.
+
+**Budget double the map estimate, and consider the metro.** The Blue Line runs to Madhapur,
+Hitec City and Raidurg, and it is immune to the thing that will actually make you late. A
+metro ride plus a short auto at the end is far more predictable than a single cab through
+Madhapur at 8:30 on a Monday.
+
+**Do a dry run on Sunday if you can** — even just checking which gate and which metro exit.
+Twenty minutes tomorrow removes the only variable you cannot control on the day.
+
+### On the resume you carry
+
+The mail asks for an **updated copy**. Carry **the same version that was submitted for this
+role** — not a newer one you have since edited. The panel may be holding the submitted copy,
+and a difference in dates, titles or skills between their copy and yours is exactly the kind
+of discrepancy that derails an otherwise good interview. Four printed copies.
+
 
 ### What goes in the bag on Sunday night
 
@@ -444,18 +460,12 @@ Pack it the night before, not on Monday morning.
 
 - **Printed cheat sheet**, four pages, stapled.
 - **Three or four printed copies of your resume.** The panel may not have one.
-- **Photo ID**, plus whatever documents the mail asks for.
+- **Photo ID** — the physical card, with the name matching the invite.
 - **Two pens**, and a plain notepad.
 - Passport photos, if asked for.
 - Water and something small to eat — a long day with an unpredictable gap.
-- The contact number **written on paper**.
-
-### Check the route on Sunday
-
-Look up the journey properly: how long, which route, what time you need to leave to arrive
-**twenty to thirty minutes early**. Arriving early is free; arriving flustered costs you
-the first ten minutes of the first round, which is where impressions form. If the venue is
-far enough to be a real journey, plan for traffic and leave earlier than the map says.
+- **Prasanthi's number written on paper** — 9980311869 — because your phone may be at
+  reception.
 
 ---
 

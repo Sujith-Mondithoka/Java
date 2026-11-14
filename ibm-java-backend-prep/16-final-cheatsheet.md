@@ -12,8 +12,9 @@ Tuesday, so Monday may not be the end of it.
 
 - **You are holding the printed copy of this. That is the point** — your phone is probably
   at reception.
-- **9:00 report → be at the venue by 8:30.** Monday Hyderabad traffic: budget double the
-  map estimate. Contact number on paper, not only in the phone.
+- **9:00 report, Mindspace Building 12D, Madhapur.** Campus gate by **8:15** — security and
+  a visitor pass take time. Madhapur traffic: double the map, or take the metro.
+- Prasanthi 9980311869, **on paper**. Your phone may be at reception.
 - In the bag: resume copies ×4, photo ID, two pens, notepad, water.
 - Written answers are on paper: write large, leave a line between answers, number them.
 - **Write only what you can defend out loud an hour later.** The interviewer will have

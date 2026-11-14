@@ -1,5 +1,5 @@
 # IBM — Java Backend Developer
-### Neelima Jana · Client **IBM**, payroll **JOY IT** · Hyderabad · F2F **Monday 16 November, 9:00 am**
+### Neelima Jana · Client **IBM**, payroll **JOY IT** · Hyderabad · F2F **Monday 16 November, 9:00 am** · Mindspace Building 12D, Madhapur
 
 ---
 
@@ -259,15 +259,16 @@ Start with the two files written for this interview, then the core.
 
 ### 🔴 Monday morning — work backwards from 9:00
 
-Fill in your own travel time, then set the alarm for the number you get. **Monday 8–9am in
-Hyderabad is peak traffic — budget roughly double what the map says**, especially if you are
-crossing town or heading toward the Gachibowli or Hitec City side.
+The venue is **Mindspace, Building 12D, Madhapur, HITEC City** — the client's campus, not a
+vendor office, which is why the panel is almost certainly IBM's. Madhapur at 8–9am on a Monday
+is the heaviest traffic in the city, and the campus gate itself costs time.
 
 | Time | What |
 |---|---|
-| 9:00 | **Report.** This is the fixed point. |
-| 8:30 | **At the venue.** Thirty minutes early, not ten. Find the building, the floor, the desk. |
-| 8:30 − travel | **Leave.** Travel time × 2 for Monday morning. If it is 40 minutes on the map, leave 80 minutes before 8:30. |
+| 9:00 | **Report at Building 12D.** This is the fixed point. |
+| 8:35 | **Inside the building.** Reception, pass, find the floor. |
+| 8:15 | **At the campus gate.** Mindspace is a campus — security, visitor pass, and a walk to 12D. A Monday-morning queue at the gate is normal. |
+| 8:15 − travel | **Leave.** Travel time × 2 for Madhapur at 8am. Metro if you can: the Blue Line runs to Madhapur, Hitec City and Raidurg and ignores the traffic. |
 | −0:45 | **Cheat sheet, printed, and nothing else.** 45 minutes. Learn nothing new. |
 | −0:30 | **Eat properly.** You may not eat again until the afternoon. |
 | −0:20 | Shower, dress, final bag check. |
